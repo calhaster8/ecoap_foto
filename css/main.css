@@ -21,36 +21,33 @@ html input[disabled] {
 
 body {
   font-family: 'Amelia-Basic', sans-serif;
-  background-image: url(../img/fundo/fotovoltaico.png), url("../img/fundo.png");
-  background-position: 80% 180px, center;
-  background-size: 500px 500px, cover;
+  background-image: url("../img/fundo.png");
   background-repeat: no-repeat;
   width: 100%;
-  height: 100vh; }
-  @media screen and (max-width: 1025px) {
-    body {
-      background-image: url("../img/fundo.png");
-      background-position: center;
-      background-size: cover; } }
-  @media screen and (max-width: 768px) {
-    body {
-      background-image: url("../img/fundo.png");
-      background-position: center;
-      background-size: cover; } }
-  @media screen and (max-width: 515px) {
-    body {
-      background-image: url("../img/fundo.png");
-      background-position: center;
-      background-size: cover; } }
+  height: 100vh;
+  position: relative; }
+  body::after {
+    content: '';
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/fundo/fotovoltaico.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .2;
+    z-index: -1; }
 
 .header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
-  padding: 50px 100px; }
+  padding: 50px; }
   @media screen and (max-width: 1024px) {
     .header {
-      padding: 50px 100px; } }
+      padding: 50px; } }
   @media screen and (max-width: 768px) {
     .header {
       padding: 50px; } }

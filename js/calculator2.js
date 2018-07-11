@@ -308,7 +308,7 @@ function buildConsumos(){
                     //do nothing
                     consumosTable += '<td class="in" id="totalMensal"></td>';
                 } else if (j == 1 && i == colunas - 1) {
-                    consumosTable += '<td><input class="form-control xInput" type="text" onchange="somaRow()" placeholder="ex: 100" id="mensal_' +
+                    consumosTable += '<td><input class="form-control xInput" type="number" onchange="somaRow()" placeholder="ex: 100" id="mensal_' +
                         ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '" name="mensal_' +
                         ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '"></td>';
 
@@ -320,7 +320,7 @@ function buildConsumos(){
                     consumosTable += '<td class="in" id="totalMensal"></td>';
                     // id standard = somatorio_ufm_th
                 } else if (j == 1 && i >= 0) {
-                    consumosTable += '<td><input class="form-control xInput" type="text" onchange="somaRow()" placeholder="ex: 100" id="mensal_' +
+                    consumosTable += '<td><input class="form-control xInput" type="number" onchange="somaRow()" placeholder="ex: 100" id="mensal_' +
                         ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '" name="mensal_' +
                         ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '"></td>';
 
@@ -369,12 +369,12 @@ function buildConsumos(){
                         //do nothing
                         consumosTable += '<td class="in" id="total_anual"></td>';
                     } else if (j == 1 && i == colunas - 1) {
-                        consumosTable += '<td class="in"><input class="form-control xInput" type="text" onchange="somaRow()" placeholder="ex: 100" id="anual_' +
+                        consumosTable += '<td class="in"><input class="form-control xInput" type="number" onchange="somaRow()" placeholder="ex: 100" id="anual_' +
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '" name="anual_' +
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '"></td>';
                         consumosTable += '<td class="in" id="total_anual"></td>';
                     } else if (j == 1 && i >= 0) {
-                        consumosTable += '<td class="in"><input class="form-control xInput" type="text" onchange="somaRow()" placeholder="ex: 100" id="anual_' +
+                        consumosTable += '<td class="in"><input class="form-control xInput" type="number" onchange="somaRow()" placeholder="ex: 100" id="anual_' +
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '" name="anual_' +
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '"></td>';
                     }
@@ -422,12 +422,12 @@ function buildConsumos(){
                         //do nothing
                         consumosTable += '<td class="in" id="total_mensal_' + producaoSolarMes[j - 1].valor + '"></td>';
                     } else if (j > 0 && i == colunas - 1) {
-                        consumosTable += '<td class="in"><input class="form-control xInput" type="text" onchange="somaRow()" placeholder="ex: 100" id="consumo_' + producaoSolarMes[j - 1].valor + '_' +
+                        consumosTable += '<td class="in"><input class="form-control xInput" type="number" onchange="somaRow()" placeholder="ex: 100" id="consumo_' + producaoSolarMes[j - 1].valor + '_' +
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '" name="consumo_' + producaoSolarMes[j - 1].valor + '_' +
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '"></td>';
                         consumosTable += '<td class="in" id="total_mensal_' + producaoSolarMes[j - 1].valor + '"></td>';
                     } else if (j > 0 && i >= 0) {
-                        consumosTable += '<td class="in"><input class="form-control xInput" type="text" onchange="somaRow()" placeholder="ex: 100" id="consumo_' + producaoSolarMes[j - 1].valor + '_' +
+                        consumosTable += '<td class="in"><input class="form-control xInput" type="number" onchange="somaRow()" placeholder="ex: 100" id="consumo_' + producaoSolarMes[j - 1].valor + '_' +
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '" name="consumo_' + producaoSolarMes[j - 1].valor + '_' +
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '"></td>';
                     }

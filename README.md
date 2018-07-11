@@ -1,1 +1,0 @@
-# ecoap_foto
