@@ -1,0 +1,650 @@
+@font-face {
+  font-family: Amelia-Basic;
+  src: url("../fonts/Amelia/Amelia-Basic.otf"); }
+
+@font-face {
+  font-family: Amelia-Basic-Light;
+  font-weight: lighter;
+  src: url("../fonts/Amelia/Amelia-Basic-Light.otf"); }
+
+@font-face {
+  font-family: Amelia-Basic-Bold;
+  font-weight: bold;
+  src: url("../fonts/Amelia/Amelia-Basic-Bold.otf"); }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: 'Amelia-Basic', sans-serif;
+  background-image: url(../img/fundo.png);
+  background-position: center;
+  background-size: cover; }
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 50px 100px; }
+  .header .header-title {
+    color: #0099cc;
+    font-size: 1.6em;
+    font-family: 'Amelia-Basic-Light', sans-serif;
+    text-transform: uppercase;
+    padding: 0 20px; }
+  .header .logo-img {
+    width: 25%;
+    height: 100%;
+    padding: 0 20px; }
+
+.main {
+  margin: 0 50px 50px 50px;
+  padding: 0 25px; }
+  .main .main-content .dados-titulo {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    color: #0099cc;
+    font-family: 'Amelia-Basic-Bold', sans-serif; }
+  .main .main-content .dados-child {
+    display: flex;
+    flex-direction: column; }
+    .main .main-content .dados-child .dado {
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      font-size: 1.2em; }
+      .main .main-content .dados-child .dado label {
+        margin-bottom: 5px;
+        color: #0099cc;
+        font-weight: 400; }
+      .main .main-content .dados-child .dado input {
+        padding: 5px 20px;
+        font-size: .8em;
+        border: none;
+        border: 1px solid #0099cc;
+        border-radius: 100px;
+        color: #0099cc;
+        font-weight: 300;
+        font-family: 'Amelia-Basic-Light', sans-serif; }
+      .main .main-content .dados-child .dado input[type=text].pept-in,
+      .main .main-content .dados-child .dado input[type=text].pot-in {
+        background-color: rgba(0, 0, 0, 0.04); }
+      .main .main-content .dados-child .dado input:focus {
+        outline: none; }
+      .main .main-content .dados-child .dado .sel {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: url("../img/seta.png") no-repeat 95% center;
+        appearance: none;
+        padding: 5px 20px;
+        font-size: .8em;
+        color: #808080;
+        font-family: 'Amelia-Basic-Light', sans-serif;
+        overflow: hidden;
+        border: none;
+        border: 1px solid #0099cc;
+        border-radius: 100px;
+        background-color: transparent; }
+      .main .main-content .dados-child .dado .sel:focus {
+        outline: none; }
+      .main .main-content .dados-child .dado .sel::-ms-expand {
+        display: none; }
+      .main .main-content .dados-child .dado .sel-disable {
+        background-color: #0099cc;
+        background-image: none;
+        color: #fff; }
+  .main .main-content #resumo #upp-table table {
+    background-color: #f2f2f2; }
+    .main .main-content #resumo #upp-table table tbody tr,
+    .main .main-content #resumo #upp-table table tbody .textTR {
+      color: #0099cc;
+      text-align: left; }
+      .main .main-content #resumo #upp-table table tbody tr .tituloTH,
+      .main .main-content #resumo #upp-table table tbody .textTR .tituloTH {
+        text-align: center;
+        vertical-align: middle;
+        color: #0099cc; }
+      .main .main-content #resumo #upp-table table tbody tr td,
+      .main .main-content #resumo #upp-table table tbody tr td.in,
+      .main .main-content #resumo #upp-table table tbody .textTR td,
+      .main .main-content #resumo #upp-table table tbody .textTR td.in {
+        padding: 5px 10px;
+        text-align: left;
+        vertical-align: middle;
+        margin: 0;
+        background-color: #fff; }
+      .main .main-content #resumo #upp-table table tbody tr td.center,
+      .main .main-content #resumo #upp-table table tbody .textTR td.center {
+        text-align: center;
+        color: #696969;
+        /*.form-control
+                                    width: 100px*/ }
+        .main .main-content #resumo #upp-table table tbody tr td.center .xInput,
+        .main .main-content #resumo #upp-table table tbody .textTR td.center .xInput {
+          border: none;
+          border-radius: 0;
+          text-align: center;
+          margin: 0; }
+        .main .main-content #resumo #upp-table table tbody tr td.center .xInput::-webkit-input-placeholder,
+        .main .main-content #resumo #upp-table table tbody .textTR td.center .xInput::-webkit-input-placeholder {
+          color: #DCDCDC; }
+        .main .main-content #resumo #upp-table table tbody tr td.center .xInput::-moz-placeholder,
+        .main .main-content #resumo #upp-table table tbody .textTR td.center .xInput::-moz-placeholder {
+          color: #DCDCDC; }
+        .main .main-content #resumo #upp-table table tbody tr td.center .xInput:-ms-input-placeholder,
+        .main .main-content #resumo #upp-table table tbody .textTR td.center .xInput:-ms-input-placeholder {
+          color: #DCDCDC; }
+        .main .main-content #resumo #upp-table table tbody tr td.center .xInput:-moz-placeholder,
+        .main .main-content #resumo #upp-table table tbody .textTR td.center .xInput:-moz-placeholder {
+          color: #DCDCDC; }
+        .main .main-content #resumo #upp-table table tbody tr td.center .check,
+        .main .main-content #resumo #upp-table table tbody .textTR td.center .check {
+          text-align: center;
+          vertical-align: middle;
+          margin: 0; }
+  .main .main-content #tarifas-group #tarifarios table,
+  .main .main-content #tarifas-group #factura-consumo table,
+  .main .main-content #tarifas-group #otherCenario table,
+  .main .main-content #facturas-group #tarifarios table,
+  .main .main-content #facturas-group #factura-consumo table,
+  .main .main-content #facturas-group #otherCenario table,
+  .main .main-content #horarios-group #tarifarios table,
+  .main .main-content #horarios-group #factura-consumo table,
+  .main .main-content #horarios-group #otherCenario table {
+    background-color: #f2f2f2;
+    width: 100%; }
+    .main .main-content #tarifas-group #tarifarios table tbody tr,
+    .main .main-content #tarifas-group #tarifarios table tbody .textTR,
+    .main .main-content #tarifas-group #factura-consumo table tbody tr,
+    .main .main-content #tarifas-group #factura-consumo table tbody .textTR,
+    .main .main-content #tarifas-group #otherCenario table tbody tr,
+    .main .main-content #tarifas-group #otherCenario table tbody .textTR,
+    .main .main-content #facturas-group #tarifarios table tbody tr,
+    .main .main-content #facturas-group #tarifarios table tbody .textTR,
+    .main .main-content #facturas-group #factura-consumo table tbody tr,
+    .main .main-content #facturas-group #factura-consumo table tbody .textTR,
+    .main .main-content #facturas-group #otherCenario table tbody tr,
+    .main .main-content #facturas-group #otherCenario table tbody .textTR,
+    .main .main-content #horarios-group #tarifarios table tbody tr,
+    .main .main-content #horarios-group #tarifarios table tbody .textTR,
+    .main .main-content #horarios-group #factura-consumo table tbody tr,
+    .main .main-content #horarios-group #factura-consumo table tbody .textTR,
+    .main .main-content #horarios-group #otherCenario table tbody tr,
+    .main .main-content #horarios-group #otherCenario table tbody .textTR {
+      color: #0099cc;
+      text-align: center;
+      vertical-align: middle; }
+      .main .main-content #tarifas-group #tarifarios table tbody tr .tituloTH,
+      .main .main-content #tarifas-group #tarifarios table tbody .textTR .tituloTH,
+      .main .main-content #tarifas-group #factura-consumo table tbody tr .tituloTH,
+      .main .main-content #tarifas-group #factura-consumo table tbody .textTR .tituloTH,
+      .main .main-content #tarifas-group #otherCenario table tbody tr .tituloTH,
+      .main .main-content #tarifas-group #otherCenario table tbody .textTR .tituloTH,
+      .main .main-content #facturas-group #tarifarios table tbody tr .tituloTH,
+      .main .main-content #facturas-group #tarifarios table tbody .textTR .tituloTH,
+      .main .main-content #facturas-group #factura-consumo table tbody tr .tituloTH,
+      .main .main-content #facturas-group #factura-consumo table tbody .textTR .tituloTH,
+      .main .main-content #facturas-group #otherCenario table tbody tr .tituloTH,
+      .main .main-content #facturas-group #otherCenario table tbody .textTR .tituloTH,
+      .main .main-content #horarios-group #tarifarios table tbody tr .tituloTH,
+      .main .main-content #horarios-group #tarifarios table tbody .textTR .tituloTH,
+      .main .main-content #horarios-group #factura-consumo table tbody tr .tituloTH,
+      .main .main-content #horarios-group #factura-consumo table tbody .textTR .tituloTH,
+      .main .main-content #horarios-group #otherCenario table tbody tr .tituloTH,
+      .main .main-content #horarios-group #otherCenario table tbody .textTR .tituloTH {
+        text-align: center;
+        vertical-align: middle;
+        color: #0099cc; }
+      .main .main-content #tarifas-group #tarifarios table tbody tr td,
+      .main .main-content #tarifas-group #tarifarios table tbody tr td.in,
+      .main .main-content #tarifas-group #tarifarios table tbody .textTR td,
+      .main .main-content #tarifas-group #tarifarios table tbody .textTR td.in,
+      .main .main-content #tarifas-group #factura-consumo table tbody tr td,
+      .main .main-content #tarifas-group #factura-consumo table tbody tr td.in,
+      .main .main-content #tarifas-group #factura-consumo table tbody .textTR td,
+      .main .main-content #tarifas-group #factura-consumo table tbody .textTR td.in,
+      .main .main-content #tarifas-group #otherCenario table tbody tr td,
+      .main .main-content #tarifas-group #otherCenario table tbody tr td.in,
+      .main .main-content #tarifas-group #otherCenario table tbody .textTR td,
+      .main .main-content #tarifas-group #otherCenario table tbody .textTR td.in,
+      .main .main-content #facturas-group #tarifarios table tbody tr td,
+      .main .main-content #facturas-group #tarifarios table tbody tr td.in,
+      .main .main-content #facturas-group #tarifarios table tbody .textTR td,
+      .main .main-content #facturas-group #tarifarios table tbody .textTR td.in,
+      .main .main-content #facturas-group #factura-consumo table tbody tr td,
+      .main .main-content #facturas-group #factura-consumo table tbody tr td.in,
+      .main .main-content #facturas-group #factura-consumo table tbody .textTR td,
+      .main .main-content #facturas-group #factura-consumo table tbody .textTR td.in,
+      .main .main-content #facturas-group #otherCenario table tbody tr td,
+      .main .main-content #facturas-group #otherCenario table tbody tr td.in,
+      .main .main-content #facturas-group #otherCenario table tbody .textTR td,
+      .main .main-content #facturas-group #otherCenario table tbody .textTR td.in,
+      .main .main-content #horarios-group #tarifarios table tbody tr td,
+      .main .main-content #horarios-group #tarifarios table tbody tr td.in,
+      .main .main-content #horarios-group #tarifarios table tbody .textTR td,
+      .main .main-content #horarios-group #tarifarios table tbody .textTR td.in,
+      .main .main-content #horarios-group #factura-consumo table tbody tr td,
+      .main .main-content #horarios-group #factura-consumo table tbody tr td.in,
+      .main .main-content #horarios-group #factura-consumo table tbody .textTR td,
+      .main .main-content #horarios-group #factura-consumo table tbody .textTR td.in,
+      .main .main-content #horarios-group #otherCenario table tbody tr td,
+      .main .main-content #horarios-group #otherCenario table tbody tr td.in,
+      .main .main-content #horarios-group #otherCenario table tbody .textTR td,
+      .main .main-content #horarios-group #otherCenario table tbody .textTR td.in {
+        padding: 0;
+        text-align: center;
+        vertical-align: middle;
+        margin: 0;
+        background-color: #fff;
+        /*input.form-control
+                                    width: 100px*/ }
+        .main .main-content #tarifas-group #tarifarios table tbody tr td input.xInput,
+        .main .main-content #tarifas-group #tarifarios table tbody tr td.in input.xInput,
+        .main .main-content #tarifas-group #tarifarios table tbody .textTR td input.xInput,
+        .main .main-content #tarifas-group #tarifarios table tbody .textTR td.in input.xInput,
+        .main .main-content #tarifas-group #factura-consumo table tbody tr td input.xInput,
+        .main .main-content #tarifas-group #factura-consumo table tbody tr td.in input.xInput,
+        .main .main-content #tarifas-group #factura-consumo table tbody .textTR td input.xInput,
+        .main .main-content #tarifas-group #factura-consumo table tbody .textTR td.in input.xInput,
+        .main .main-content #tarifas-group #otherCenario table tbody tr td input.xInput,
+        .main .main-content #tarifas-group #otherCenario table tbody tr td.in input.xInput,
+        .main .main-content #tarifas-group #otherCenario table tbody .textTR td input.xInput,
+        .main .main-content #tarifas-group #otherCenario table tbody .textTR td.in input.xInput,
+        .main .main-content #facturas-group #tarifarios table tbody tr td input.xInput,
+        .main .main-content #facturas-group #tarifarios table tbody tr td.in input.xInput,
+        .main .main-content #facturas-group #tarifarios table tbody .textTR td input.xInput,
+        .main .main-content #facturas-group #tarifarios table tbody .textTR td.in input.xInput,
+        .main .main-content #facturas-group #factura-consumo table tbody tr td input.xInput,
+        .main .main-content #facturas-group #factura-consumo table tbody tr td.in input.xInput,
+        .main .main-content #facturas-group #factura-consumo table tbody .textTR td input.xInput,
+        .main .main-content #facturas-group #factura-consumo table tbody .textTR td.in input.xInput,
+        .main .main-content #facturas-group #otherCenario table tbody tr td input.xInput,
+        .main .main-content #facturas-group #otherCenario table tbody tr td.in input.xInput,
+        .main .main-content #facturas-group #otherCenario table tbody .textTR td input.xInput,
+        .main .main-content #facturas-group #otherCenario table tbody .textTR td.in input.xInput,
+        .main .main-content #horarios-group #tarifarios table tbody tr td input.xInput,
+        .main .main-content #horarios-group #tarifarios table tbody tr td.in input.xInput,
+        .main .main-content #horarios-group #tarifarios table tbody .textTR td input.xInput,
+        .main .main-content #horarios-group #tarifarios table tbody .textTR td.in input.xInput,
+        .main .main-content #horarios-group #factura-consumo table tbody tr td input.xInput,
+        .main .main-content #horarios-group #factura-consumo table tbody tr td.in input.xInput,
+        .main .main-content #horarios-group #factura-consumo table tbody .textTR td input.xInput,
+        .main .main-content #horarios-group #factura-consumo table tbody .textTR td.in input.xInput,
+        .main .main-content #horarios-group #otherCenario table tbody tr td input.xInput,
+        .main .main-content #horarios-group #otherCenario table tbody tr td.in input.xInput,
+        .main .main-content #horarios-group #otherCenario table tbody .textTR td input.xInput,
+        .main .main-content #horarios-group #otherCenario table tbody .textTR td.in input.xInput {
+          border: none;
+          border-radius: 0;
+          text-align: center;
+          margin: 0; }
+        .main .main-content #tarifas-group #tarifarios table tbody tr td input.xInput::-webkit-input-placeholder,
+        .main .main-content #tarifas-group #tarifarios table tbody tr td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #tarifas-group #tarifarios table tbody .textTR td input.xInput::-webkit-input-placeholder,
+        .main .main-content #tarifas-group #tarifarios table tbody .textTR td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody tr td input.xInput::-webkit-input-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody tr td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody .textTR td input.xInput::-webkit-input-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody .textTR td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody tr td input.xInput::-webkit-input-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody tr td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody .textTR td input.xInput::-webkit-input-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody .textTR td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody tr td input.xInput::-webkit-input-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody tr td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody .textTR td input.xInput::-webkit-input-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody .textTR td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody tr td input.xInput::-webkit-input-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody tr td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody .textTR td input.xInput::-webkit-input-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody .textTR td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody tr td input.xInput::-webkit-input-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody tr td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody .textTR td input.xInput::-webkit-input-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody .textTR td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody tr td input.xInput::-webkit-input-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody tr td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody .textTR td input.xInput::-webkit-input-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody .textTR td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody tr td input.xInput::-webkit-input-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody tr td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody .textTR td input.xInput::-webkit-input-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody .textTR td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody tr td input.xInput::-webkit-input-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody tr td.in input.xInput::-webkit-input-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody .textTR td input.xInput::-webkit-input-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody .textTR td.in input.xInput::-webkit-input-placeholder {
+          color: #DCDCDC; }
+        .main .main-content #tarifas-group #tarifarios table tbody tr td input.xInput::-moz-placeholder,
+        .main .main-content #tarifas-group #tarifarios table tbody tr td.in input.xInput::-moz-placeholder,
+        .main .main-content #tarifas-group #tarifarios table tbody .textTR td input.xInput::-moz-placeholder,
+        .main .main-content #tarifas-group #tarifarios table tbody .textTR td.in input.xInput::-moz-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody tr td input.xInput::-moz-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody tr td.in input.xInput::-moz-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody .textTR td input.xInput::-moz-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody .textTR td.in input.xInput::-moz-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody tr td input.xInput::-moz-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody tr td.in input.xInput::-moz-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody .textTR td input.xInput::-moz-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody .textTR td.in input.xInput::-moz-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody tr td input.xInput::-moz-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody tr td.in input.xInput::-moz-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody .textTR td input.xInput::-moz-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody .textTR td.in input.xInput::-moz-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody tr td input.xInput::-moz-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody tr td.in input.xInput::-moz-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody .textTR td input.xInput::-moz-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody .textTR td.in input.xInput::-moz-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody tr td input.xInput::-moz-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody tr td.in input.xInput::-moz-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody .textTR td input.xInput::-moz-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody .textTR td.in input.xInput::-moz-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody tr td input.xInput::-moz-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody tr td.in input.xInput::-moz-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody .textTR td input.xInput::-moz-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody .textTR td.in input.xInput::-moz-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody tr td input.xInput::-moz-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody tr td.in input.xInput::-moz-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody .textTR td input.xInput::-moz-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody .textTR td.in input.xInput::-moz-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody tr td input.xInput::-moz-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody tr td.in input.xInput::-moz-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody .textTR td input.xInput::-moz-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody .textTR td.in input.xInput::-moz-placeholder {
+          color: #DCDCDC; }
+        .main .main-content #tarifas-group #tarifarios table tbody tr td input.xInput:-ms-input-placeholder,
+        .main .main-content #tarifas-group #tarifarios table tbody tr td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #tarifas-group #tarifarios table tbody .textTR td input.xInput:-ms-input-placeholder,
+        .main .main-content #tarifas-group #tarifarios table tbody .textTR td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody tr td input.xInput:-ms-input-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody tr td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody .textTR td input.xInput:-ms-input-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody .textTR td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody tr td input.xInput:-ms-input-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody tr td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody .textTR td input.xInput:-ms-input-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody .textTR td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody tr td input.xInput:-ms-input-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody tr td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody .textTR td input.xInput:-ms-input-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody .textTR td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody tr td input.xInput:-ms-input-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody tr td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody .textTR td input.xInput:-ms-input-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody .textTR td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody tr td input.xInput:-ms-input-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody tr td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody .textTR td input.xInput:-ms-input-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody .textTR td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody tr td input.xInput:-ms-input-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody tr td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody .textTR td input.xInput:-ms-input-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody .textTR td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody tr td input.xInput:-ms-input-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody tr td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody .textTR td input.xInput:-ms-input-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody .textTR td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody tr td input.xInput:-ms-input-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody tr td.in input.xInput:-ms-input-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody .textTR td input.xInput:-ms-input-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody .textTR td.in input.xInput:-ms-input-placeholder {
+          color: #DCDCDC; }
+        .main .main-content #tarifas-group #tarifarios table tbody tr td input.xInput:-moz-placeholder,
+        .main .main-content #tarifas-group #tarifarios table tbody tr td.in input.xInput:-moz-placeholder,
+        .main .main-content #tarifas-group #tarifarios table tbody .textTR td input.xInput:-moz-placeholder,
+        .main .main-content #tarifas-group #tarifarios table tbody .textTR td.in input.xInput:-moz-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody tr td input.xInput:-moz-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody tr td.in input.xInput:-moz-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody .textTR td input.xInput:-moz-placeholder,
+        .main .main-content #tarifas-group #factura-consumo table tbody .textTR td.in input.xInput:-moz-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody tr td input.xInput:-moz-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody tr td.in input.xInput:-moz-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody .textTR td input.xInput:-moz-placeholder,
+        .main .main-content #tarifas-group #otherCenario table tbody .textTR td.in input.xInput:-moz-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody tr td input.xInput:-moz-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody tr td.in input.xInput:-moz-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody .textTR td input.xInput:-moz-placeholder,
+        .main .main-content #facturas-group #tarifarios table tbody .textTR td.in input.xInput:-moz-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody tr td input.xInput:-moz-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody tr td.in input.xInput:-moz-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody .textTR td input.xInput:-moz-placeholder,
+        .main .main-content #facturas-group #factura-consumo table tbody .textTR td.in input.xInput:-moz-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody tr td input.xInput:-moz-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody tr td.in input.xInput:-moz-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody .textTR td input.xInput:-moz-placeholder,
+        .main .main-content #facturas-group #otherCenario table tbody .textTR td.in input.xInput:-moz-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody tr td input.xInput:-moz-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody tr td.in input.xInput:-moz-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody .textTR td input.xInput:-moz-placeholder,
+        .main .main-content #horarios-group #tarifarios table tbody .textTR td.in input.xInput:-moz-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody tr td input.xInput:-moz-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody tr td.in input.xInput:-moz-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody .textTR td input.xInput:-moz-placeholder,
+        .main .main-content #horarios-group #factura-consumo table tbody .textTR td.in input.xInput:-moz-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody tr td input.xInput:-moz-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody tr td.in input.xInput:-moz-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody .textTR td input.xInput:-moz-placeholder,
+        .main .main-content #horarios-group #otherCenario table tbody .textTR td.in input.xInput:-moz-placeholder {
+          color: #DCDCDC; }
+        .main .main-content #tarifas-group #tarifarios table tbody tr td .check,
+        .main .main-content #tarifas-group #tarifarios table tbody tr td.in .check,
+        .main .main-content #tarifas-group #tarifarios table tbody .textTR td .check,
+        .main .main-content #tarifas-group #tarifarios table tbody .textTR td.in .check,
+        .main .main-content #tarifas-group #factura-consumo table tbody tr td .check,
+        .main .main-content #tarifas-group #factura-consumo table tbody tr td.in .check,
+        .main .main-content #tarifas-group #factura-consumo table tbody .textTR td .check,
+        .main .main-content #tarifas-group #factura-consumo table tbody .textTR td.in .check,
+        .main .main-content #tarifas-group #otherCenario table tbody tr td .check,
+        .main .main-content #tarifas-group #otherCenario table tbody tr td.in .check,
+        .main .main-content #tarifas-group #otherCenario table tbody .textTR td .check,
+        .main .main-content #tarifas-group #otherCenario table tbody .textTR td.in .check,
+        .main .main-content #facturas-group #tarifarios table tbody tr td .check,
+        .main .main-content #facturas-group #tarifarios table tbody tr td.in .check,
+        .main .main-content #facturas-group #tarifarios table tbody .textTR td .check,
+        .main .main-content #facturas-group #tarifarios table tbody .textTR td.in .check,
+        .main .main-content #facturas-group #factura-consumo table tbody tr td .check,
+        .main .main-content #facturas-group #factura-consumo table tbody tr td.in .check,
+        .main .main-content #facturas-group #factura-consumo table tbody .textTR td .check,
+        .main .main-content #facturas-group #factura-consumo table tbody .textTR td.in .check,
+        .main .main-content #facturas-group #otherCenario table tbody tr td .check,
+        .main .main-content #facturas-group #otherCenario table tbody tr td.in .check,
+        .main .main-content #facturas-group #otherCenario table tbody .textTR td .check,
+        .main .main-content #facturas-group #otherCenario table tbody .textTR td.in .check,
+        .main .main-content #horarios-group #tarifarios table tbody tr td .check,
+        .main .main-content #horarios-group #tarifarios table tbody tr td.in .check,
+        .main .main-content #horarios-group #tarifarios table tbody .textTR td .check,
+        .main .main-content #horarios-group #tarifarios table tbody .textTR td.in .check,
+        .main .main-content #horarios-group #factura-consumo table tbody tr td .check,
+        .main .main-content #horarios-group #factura-consumo table tbody tr td.in .check,
+        .main .main-content #horarios-group #factura-consumo table tbody .textTR td .check,
+        .main .main-content #horarios-group #factura-consumo table tbody .textTR td.in .check,
+        .main .main-content #horarios-group #otherCenario table tbody tr td .check,
+        .main .main-content #horarios-group #otherCenario table tbody tr td.in .check,
+        .main .main-content #horarios-group #otherCenario table tbody .textTR td .check,
+        .main .main-content #horarios-group #otherCenario table tbody .textTR td.in .check {
+          text-align: center;
+          vertical-align: middle;
+          margin: 0; }
+      .main .main-content #tarifas-group #tarifarios table tbody tr td.title-padd,
+      .main .main-content #tarifas-group #tarifarios table tbody .textTR td.title-padd,
+      .main .main-content #tarifas-group #factura-consumo table tbody tr td.title-padd,
+      .main .main-content #tarifas-group #factura-consumo table tbody .textTR td.title-padd,
+      .main .main-content #tarifas-group #otherCenario table tbody tr td.title-padd,
+      .main .main-content #tarifas-group #otherCenario table tbody .textTR td.title-padd,
+      .main .main-content #facturas-group #tarifarios table tbody tr td.title-padd,
+      .main .main-content #facturas-group #tarifarios table tbody .textTR td.title-padd,
+      .main .main-content #facturas-group #factura-consumo table tbody tr td.title-padd,
+      .main .main-content #facturas-group #factura-consumo table tbody .textTR td.title-padd,
+      .main .main-content #facturas-group #otherCenario table tbody tr td.title-padd,
+      .main .main-content #facturas-group #otherCenario table tbody .textTR td.title-padd,
+      .main .main-content #horarios-group #tarifarios table tbody tr td.title-padd,
+      .main .main-content #horarios-group #tarifarios table tbody .textTR td.title-padd,
+      .main .main-content #horarios-group #factura-consumo table tbody tr td.title-padd,
+      .main .main-content #horarios-group #factura-consumo table tbody .textTR td.title-padd,
+      .main .main-content #horarios-group #otherCenario table tbody tr td.title-padd,
+      .main .main-content #horarios-group #otherCenario table tbody .textTR td.title-padd {
+        padding: 0 10px; }
+      .main .main-content #tarifas-group #tarifarios table tbody tr #somatorio_ufm_th,
+      .main .main-content #tarifas-group #tarifarios table tbody .textTR #somatorio_ufm_th,
+      .main .main-content #tarifas-group #factura-consumo table tbody tr #somatorio_ufm_th,
+      .main .main-content #tarifas-group #factura-consumo table tbody .textTR #somatorio_ufm_th,
+      .main .main-content #tarifas-group #otherCenario table tbody tr #somatorio_ufm_th,
+      .main .main-content #tarifas-group #otherCenario table tbody .textTR #somatorio_ufm_th,
+      .main .main-content #facturas-group #tarifarios table tbody tr #somatorio_ufm_th,
+      .main .main-content #facturas-group #tarifarios table tbody .textTR #somatorio_ufm_th,
+      .main .main-content #facturas-group #factura-consumo table tbody tr #somatorio_ufm_th,
+      .main .main-content #facturas-group #factura-consumo table tbody .textTR #somatorio_ufm_th,
+      .main .main-content #facturas-group #otherCenario table tbody tr #somatorio_ufm_th,
+      .main .main-content #facturas-group #otherCenario table tbody .textTR #somatorio_ufm_th,
+      .main .main-content #horarios-group #tarifarios table tbody tr #somatorio_ufm_th,
+      .main .main-content #horarios-group #tarifarios table tbody .textTR #somatorio_ufm_th,
+      .main .main-content #horarios-group #factura-consumo table tbody tr #somatorio_ufm_th,
+      .main .main-content #horarios-group #factura-consumo table tbody .textTR #somatorio_ufm_th,
+      .main .main-content #horarios-group #otherCenario table tbody tr #somatorio_ufm_th,
+      .main .main-content #horarios-group #otherCenario table tbody .textTR #somatorio_ufm_th {
+        background-color: #fff; }
+  .main .main-content #tarifas-group #tarifarios .table-bordered > tbody > tr > td,
+  .main .main-content #tarifas-group #tarifarios .table-bordered > tbody > tr > th,
+  .main .main-content #tarifas-group #tarifarios .table-bordered > tfoot > tr > td,
+  .main .main-content #tarifas-group #tarifarios .table-bordered > tfoot > tr > th,
+  .main .main-content #tarifas-group #tarifarios .table-bordered > thead > tr > td,
+  .main .main-content #tarifas-group #tarifarios .table-bordered > thead > tr > th,
+  .main .main-content #tarifas-group #factura-consumo .table-bordered > tbody > tr > td,
+  .main .main-content #tarifas-group #factura-consumo .table-bordered > tbody > tr > th,
+  .main .main-content #tarifas-group #factura-consumo .table-bordered > tfoot > tr > td,
+  .main .main-content #tarifas-group #factura-consumo .table-bordered > tfoot > tr > th,
+  .main .main-content #tarifas-group #factura-consumo .table-bordered > thead > tr > td,
+  .main .main-content #tarifas-group #factura-consumo .table-bordered > thead > tr > th,
+  .main .main-content #tarifas-group #otherCenario .table-bordered > tbody > tr > td,
+  .main .main-content #tarifas-group #otherCenario .table-bordered > tbody > tr > th,
+  .main .main-content #tarifas-group #otherCenario .table-bordered > tfoot > tr > td,
+  .main .main-content #tarifas-group #otherCenario .table-bordered > tfoot > tr > th,
+  .main .main-content #tarifas-group #otherCenario .table-bordered > thead > tr > td,
+  .main .main-content #tarifas-group #otherCenario .table-bordered > thead > tr > th,
+  .main .main-content #facturas-group #tarifarios .table-bordered > tbody > tr > td,
+  .main .main-content #facturas-group #tarifarios .table-bordered > tbody > tr > th,
+  .main .main-content #facturas-group #tarifarios .table-bordered > tfoot > tr > td,
+  .main .main-content #facturas-group #tarifarios .table-bordered > tfoot > tr > th,
+  .main .main-content #facturas-group #tarifarios .table-bordered > thead > tr > td,
+  .main .main-content #facturas-group #tarifarios .table-bordered > thead > tr > th,
+  .main .main-content #facturas-group #factura-consumo .table-bordered > tbody > tr > td,
+  .main .main-content #facturas-group #factura-consumo .table-bordered > tbody > tr > th,
+  .main .main-content #facturas-group #factura-consumo .table-bordered > tfoot > tr > td,
+  .main .main-content #facturas-group #factura-consumo .table-bordered > tfoot > tr > th,
+  .main .main-content #facturas-group #factura-consumo .table-bordered > thead > tr > td,
+  .main .main-content #facturas-group #factura-consumo .table-bordered > thead > tr > th,
+  .main .main-content #facturas-group #otherCenario .table-bordered > tbody > tr > td,
+  .main .main-content #facturas-group #otherCenario .table-bordered > tbody > tr > th,
+  .main .main-content #facturas-group #otherCenario .table-bordered > tfoot > tr > td,
+  .main .main-content #facturas-group #otherCenario .table-bordered > tfoot > tr > th,
+  .main .main-content #facturas-group #otherCenario .table-bordered > thead > tr > td,
+  .main .main-content #facturas-group #otherCenario .table-bordered > thead > tr > th,
+  .main .main-content #horarios-group #tarifarios .table-bordered > tbody > tr > td,
+  .main .main-content #horarios-group #tarifarios .table-bordered > tbody > tr > th,
+  .main .main-content #horarios-group #tarifarios .table-bordered > tfoot > tr > td,
+  .main .main-content #horarios-group #tarifarios .table-bordered > tfoot > tr > th,
+  .main .main-content #horarios-group #tarifarios .table-bordered > thead > tr > td,
+  .main .main-content #horarios-group #tarifarios .table-bordered > thead > tr > th,
+  .main .main-content #horarios-group #factura-consumo .table-bordered > tbody > tr > td,
+  .main .main-content #horarios-group #factura-consumo .table-bordered > tbody > tr > th,
+  .main .main-content #horarios-group #factura-consumo .table-bordered > tfoot > tr > td,
+  .main .main-content #horarios-group #factura-consumo .table-bordered > tfoot > tr > th,
+  .main .main-content #horarios-group #factura-consumo .table-bordered > thead > tr > td,
+  .main .main-content #horarios-group #factura-consumo .table-bordered > thead > tr > th,
+  .main .main-content #horarios-group #otherCenario .table-bordered > tbody > tr > td,
+  .main .main-content #horarios-group #otherCenario .table-bordered > tbody > tr > th,
+  .main .main-content #horarios-group #otherCenario .table-bordered > tfoot > tr > td,
+  .main .main-content #horarios-group #otherCenario .table-bordered > tfoot > tr > th,
+  .main .main-content #horarios-group #otherCenario .table-bordered > thead > tr > td,
+  .main .main-content #horarios-group #otherCenario .table-bordered > thead > tr > th {
+    border-color: rgba(0, 153, 204, 0.3); }
+  .main .main-content .pickers {
+    display: flex;
+    justify-content: center; }
+    .main .main-content .pickers .picker-upp,
+    .main .main-content .pickers .picker-upac {
+      padding: 0 20px; }
+      .main .main-content .pickers .picker-upp label,
+      .main .main-content .pickers .picker-upac label {
+        color: #0099cc;
+        cursor: pointer; }
+        .main .main-content .pickers .picker-upp label input,
+        .main .main-content .pickers .picker-upac label input {
+          margin-left: 3px; }
+  .main .main-content .but-2,
+  .main .main-content .end-step,
+  .main .main-content .analise {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between; }
+    .main .main-content .but-2 .but,
+    .main .main-content .end-step .but,
+    .main .main-content .analise .but {
+      font-size: 1.1em;
+      padding: 8px 25px;
+      background-color: #0099cc;
+      border: none;
+      border-radius: 100px;
+      color: #fff;
+      font-family: 'Amelia-Basic-Light', sans-serif;
+      transition: all .2s; }
+      .main .main-content .but-2 .but:focus,
+      .main .main-content .end-step .but:focus,
+      .main .main-content .analise .but:focus {
+        outline: none; }
+      .main .main-content .but-2 .but:hover,
+      .main .main-content .end-step .but:hover,
+      .main .main-content .analise .but:hover {
+        background-color: #67C8FF; }
+    .main .main-content .but-2 .dis-but,
+    .main .main-content .end-step .dis-but,
+    .main .main-content .analise .dis-but {
+      font-size: 1.1em;
+      padding: 8px 25px;
+      background-color: #eeeeee;
+      border: none;
+      border-radius: 100px;
+      color: #ffffff; }
+  .main .container-flex .foto .foto-img {
+    width: 100%;
+    height: auto; }
+
+footer {
+  height: 200px;
+  border-top: 1px solid rgba(0, 153, 204, 0.7);
+  display: flex;
+  align-items: center; }
+  footer .partners {
+    padding: 20px 0; }
+    footer .partners .partners-img {
+      width: 10%;
+      margin: 10px; }
+    footer .partners .rep-port {
+      width: 8%; }
+    footer .partners .port-energia {
+      width: 8%; }
+    footer .partners .dgeg {
+      width: 12%; }
+    footer .partners .lnec {
+      width: 10%; }
+    footer .partners .ee {
+      width: 4%; }
+    footer .partners .adene {
+      width: 8%; }
+    footer .partners .posteur {
+      width: 8%; }
+    footer .partners .port-2020 {
+      width: 8%; }
+    footer .partners .ue {
+      width: 11%; }
+    footer .partners .conf-text {
+      display: inline-block; }
+  footer .policy {
+    padding: 10px; }
+    footer .policy .policy-link {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #0083c4; }
