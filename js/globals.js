@@ -18,6 +18,10 @@ var potencia_new_contratada = 0;
 
 //Nova area
 var potencia_new_area = 0;
+var potencia_max_area = 0;
+
+//upp_condicao
+var upp_condicao ="";
 
 // SOMAS
 //////UFM

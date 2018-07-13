@@ -943,10 +943,10 @@ var varConsumoMensal = [
 
 
 var condicoesLimitePotencia = [
-    "limite de potência pela área disponível",
-    "limite de potência pela potência contratada",
-    "limite de potência pelo consumo",
-    "limite de potência pela lei"
+    "Potência da central limitada pela área disponível",
+    "Potência da central limitada pela potência contratada",
+    "Potência da central limitada pelo consumo da instalação",
+    "Potência da central limitada a 250kW (regime jurídico aplicável às UPP)"
 ];
 
 /**

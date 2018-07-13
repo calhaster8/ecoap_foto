@@ -1,6 +1,6 @@
 function uppPotenciaCalc() {
     potencia_array =[];
-    upp_condicao ="";
+    upp_condicao = upp_condicao!="" && upp_condicao!=null && upp_condicao!=undefined ? upp_condicao : "";
     uppConsumoAnual=0;
     potencia_max_consumo_anual=0;
     //todo extract hardcoded value to info
@@ -12,48 +12,39 @@ function uppPotenciaCalc() {
     potencia_array = [
         ((potencia_max_area != 0 &&
             potencia_max_area != '' &&
-            potencia_max_area != undefined) ?
+            potencia_max_area != undefined && potencia_new_area>potencia_max_area) ?
             potencia_max_area * 0.8 / modulosSolares.area * modulosSolares.potencia : 0),
-        ((potencia_new_contratada != 0 && 
-            potencia_new_contratada != '' && 
-            potencia_new_contratada != undefined ) ? 
-            potencia_new_contratada : potencia_max_contratada),
+        potencia_max_contratada,
         potencia_max_consumo_anual
     ];
 
-    
-    
     //todo extract hardcoded value to info
     var uppca = getUppConsumoAnual();
     
     potencia_array[2] = (uppca * 2) / pept_value;
     potencia_upp = min(potencia_array);  
-
     
     uppConsumoAnual = (potencia_upp > 250 ? 250 : potencia_upp);
     
-    //potencia_max_contratada;
-    
-    
-    
-    /*if (potencia_max_area > 0 && potencia_upp==potencia_max_area){
-        upp_condicao = "Limite de potência pela área disponível.";
-    }else if(potencia_upp==potencia_max_contratada){
-        upp_condicao = "Limite de potência pela potência contratada.";
-    } else if (potencia_upp == potencia_array[2]){
-        upp_condicao = "Limite de potência pela lei.";
-    }*/
-    
-    if (potencia_upp == potencia_array[1]) {
-        upp_condicao = "Limite de potência pela potência contratada";
-    } else if(potencia_upp == potencia_array[2]) {
-        upp_condicao = "Limite de potência pelo consumo";
-    } else if(potencia_upp > 250) {
-        upp_condicao = "Limite de potência pela lei";
-    } else if(potencia_upp == potencia_array[0]) {
-        upp_condicao = "Limite de potência pela área disponível";
+    if(potencia_new_contratada!="" && potencia_new_contratada!=null && potencia_new_contratada!=undefined && potencia_new_contratada>0 && (potencia_max_area=="" || potencia_max_area==null || potencia_max_area == undefined || potencia_max_area==0)){
+        uppConsumoAnual = potencia_new_contratada > 250 ? 250 : potencia_new_contratada;
+    }else if((potencia_new_contratada=="" || potencia_new_contratada==null || potencia_new_contratada==undefined || potencia_new_contratada==0) && (potencia_max_area!="" && potencia_max_area!=null && potencia_max_area != undefined && potencia_max_area>0)){
+        //todo if needed
+    }else if(potencia_new_contratada!="" && potencia_new_contratada!=null && potencia_new_contratada!=undefined && potencia_new_contratada>0 && potencia_max_area!="" && potencia_max_area!=null && potencia_max_area != undefined && potencia_max_area>0 && potencia_new_contratada<potencia_upp){
+        uppConsumoAnual = potencia_new_contratada;
+        
     }
+        if (uppConsumoAnual == potencia_array[1]) {
+            upp_condicao = condicoesLimitePotencia[1];//"Limite de potência pela potência contratada";//condicoesLimitePotencia[1]
+        } else if(uppConsumoAnual == potencia_array[2]) {
+            upp_condicao = condicoesLimitePotencia[2];//"Limite de potência pelo consumo"; //
+        } else if(potencia_upp > 250) {
+            upp_condicao = condicoesLimitePotencia[3];//"Limite de potência pela lei"; //
+        } else if(uppConsumoAnual == potencia_array[0]) {
+            upp_condicao = condicoesLimitePotencia[0]; //"Limite de potência pela área disponível"; //
+        }    
     
+    return uppConsumoAnual;
 }
 
 function categoriaUPP() {
@@ -80,14 +71,16 @@ function uppResultados() {
     //criar var potencia upp, chama uppCalc
     var potencia_upp_call = uppPotenciaCalc();
 
-    upp_resultados_pc = potencia_upp;
+    upp_resultados_pc = potencia_upp_call;
     
     //todo extract hardcoded value to info
-    upp_resultados_n_paineis = potencia_upp/0.275; //Info C157
-    upp_resultados_area_ocupada =  upp_resultados_n_paineis*1.7/0.8; // * Info C158 / 0.8
-    
+    upp_resultados_n_paineis = upp_resultados_pc/0.275; //Info C157
+    upp_resultados_area_ocupada =  potencia_max_area>0 && (upp_resultados_n_paineis*1.7/0.8) > potencia_max_area ? potencia_max_area : upp_resultados_n_paineis*1.7/0.8; // * Info C158 / 0.8
+    if(potencia_new_area==0){
+        potencia_new_area = upp_resultados_area_ocupada;
+    }
 
-    upp_resultados_prod_volt = potencia_upp * pept_value;  //upp_resultados_pc/potencia_max_pe_pi;
+    upp_resultados_prod_volt = upp_resultados_pc * pept_value;  //upp_resultados_pc/potencia_max_pe_pi;
 
     var consumo_producao = getConsumo(consumoLetter,cicloHorarioLetter,i);
     
@@ -95,8 +88,8 @@ function uppResultados() {
     
     upp_resultados_custos_energia = getUppCustosComEnergia(); // analisar folha
     upp_resultados_custos_php = getUppCustosComPhp(); //analisar folha 
-   
-    //todo extract hardcoded value to info
+    var excedente_resultados = (upp_resultados_prod_volt>consumo_anual*2) ? upp_resultados_prod_volt-consumo_anual : 0 ; 
+    var excedente_resultados_perc = (excedente_resultados /upp_resultados_prod_volt)*100;    //todo extract hardcoded value to info
     upp_resultados_custos_isp = consumo_anual*0.001;
     
     upp_resultados_custos_energicos = upp_resultados_custos_energia + upp_resultados_custos_isp + upp_resultados_custos_php;
@@ -105,16 +98,18 @@ function uppResultados() {
     upp_resultados_investimento = getUppInvestimento();
     upp_custos_anuais_new = upp_resultados_investimento * 0.02;
     upp_resultados_payback = upp_resultados_investimento/upp_resultados_rec_foto;
+    var upp_autoconsumo = upp_resultados_prod_volt - excedente_resultados;
  
-
-    $('#pot_central').html(potencia_upp.toFixed(0) + ' kW');
+    
+    $('#pot_central').html(upp_resultados_pc.toFixed(0) + ' kW');
     $('#nPaineis').html(upp_resultados_n_paineis.toFixed(0));
     $('#area_ocupada').html(upp_resultados_area_ocupada.toFixed(0) + " m²");
     $('#observations').html(upp_condicao);
     $('#consumo_instalacao').html(consumo_anual.toFixed(0) + ' kWh');
     $('#prod_foto').html(upp_resultados_prod_volt.toFixed(0) + ' kWh');
-    //$('#excede').html('Brevemente aplicável');
-    $('#auto_consumo').html(upp_resultados_prod_volt.toFixed(0) + ' kWh');
+    $('#excede').html(excedente_resultados.toFixed(0) + ' kWh');
+    $('#excedentePercent').html(excedente_resultados_perc.toFixed(0) + ' %');
+    $('#auto_consumo').html(upp_autoconsumo.toFixed(0) + ' kWh');
     $('#consumo_energia_ren').html(upp_resultados_reducao_dep_ene.toFixed(0) + '%');
     $('#custos_energia').html(upp_resultados_custos_energicos.toFixed(0) + ' €');
     $('#receita_foto').html(upp_resultados_rec_foto.toFixed(0) + ' €' + '<br>' + catUPP.nome);
@@ -123,7 +118,6 @@ function uppResultados() {
     $('#custos_anuais').html(upp_custos_anuais_new.toFixed(0) + ' €');
     $('#paybck').html(upp_resultados_payback.toFixed(1) + ' anos');
 }
-
 
 function getUppCustosComEnergia(){
 
@@ -249,9 +243,9 @@ function getUppInvestimento(){
     
     for(var i = 0; i < investimentoI.length; i++) {
         if (investimentoI[i].max == undefined){
-            return potencia_upp * investimentoI[i].valor;
-        }else if(potencia_upp < investimentoI[i].max && potencia_upp >= investimentoI[i].min) {
-            return potencia_upp * investimentoI[i].valor;
+            return upp_resultados_pc * investimentoI[i].valor;
+        }else if(upp_resultados_pc < investimentoI[i].max && upp_resultados_pc >= investimentoI[i].min) {
+            return upp_resultados_pc * investimentoI[i].valor;
         }
     }
 
@@ -301,7 +295,6 @@ function getUppConsumoAnual() {
     }
     return consumo_anual;
 }
-
 
 function getConsumo(consumoLetter, cicloHorarioLetter, mes){
 

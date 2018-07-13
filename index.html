@@ -1,548 +1,432 @@
 <!DOCTYPE html>
 <html lang="pt">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400|Open+Sans:300,400|Roboto:100,300,400" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css"/>
-    <link rel="stylesheet" href="css/main.css"/>
-    <link rel="shortcut icon" href="img/logo-head-small.png" type="image/png"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <!--script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js")-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/calculator2.js"></script>
-    <script src="js/info2.js"></script>
-    <script src="js/soma.js"></script>
-    <script src="js/resumo.js"></script>
-    <script src="js/globals.js"></script>
-    <script src="js/graph.js"></script>
-    <script src="dist/inputmask/inputmask.js"></script>
-    <script src="dist/inputmask/inputmask.extensions.js"></script>
-    <script src="dist/inputmask/inputmask.numeric.extensions.js"></script>
-    <script src="dist/inputmask/inputmask.date.extensions.js"></script>
-    <script src="dist/inputmask/inputmask.phone.extensions.js"></script>
-    <script src="dist/inputmask/jquery.inputmask.js"></script>
-    <script src="dist/inputmask/phone-codes/phone.js"></script>
-    <script src="dist/inputmask/phone-codes/phone-be.js"></script>
-    <script src="dist/inputmask/phone-codes/phone-ru.js"></script>
-    <!--script(src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js")-->
-    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-    <title>Calculadora - Solar Fotovoltaico</title>
-  </head>
-  <body>
-    <header class="header">
-      <!--span Eco.AP Calculator-->
-      <!--.logo--><span class="header-title">Calculadora - solar fotovoltaico</span>
-      <!--img.logo-img(src="img/logo.png", alt="logo")-->
-    </header>
-    <main class="main container">
-      <div class="row">
-        <div class="col-md-5 col-xs-12 col-sm-12">
-          <div class="main-content">
-            <div id="dados-group" style="display: block;" data-id="1" class="step">
-              <div class="dados-titulo"><span class="first">Dados</span></div>
-              <div class="dados-child dados-first">
-                <div class="dado dist">
-                  <!--Distrito -->
-                  <label for="distrito">Distrito</label>
-                  <select id="distrito" name="distrito" class="sel">
-                    <option value="">Seleccione uma das opções</option>
-                  </select>
-                </div>
-                <div class="dado pept">
-                  <!--Potencia instalada-->
-                  <label for="peptInstalada">Produção Específica</label>
-                  <input id="peptInstalada" type="number" name="peptInstalada" value="" placeholder="O valor será introduzido automaticamente" disabled="disabled" class="pept-in xInput"/>
-                </div>
-                <div class="dado tens">
-                  <!--Nivel de tensao-->
-                  <label for="ntensao">Nível de tensão</label>
-                  <select id="ntensao" name="ntensao" class="sel">
-                    <option value="">Seleccione uma das opções</option>
-                  </select>
-                </div>
-                <div class="dado pot">
-                  <!--Potencia contratada-->
-                  <label for="potencia">Potência contratada</label>
-                  <input id="potencia" type="number" name="potencia" placeholder="Insira a potência contratada (Ex: 12)" class="pot-in"/>
-                </div>
-                <div class="dado ctarif">
-                  <!--Ciclo tarifario-->
-                  <label for="cicloTarifario">Ciclo tarifário</label>
-                  <select id="cicloTarifario" name="cicloTarifario" class="sel">
-                    <option value="">Seleccione uma das opções</option>
-                  </select>
-                </div>
-                <div class="dado chora">
-                  <!--Ciclo horario-->
-                  <label for="cicloHorario">Ciclo horário</label>
-                  <select id="cicloHorario" name="cicloHorario" class="sel">
-                    <option value="">Seleccione uma das opções</option>
-                  </select>
-                </div>
-                <!-- QUESTIONS-->
-                <div class="dado question1">
-                  <label for="question_one">O edifício tem tomada elétrica para o carregamento de veículos elétricos ou a entidade tem viatura elétrica?</label>
-                  <select id="question_one" name="question_one" class="sel">
-                    <option value="">Seleccione uma das opções</option>
-                    <option value="1">Sim</option>
-                    <option value="2">Não</option>
-                  </select>
-                </div>
-                <div class="dado question2">
-                  <label for="question_two">O edifício tem coletores solares térmicos ou caldeira a biomassa?</label>
-                  <select id="question_two" name="question_two" class="sel">
-                    <option value="">Seleccione uma das opções</option>
-                    <option value="1">Sim</option>
-                    <option value="2">Não</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <!-- TARIFARIO-->
-            <div id="tarifas-group" data-id="2" class="step">
-              <!--.hr-line-->
-              <div class="dados-titulo second">
-                <!--span Tarifário-->
-              </div>
-              <div class="nota-tarifas"></div>
-              <div id="tarifarios"></div>
-              <div class="facturas-for-input dados-child">
-                <div class="dado facturas">
-                  <label for="facturas">Faturas</label>
-                  <select id="facturas" name="facturas" class="sel">
-                    <option value="">Seleccione uma das opções</option>
-                  </select>
-                </div>
-              </div>
-              <!-- FATURA-->
-              <div id="facturas-group">
-                <!--.step-->
-                <!--(data-id="3")-->
-                <div class="dados-titulo third"></div>
-                <div id="factura-consumo"></div>
-              </div>
-            </div>
-            <!-- HORARIO-->
-            <div id="horarios-group" data-id="3" class="step">
-              <!--.hr-line-->
-              <div class="dados-titulo fourth"><span>Horário</span></div>
-              <!--#horarios-->
-              <div class="horarios dados-child">
-                <div class="dado horario">
-                  <label for="cenarios">Horário de funcionamento</label>
-                  <select id="cenarios" name="cenarios" class="sel">
-                    <option value="">Seleccione uma das opções</option>
-                  </select>
-                </div>
-              </div>
-              <div id="otherCenario" style="display: none;">
-                <label for="otherCenarios">Seleccione os dias e os horários de funcionamento:</label>
-                <table class="table table-bordered table-striped">
-                  <tbody>
-                    <!--TITLES-->
-                    <tr style="font-weight: bold;">
-                      <th class="tituloTH">&nbsp</th>
-                      <th class="tituloTH">Dia da semana</th>
-                      <th class="tituloTH">Horário de entrada (hora)</th>
-                      <th class="tituloTH">Horário de saída (hora)</th>
-                    </tr>
-                    <!--SEGUNDA-->
-                    <tr class="textTR">
-                      <td>
-                        <input id="seg-check" type="checkbox" class="check"/>
-                      </td>
-                      <td class="in">Segunda        </td>
-                      <td class="in"> 
-                        <!--#datetimepickerSeg-->
-                        <input id="seg-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                      </td>
-                      <td class="in"> 
-                        <input id="seg-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                      </td>
-                    </tr>
-                    <!--TERCA-->
-                    <tr class="textTR terca"> 
-                      <td>
-                        <input id="ter-check" type="checkbox" class="check"/>
-                      </td>
-                      <td class="in">Terça       </td>
-                      <td class="in"> 
-                        <!--#datetimepickerSeg-->
-                        <input id="ter-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                      </td>
-                      <td class="in"> 
-                        <input id="ter-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                      </td>
-                    </tr>
-                    <!--QUARTA-->
-                    <tr class="textTR quarta">
-                      <td>
-                        <input id="quarta-check" type="checkbox" class="check"/>
-                      </td>
-                      <td class="in">Quarta      </td>
-                      <td class="in"> 
-                        <!--#datetimepickerSeg-->
-                        <input id="quarta-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                      </td>
-                      <td class="in"> 
-                        <input id="quarta-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                      </td>
-                    </tr>
-                    <!--QUINTA-->
-                    <tr class="textTR quinta">
-                      <td>
-                        <input id="quinta-check" type="checkbox" class="check"/>
-                      </td>
-                      <td class="in">Quinta       </td>
-                      <td class="in"> 
-                        <!--#datetimepickerSeg-->
-                        <input id="quinta-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                      </td>
-                      <td class="in"> 
-                        <input id="quinta-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                      </td>
-                    </tr>
-                    <!--SEXTA-->
-                    <tr class="textTR sexta">
-                      <td>
-                        <input id="sex-check" type="checkbox" class="check"/>
-                      </td>
-                      <td class="in">Sexta        </td>
-                      <td class="in"> 
-                        <!--#datetimepickerSeg-->
-                        <input id="sex-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                      </td>
-                      <td class="in"> 
-                        <input id="sex-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                      </td>
-                    </tr>
-                    <!--SABADO-->
-                    <tr class="textTR sabado">
-                      <td>
-                        <input id="sab-check" type="checkbox" class="check"/>
-                      </td>
-                      <td class="in">Sábado       </td>
-                      <td class="in"> 
-                        <!--#datetimepickerSeg-->
-                        <input id="sab-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                      </td>
-                      <td class="in"> 
-                        <input id="sab-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                      </td>
-                    </tr>
-                    <!--DOMINGO-->
-                    <tr class="textTR domingo">
-                      <td>
-                        <input id="dom-check" type="checkbox" class="check"/>
-                      </td>
-                      <td class="in">Domingo       </td>
-                      <td class="in"> 
-                        <!--#datetimepickerSeg-->
-                        <input id="dom-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                      </td>
-                      <td class="in"> 
-                        <input id="dom-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="lunch-box dados-child">
-                <div class="dado lunch">
-                  <label for="lunchBreak">Pausa para almoço</label>
-                  <select id="lunchBreak" name="lunchBreak" class="sel">
-                    <option value="">Seleccione uma das opções</option>
-                    <option value="Sim" class="op">Sim</option>
-                    <option value="Não" class="op">Não</option>
-                  </select>
-                </div>
-              </div>
-              <div class="vacations-box dados-child">
-                <div class="dado vacations-thing">
-                  <label for="vacations">Períodos de encerramento anual</label>
-                  <select id="vacations" name="vacations" class="sel">
-                    <option value="">Seleccione uma das opções</option>
-                    <option value="Sim" class="op">Sim</option>
-                    <option value="Não" class="op">Não</option>
-                  </select>
-                  <div id="vacationTimeDiv" style="display: none;">
-                    <label for="vacationsTime">Quais:</label>
-                    <select id="vacationsTime" name="vacationsTime" class="sel">
-                      <option value="">Seleccione uma das opções</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- RESUMO-->
-            <div id="resumo" data-id="4" class="step">
-              <div class="dados-titulo fourth"><span>Resumo</span></div>
-              <div id="upp-table">
-                <table class="table table-bordered">
-                  <tbody>
-                    <!--TITLES-->
-                    <tr style="font-weight: bold;">
-                      <th class="tituloTH">&nbsp</th>
-                      <th class="tituloTH">UPP</th>
-                      <!--th.tituloTH UPAC-->
-                      
-                    </tr>
-                    <!--SEGUNDA-->
-                    <tr class="textTR">
-                      <td class="in">Potência Central</td>
-                      <td id="pot_central" class="in center">   </td>
-                      <!--td.in    -->
-                    </tr>
-                    <tr class="textTR"> 
-                      <td class="in">Nº de painéis fotovoltaicos</td>
-                      <td id="nPaineis" class="in center"></td>
-                      <!--td.in -->
-                    </tr>
-                    <tr class="textTR">
-                      <td class="in">Área ocupada pela Central Fotovoltaica</td>
-                      <td id="area_ocupada" class="in center"></td>
-                      <!--td.in -->
-                    </tr>
-                    <tr class="textTR">
-                      <td class="in">Observações</td>
-                      <td id="observations" class="in center"></td>
-                      <!--td.in -->
-                    </tr>
-                    <tr class="textTR">
-                      <td class="in">Consumo da instalação</td>
-                      <td id="consumo_instalacao" class="in center"></td>
-                      <!--td.in -->
-                    </tr>
-                    <tr class="textTR">
-                      <td class="in">Produção fotovoltaica</td>
-                      <td id="prod_foto" class="in center"> </td>
-                      <!--td.in -->
-                    </tr>
-                    <!--tr.textTR
-                    td.in Excedente
-                    td.in.center#excede 
-                    td.in 
-                    -->
-                    <!--tr.textTR
-                    td.in Autoconsumo
-                    td.in.center#auto_consumo 
-                    td.in 
-                    -->
-                    <tr class="textTR">
-                      <td class="in">Consumo de energia renovável</td>
-                      <td id="consumo_energia_ren" class="in center"> </td>
-                      <!--td.in -->
-                    </tr>
-                    <!--tr.textTR
-                    td.in Fatura energética
-                    td.in.center#custos_energia 
-                    //td.in 
-                    -->
-                    <tr class="textTR">
-                      <td class="in">Receita com fotovoltaico</td>
-                      <td id="receita_foto" class="in center"></td>
-                      <!--td.in -->
-                    </tr>
-                    <!--tr.textTR
-                    td.in Redução de custos
-                    td.in.center#reduc_custos 
-                    //td.in 
-                    -->
-                    <tr class="textTR">
-                      <td class="in">Investimento</td>
-                      <td id="investe" class="in center"></td>
-                      <!--td.in -->
-                    </tr>
-                    <tr class="textTR">
-                      <td class="in">Custos com O&M</td>
-                      <td id="custos_anuais" class="in center"></td>
-                      <!--td.in -->
-                    </tr>
-                    <tr class="textTR">
-                      <td class="in">Payback</td>
-                      <td id="paybck" class="in center"> </td>
-                      <!--td.in -->
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <p class="nota-resumo">NOTA: Estes valores são obtidos para painéis virados a sul com 35º de Inclinação (condições ideais)</p>
-              <!--#upac-table.table-hide
-              table.table.table-bordered
-                  tbody
-                      //TITLES
-                      tr(style="font-weight: bold;")
-                          th.tituloTH &nbsp
-                          th.tituloTH UPAC
-                          //th.tituloTH UPAC
-                          
-              
-                      //SEGUNDA
-                      tr.textTR
-                          td.in Potência Central
-                          td.in.center#pot_central    
-                              
-                      tr.textTR 
-                          td.in Nº de painéis fotovoltaicos
-                          td.in.center#nPaineis
-                           
-                      tr.textTR
-                          td.in Área ocupada pela Central Fotovoltaica
-                          td.in.center#area_ocupada
-                           
-                      tr.textTR
-                          td.in Observações
-                          td.in.center#observations
-                           
-                      tr.textTR
-                          td.in Consumo da instalação
-                          td.in.center#consumo_instalacao
-                           
-                      tr.textTR
-                          td.in Produção fotovoltaica
-                          td.in.center#prod_foto 
-                           
-                      tr.textTR
-                          td.in Excedente
-                          td.in.center#excede 
-                           
-                      tr.textTR
-                          td.in Autoconsumo
-                          td.in.center#auto_consumo 
-                          
-                      tr.textTR
-                          td.in Consumo de energia renovável
-                          td.in.center#consumo_energia_ren 
-                           
-                      tr.textTR
-                          td.in Fatura energética
-                          td.in.center#custos_energia 
-                           
-                      tr.textTR
-                          td.in Receita com fotovoltaico
-                          td.in.center#receita_foto
-                           
-                      tr.textTR
-                          td.in Redução de custos
-                          td.in.center#reduc_custos 
-                           
-                      tr.textTR
-                          td.in Investimento
-                          td.in.center#investe
-                           
-                      tr.textTR
-                          td.in Custos com O&M
-                          td.in.center#custos_anuais
-                           
-                      tr.textTR
-                          td.in Payback
-                          td.in.center#paybck 
-                           
-              
-              -->
-              <div class="resumo-box">
-                <div class="dados-child">
-                  <div class="dado new-pot">
-                    <!--Potencia instalada-->
-                    <label for="newPotencia">Inserir uma nova potência</label>
-                    <input id="newPotencia" type="text" name="newPotencia" value="" placeholder="Insira nova a potência" class="new-pot-in"/>
-                  </div>
-                  <div class="dado new-ar">
-                    <!--Potencia instalada-->
-                    <label for="newArea">Inserir uma nova área</label>
-                    <input id="newArea" type="text" name="newArea" value="" placeholder="Insira a nova area" class="new-area-in"/>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- BOTOES -->
-            <div class="but-2">
-              <!--.but-view (hidden)-->
-              <button type="button" onclick="prevStep()" class="but anterior">Anterior</button>
-              <button type="button" onclick="nextStep()" class="but seguinte">Próximo                            </button>
-              <!--button.but.seguinte(type="button" onclick="addData()" /*disabled*/) teste-->
-              
-            </div>
-            <!--.pickers-form.step-but
-            form
-                .pickers-upp
-                    label.picker-content(for="upp") UPP
-                        input#upp(type="radio" name="resumo_pickers" value="1")
-            
-                .pickers-upac
-                    label.picker-content(for="upac") UPAC
-                        input#upac(type="radio" name="resumo_pickers" value="2")
-            
-            
-            -->
-            <div class="end-step step-but">
-              <button type="button" onclick="prevStep()" class="but anterior">Anterior</button>
-              <button id="analise-but" type="button" class="but end-but">Analisar</button>
-            </div>
-            <div class="analise step-but">
-              <button type="button" onclick="prevStep()" class="but anterior">Anterior</button>
-              <button id="reanalise-but" type="button" class="but reanalise">Reanalisar</button>
-            </div>
-            <div class="print_pdf step-but">
-              <!--button.but-pdf(type="button" onclick="printJS('upp-table', 'html')")
-              i.fas.fa-print
-              |   PDF
-              
-              --><span class="print_text">Deseja imprimir?
-                <button type="button" onclick="printJS('upp-table', 'html')" class="print_link">Clique aqui</button></span>
-            </div>
-          </div>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400|Open+Sans:300,400|Roboto:100,300,400" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css"/>
+        <link rel="stylesheet" href="css/main.css"/>
+        <link rel="shortcut icon" href="img/logo-head-small.png" type="image/png"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <!--script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js")-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/calculator2.js"></script>
+        <script src="js/info2.js"></script>
+        <script src="js/soma.js"></script>
+        <script src="js/resumo.js"></script>
+        <script src="js/globals.js"></script>
+        <script src="js/graph.js"></script>
+        <script src="dist/inputmask/inputmask.js"></script>
+        <script src="dist/inputmask/inputmask.extensions.js"></script>
+        <script src="dist/inputmask/inputmask.numeric.extensions.js"></script>
+        <script src="dist/inputmask/inputmask.date.extensions.js"></script>
+        <script src="dist/inputmask/inputmask.phone.extensions.js"></script>
+        <script src="dist/inputmask/jquery.inputmask.js"></script>
+        <script src="dist/inputmask/phone-codes/phone.js"></script>
+        <script src="dist/inputmask/phone-codes/phone-be.js"></script>
+        <script src="dist/inputmask/phone-codes/phone-ru.js"></script>
+        <!--script(src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js")-->
+        <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+        <title>Calculadora - Solar Fotovoltaico</title>
+    </head>
+    <body>
+        <header class="header">
+            <!--span Eco.AP Calculator-->
+            <!--.logo--><span class="header-title">Calculadora - solar fotovoltaico</span>
+            <!--img.logo-img(src="img/logo.png", alt="logo")-->
+        </header>
+        <main class="main container">
+            <div class="row">
+                <div class="col-md-5 col-xs-12 col-sm-12">
+                    <div class="main-content">
+                        <div id="dados-group" style="display: block;" data-id="1" class="step">
+                            <div class="dados-titulo"><span class="first">Dados</span></div>
+                            <div class="dados-child dados-first">
+                                <div class="dado dist">
+                                    <!--Distrito -->
+                                    <label for="distrito">Distrito</label>
+                                    <select id="distrito" name="distrito" class="sel">
+                                        <option value="">Seleccione uma das opções</option>
+                                    </select>
+                                </div>
+                                <div class="dado pept">
+                                    <!--Potencia instalada-->
+                                    <label for="peptInstalada">Produção Específica</label>
+                                    <input id="peptInstalada" type="number" name="peptInstalada" value="" placeholder="O valor será introduzido automaticamente" disabled="disabled" class="pept-in xInput"/>
+                                </div>
+                                <div class="dado tens">
+                                    <!--Nivel de tensao-->
+                                    <label for="ntensao">Nível de tensão</label>
+                                    <select id="ntensao" name="ntensao" class="sel">
+                                        <option value="">Seleccione uma das opções</option>
+                                    </select>
+                                </div>
+                                <div class="dado pot">
+                                    <!--Potencia contratada-->
+                                    <label for="potencia">Potência contratada</label>
+                                    <input id="potencia" type="number" name="potencia" placeholder="Insira a potência contratada (Ex: 12)" class="pot-in"/>
+                                </div>
+                                <div class="dado ctarif">
+                                    <!--Ciclo tarifario-->
+                                    <label for="cicloTarifario">Ciclo tarifário</label>
+                                    <select id="cicloTarifario" name="cicloTarifario" class="sel">
+                                        <option value="">Seleccione uma das opções</option>
+                                    </select>
+                                </div>
+                                <div class="dado chora">
+                                    <!--Ciclo horario-->
+                                    <label for="cicloHorario">Ciclo horário</label>
+                                    <select id="cicloHorario" name="cicloHorario" class="sel">
+                                        <option value="">Seleccione uma das opções</option>
+                                    </select>
+                                </div>
+                                <!-- QUESTIONS-->
+                                <div class="dado question1">
+                                    <label for="question_one">O edifício tem tomada elétrica para o carregamento de veículos elétricos ou a entidade tem viatura elétrica?</label>
+                                    <select id="question_one" name="question_one" class="sel">
+                                        <option value="">Seleccione uma das opções</option>
+                                        <option value="1">Sim</option>
+                                        <option value="2">Não</option>
+                                    </select>
+                                </div>
+                                <div class="dado question2">
+                                    <label for="question_two">O edifício tem coletores solares térmicos ou caldeira a biomassa?</label>
+                                    <select id="question_two" name="question_two" class="sel">
+                                        <option value="">Seleccione uma das opções</option>
+                                        <option value="1">Sim</option>
+                                        <option value="2">Não</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TARIFARIO-->
+                        <div id="tarifas-group" data-id="2" class="step">
+                            <!--.hr-line-->
+                            <div class="dados-titulo second">
+                                <!--span Tarifário-->
+                            </div>
+                            <div class="nota-tarifas"></div>
+                            <div id="tarifarios"></div>
+                            <div class="facturas-for-input dados-child">
+                                <div class="dado facturas">
+                                    <label for="facturas">Faturas</label>
+                                    <select id="facturas" name="facturas" class="sel">
+                                        <option value="">Seleccione uma das opções</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- FATURA-->
+                            <div id="facturas-group">
+                                <!--.step-->
+                                <!--(data-id="3")-->
+                                <div class="dados-titulo third"></div>
+                                <div id="factura-consumo"></div>
+                            </div>
+                        </div>
+                        <!-- HORARIO-->
+                        <div id="horarios-group" data-id="3" class="step">
+                            <!--.hr-line-->
+                            <div class="dados-titulo fourth"><span>Horário</span></div>
+                            <!--#horarios-->
+                            <div class="horarios dados-child">
+                                <div class="dado horario">
+                                    <label for="cenarios">Horário de funcionamento</label>
+                                    <select id="cenarios" name="cenarios" class="sel">
+                                        <option value="">Seleccione uma das opções</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="otherCenario" style="display: none;">
+                                <label for="otherCenarios">Seleccione os dias e os horários de funcionamento:</label>
+                                <table class="table table-bordered table-striped">
+                                    <tbody>
+                                        <!--TITLES-->
+                                        <tr style="font-weight: bold;">
+                                            <th class="tituloTH">&nbsp</th>
+                                            <th class="tituloTH">Dia da semana</th>
+                                            <th class="tituloTH">Horário de entrada (hora)</th>
+                                            <th class="tituloTH">Horário de saída (hora)</th>
+                                        </tr>
+                                        <!--SEGUNDA-->
+                                        <tr class="textTR">
+                                            <td>
+                                                <input id="seg-check" type="checkbox" class="check"/>
+                                            </td>
+                                            <td class="in">Segunda        </td>
+                                            <td class="in"> 
+                                                <!--#datetimepickerSeg-->
+                                                <input id="seg-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
+                                            </td>
+                                            <td class="in"> 
+                                                <input id="seg-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
+                                            </td>
+                                        </tr>
+                                        <!--TERCA-->
+                                        <tr class="textTR terca"> 
+                                            <td>
+                                                <input id="ter-check" type="checkbox" class="check"/>
+                                            </td>
+                                            <td class="in">Terça       </td>
+                                            <td class="in"> 
+                                                <!--#datetimepickerSeg-->
+                                                <input id="ter-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
+                                            </td>
+                                            <td class="in"> 
+                                                <input id="ter-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
+                                            </td>
+                                        </tr>
+                                        <!--QUARTA-->
+                                        <tr class="textTR quarta">
+                                            <td>
+                                                <input id="quarta-check" type="checkbox" class="check"/>
+                                            </td>
+                                            <td class="in">Quarta      </td>
+                                            <td class="in"> 
+                                                <!--#datetimepickerSeg-->
+                                                <input id="quarta-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
+                                            </td>
+                                            <td class="in"> 
+                                                <input id="quarta-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
+                                            </td>
+                                        </tr>
+                                        <!--QUINTA-->
+                                        <tr class="textTR quinta">
+                                            <td>
+                                                <input id="quinta-check" type="checkbox" class="check"/>
+                                            </td>
+                                            <td class="in">Quinta       </td>
+                                            <td class="in"> 
+                                                <!--#datetimepickerSeg-->
+                                                <input id="quinta-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
+                                            </td>
+                                            <td class="in"> 
+                                                <input id="quinta-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
+                                            </td>
+                                        </tr>
+                                        <!--SEXTA-->
+                                        <tr class="textTR sexta">
+                                            <td>
+                                                <input id="sex-check" type="checkbox" class="check"/>
+                                            </td>
+                                            <td class="in">Sexta        </td>
+                                            <td class="in"> 
+                                                <!--#datetimepickerSeg-->
+                                                <input id="sex-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
+                                            </td>
+                                            <td class="in"> 
+                                                <input id="sex-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
+                                            </td>
+                                        </tr>
+                                        <!--SABADO-->
+                                        <tr class="textTR sabado">
+                                            <td>
+                                                <input id="sab-check" type="checkbox" class="check"/>
+                                            </td>
+                                            <td class="in">Sábado       </td>
+                                            <td class="in"> 
+                                                <!--#datetimepickerSeg-->
+                                                <input id="sab-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
+                                            </td>
+                                            <td class="in"> 
+                                                <input id="sab-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
+                                            </td>
+                                        </tr>
+                                        <!--DOMINGO-->
+                                        <tr class="textTR domingo">
+                                            <td>
+                                                <input id="dom-check" type="checkbox" class="check"/>
+                                            </td>
+                                            <td class="in">Domingo       </td>
+                                            <td class="in"> 
+                                                <!--#datetimepickerSeg-->
+                                                <input id="dom-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
+                                            </td>
+                                            <td class="in"> 
+                                                <input id="dom-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="lunch-box dados-child">
+                                <div class="dado lunch">
+                                    <label for="lunchBreak">Pausa para almoço</label>
+                                    <select id="lunchBreak" name="lunchBreak" class="sel">
+                                        <option value="">Seleccione uma das opções</option>
+                                        <option value="Sim" class="op">Sim</option>
+                                        <option value="Não" class="op">Não</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="vacations-box dados-child">
+                                <div class="dado vacations-thing">
+                                    <label for="vacations">Períodos de encerramento anual</label>
+                                    <select id="vacations" name="vacations" class="sel">
+                                        <option value="">Seleccione uma das opções</option>
+                                        <option value="Sim" class="op">Sim</option>
+                                        <option value="Não" class="op">Não</option>
+                                    </select>
+                                    <div id="vacationTimeDiv" style="display: none;">
+                                        <label for="vacationsTime">Quais:</label>
+                                        <select id="vacationsTime" name="vacationsTime" class="sel">
+                                            <option value="">Seleccione uma das opções</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- RESUMO-->
+                        <div id="resumo" data-id="4" class="step">
+                            <div class="dados-titulo fourth"><span>Resumo</span></div>
+                            <div id="upp-table">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <!--TITLES-->
+                                        <tr style="font-weight: bold;">
+                                            <th class="tituloTH">&nbsp</th>
+                                            <th class="tituloTH">UPP</th>
+                                             <th class="tituloTH">UPAC</th>
 
-          <!--.graph
-          canvas#myChart(width="400" height="400")-->
-          
-        </div>
-        <div class="col-md-7d-none d-md-block"></div>
-      </div>
-    </main>
-    <!--footer
-    .container-fluid
-        .row
-            .col-md-12
-                .partners
-                    a.partner-link(href="http://www.sg.min-economia.pt/")
-                        img.partners-img.rep-port(src="img/footer/rep-port.png", alt="Républica Portuguesa")
-                    
-                    a.partner-link(href="http://www.portugal.gov.pt/pt/ministerios/meco.aspx")
-                        img.partners-img.port-energia(src="img/footer/portugal-energia-direct.png", alt="Portugal Energia")
-                    
-                    a.partner-link(href="http://www.dgeg.pt/")
-                        img.partners-img.dgeg(src="img/footer/dgeg.png", alt="Direcção Geral de Energia e Geologia")
-                    
-                    a.partner-link(href="http://ecoap.pnaee.pt/")
-                        img.partners-img.ee(src="img/footer/Ee.png", alt="EE")
-                    
-                    a.partner-link.prom(href="https://www.adene.pt/")
-                        img.partners-img.adene(src="img/footer/base-adene.png", alt="Adene")
-                    
-                    //a(href="#")
-                    span.conf
-                        //.conf-text Confinaciado por:
-                        img.partners-img.posteur(src="img/footer/posteur.png", alt="Posteur")
-                    
-                    //a(href="#")
-                    img.partners-img.port-2020(src="img/footer/2020.png", alt="2020")
-                    
-                    a.partner-link(href="https://europa.eu/european-union/index_pt")
-                        img.partners-img.ue(src="img/footer/UE.png", alt="UE")
-    
-    
-                .policy
-                    span.policy-link(href="#") © 2015 Eco.AP
-    
-                    a.policy-link(href="http://ecoap.pnaee.pt/ficha-tecnica/") Ficha técnica
-    
-                    a.policy-link(href="https://www.adene.pt/privacidade/") Política de Privacidade
-    -->
-  </body>
+                                        </tr>
+                                        <!--SEGUNDA-->
+                                        <tr class="textTR">
+                                            <td class="in">Potência Central</td>
+                                            <td id="pot_central" class="in center">   </td>
+                                            <td id="pot_central_upac" class="in center">   </td>
+                                        </tr>
+                                        <tr class="textTR"> 
+                                            <td class="in">Nº de painéis fotovoltaicos</td>
+                                            <td id="nPaineis" class="in center"></td>
+                                            <td id="nPaineis_upac" class="in center"></td>
+                                        </tr>
+                                        <tr class="textTR">
+                                            <td class="in">Área ocupada pela Central Fotovoltaica</td>
+                                            <td id="area_ocupada" class="in center"></td>
+                                            <td id="area_ocupada_upac" class="in center"></td>
+                                        </tr>
+                                        <tr class="textTR">
+                                            <td class="in">Observações</td>
+                                            <td id="observations" class="in center"></td>
+                                            <td id="observations_upac" class="in center"></td>
+                                        </tr>
+                                        <tr class="textTR">
+                                            <td class="in">Consumo da instalação</td>
+                                            <td id="consumo_instalacao" class="in center"></td>
+                                            <td id="consumo_instalacao_upac" class="in center"></td>
+                                        </tr>
+                                        <tr class="textTR">
+                                            <td class="in">Produção fotovoltaica</td>
+                                            <td id="prod_foto" class="in center"> </td>
+                                            <td id="prod_foto_upac" class="in center"> </td>
+                                        </tr>
+                                        <tr class="textTR">
+                                            <td class="in">Excedente</td>
+                                            <td id="excede" class="in center"> </td>
+                                            <td id="excede_upac" class="in center"> </td>
+                                        </tr>
+                                        <tr class="textTR">
+                                            <td class="in">Excedente (%) </td>
+                                            <td id="excedentePercent" class="in center"> </td>
+                                            <td id="excedentePercent_upac" class="in center"> </td>
+                                        </tr>
+                                        <tr class="textTR">
+                                            <td class="in">Autoconsumo</td>
+                                            <td id="auto_consumo" class="in center"> </td>
+                                            <td id="auto_consumo_upac" class="in center"> </td>
+                                        </tr>
+                                        <tr class="textTR">
+                                            <td class="in">Consumo de energia renovável</td>
+                                            <td id="consumo_energia_ren" class="in center"> </td>
+                                            <td id="consumo_energia_ren_upac" class="in center"> </td>
+                                        </tr>
+                                        <tr class="textTR">
+                                            <td class="in">Fatura energética</td>
+                                            <td id="custos_energia" class="in center"> </td>
+                                            <td id="custos_energia_upac" class="in center"> </td>
+                                        </tr>
+                                        <tr class="textTR">
+                                            <td class="in">Receita com fotovoltaico</td>
+                                            <td id="receita_foto" class="in center"></td>
+                                            <td id="receita_foto_upac" class="in center"></td>
+                                        </tr>
+                                        <tr class="textTR">
+                                            <td class="in">Redução de custos</td>
+                                            <td id="reduc_custos" class="in center"></td>
+                                            <td id="reduc_custos_upac" class="in center"></td>
+                                        </tr>
+                                        <tr class="textTR">
+                                            <td class="in">Investimento</td>
+                                            <td id="investe" class="in center"></td>
+                                            <td id="investe_upac" class="in center"></td>
+                                        </tr>
+                                        <tr class="textTR">
+                                            <td class="in">Custos com O&M</td>
+                                            <td id="custos_anuais" class="in center"></td>
+                                            <td id="custos_anuais_upac" class="in center"></td>
+                                        </tr>
+                                        <tr class="textTR">
+                                            <td class="in">Payback</td>
+                                            <td id="paybck" class="in center"> </td>
+                                            <td id="paybck_upac" class="in center"> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="nota-resumo">NOTA: Estes valores são obtidos para painéis virados a sul com 35º de Inclinação (condições ideais)</p>
+                            
+                            <div class="resumo-box">
+                                <div class="dados-child">
+                                    <div class="dado new-pot">
+                                        <!--Potencia instalada-->
+                                        <label for="newPotencia">Inserir nova potência para a Central Solar UPP</label>
+                                        <input id="newPotencia" type="number" name="newPotencia" value="" placeholder="Insira nova a potência" class="new-pot-in"/>
+                                    </div>
+                                    <div class="dado new-pot">
+                                        <!--Potencia instalada-->
+                                        <label for="newPotencia">Inserir nova potência para a Central Solar UPAC</label>
+                                        <input id="newPotenciaUpac" type="number" name="newPotenciaUpac" value="" placeholder="Insira nova a potência" class="new-pot-in"/>
+                                    </div>
+                                    <div class="dado new-ar">
+                                        <!--Potencia instalada-->
+                                        <label for="newArea">Inserir nova área para a Central Solar</label>
+                                        <input id="newArea" type="number" name="newArea" value="" placeholder="Insira a nova area" class="new-area-in"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- BOTOES -->
+                        <div class="but-2">
+                            <!--.but-view (hidden)-->
+                            <button type="button" onclick="prevStep()" class="but anterior">Anterior</button>
+                            <button type="button" onclick="nextStep()" class="but seguinte">Próximo                            </button>
+                            <!--button.but.seguinte(type="button" onclick="addData()" /*disabled*/) teste-->
+
+                        </div>
+                        <div class="end-step step-but">
+                            <button type="button" onclick="prevStep()" class="but anterior">Anterior</button>
+                            <button id="analise-but" type="button" class="but end-but">Analisar</button>
+                        </div>
+                        <div class="analise step-but">
+                            <button type="button" onclick="prevStep()" class="but anterior">Anterior</button>
+                            <button id="reanalise-but" type="button" class="but reanalise">Reanalisar</button>
+                        </div>
+                        <div class="print_pdf step-but">
+                            <span class="print_text">Deseja imprimir?
+                                <button type="button" onclick="printJS('upp-table', 'html')" class="print_link">Clique aqui</button></span>
+                        </div>
+                    </div>
+
+                    <!--.graph
+                    canvas#myChart(width="400" height="400")-->
+
+                </div>
+                <div class="col-md-7d-none d-md-block"></div>
+            </div>
+        </main>
+      
+    </body>
 </html>
