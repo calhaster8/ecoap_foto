@@ -34,7 +34,6 @@ $(document).ready(function () {
         potencia_new_contratada_upac = new Number($('#newPotenciaUpac').val());
     });
 
-
     //SUBMIT DADOS
     $('#analise-but').click(function() {
         uppResultados();
@@ -248,15 +247,15 @@ function buildTarifario() {
         $("#tarifarioNome").html(ciclo_horarioI[idcicloHorario].nome);
         //var hr = '<hr>';
         var tabletarifasTitle = '<span>Tarifário</span>';
-        var tabletarifasNota = '<span>Introduzir custos unitários de energia, incluindo tarifas de acesso às redes</span>';
-        var tabletarifas = '<table class="table table-bordered" id="tableTarif"><tbody><tr style="font-weight:bold;"><th class="tituloTH">Ciclos</th><th class="tituloTH">Custos (€\/kWh)</th></tr>';
+        var tabletarifasNota = '<span>Introduzir custos unitários de energia, incluindo tarifas de acesso às redes<br><br><strong>* Usar "." (ponto) como separador das casas decimais</strong><br></span>';
+        var tabletarifas = '<table class="table table-bordered" id="tableTarif"><tbody><tr style="font-weight:bold;"><th class="tituloTH">Ciclos</th><th class="tituloTH">Custos (€\/kWh) *</th></tr>';
         for (i = 0; i < ciclo_horarioI[idcicloHorario].periodoTarifario.length; i++) {
         	if(i==4){
-                tabletarifas += '<tr><th colspan=2 class="tituloTH">Custo (€/kWh.dia)</th></tr>';
+                tabletarifas += '<tr><th colspan=2 class="tituloTH">Custo (€/kWh.dia) *</th></tr>';
             }
             tabletarifas += '<tr class="textTR">';
             tabletarifas += '<td class="in">' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].nome +
-                    '</td><td class="in"><input class="form-control xInput" type="number" placeholder="X,XXX" id="' +
+                    '</td><td class="in"><input class="form-control xInput" type="number" placeholder="Ex: 1000.00 " id="' +
                     ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + ciclo_horarioI[idcicloHorario].valor + '" name="' +
                     ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + ciclo_horarioI[idcicloHorario].valor + '"></td>';
             tabletarifas += '</tr>';
@@ -267,6 +266,8 @@ function buildTarifario() {
         $("#tarifarios").html(tabletarifas + '</tbody></table>');
         //buildConsumos();
     }
+    
+
 }
 
 function buildSelectConsumos() {
@@ -450,6 +451,7 @@ function buildConsumos(){
     
     $('.third').html(facturaNewTitle);
     $("#factura-consumo").html(consumosTable);
+
 }
 
 

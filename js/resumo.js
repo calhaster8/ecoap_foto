@@ -847,7 +847,7 @@ function upacPotenciaCalc() {
     ];
 
     potencia_max_consumo_upac = calcCurvaConsumoUpacPotencia();
-    ;
+    
     potencia_array = [
         ((potencia_max_area_upac != 0 &&
                 potencia_max_area_upac != '' &&
@@ -857,11 +857,16 @@ function upacPotenciaCalc() {
         potencia_max_consumo_upac / pept_value
     ];
     var minimo = min(potencia_array);
-    potencia_upac =
-            (potencia_max_area_upac != null && potencia_max_area_upac != undefined && potencia_max_area_upac != "" && potencia_max_area_upac > 0) ?
-            minimo :
-            (potencia_max_area_upac ? min(potencia_array) : potencia_max_area_upac);
-
+    
+    if (potencia_new_contratada_upac != "" && potencia_new_contratada_upac != null && potencia_new_contratada_upac != undefined && potencia_new_contratada_upac > 0 && (potencia_max_area_upac == "" || potencia_max_area_upac == null || potencia_max_area_upac == undefined || potencia_max_area_upac == 0)) {
+        potencia_upac = potencia_new_contratada_upac > minimo ? minimo : potencia_new_contratada_upac;
+    } else if ((potencia_new_contratada_upac == "" || potencia_new_contratada_upac == null || potencia_new_contratada_upac == undefined || potencia_new_contratada_upac == 0) && (potencia_max_area_upac != "" && potencia_max_area_upac != null && potencia_max_area_upac != undefined && potencia_max_area_upac > 0)) {
+         potencia_upac = minimo;
+    } else if (potencia_new_contratada_upac != "" && potencia_new_contratada_upac != null && potencia_new_contratada_upac != undefined && potencia_new_contratada_upac > 0 && potencia_max_area_upac != "" && potencia_max_area_upac != null && potencia_max_area_upac != undefined && potencia_max_area_upac > 0 && potencia_new_contratada_upac < potencia_upac) {
+        potencia_upac = potencia_new_contratada_upac;
+    }else{
+        potencia_upac = minimo;
+    }
 
     if (potencia_upac == potencia_array[1]) {
         upac_condicao = condicoesLimitePotencia[1];//"Limite de potência pela potência contratada";//condicoesLimitePotencia[1]
