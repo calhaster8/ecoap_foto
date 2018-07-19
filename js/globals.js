@@ -15,13 +15,52 @@ var catUPP = [];
 
 //Nova potencia
 var potencia_new_contratada = 0;
+var potencia_new_contratada_upac = 0;
 
 //Nova area
 var potencia_new_area = 0;
+var potencia_new_area_upac = 0;
 var potencia_max_area = 0;
+var potencia_max_area_upac = 0;
 
 //upp_condicao
 var upp_condicao ="";
+var upac_condicao ="";
+
+
+var horarioFuncionamentoSemanal = [];
+
+var horasFuncionamento = 0;
+
+var curvaConsumo = [];
+
+var upacExcedenteValue=0; 
+var upacExcedentePerc=0;
+
+var curvaFinal = [];
+
+var potencia_upac =0;
+var producaoFotovoltaica = 0;
+
+var consumos_balanco_prd = [];
+var cicloTarifario = 0;
+
+var producao_upp = [];
+
+var producao_upac = [];
+
+var autoconsumo_ponta = 0;
+var autoconsumo_cheia = 0;
+var autoconsumo_vazio = 0;
+var autoconsumo_foravazio = 0;
+var autoconsumo_simples = 0;
+
+var custo_simples = 0;
+var custo_foravazio = 0;
+var custo_vazio = 0;
+var custo_ponta = 0;
+var custo_cheia = 0;
+
 
 // SOMAS
 //////UFM

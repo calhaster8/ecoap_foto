@@ -7,6 +7,7 @@ $(document).ready(function () {
     buildGraphFinal();
     somaRow();
 
+    $("#cenarios").change(buildHorariosFuncionamento);
 
     $("#distrito").change(getDistrictValues);
     $("#ntensao").change(getNTensionValues);
@@ -14,6 +15,9 @@ $(document).ready(function () {
     $("#cicloHorario").change(buildTarifario);
     $("#cicloHorario").select(buildTarifario);
     $("#facturas").change(buildConsumos);
+    $('#cicloTarifario').change(function(){
+        cicloTarifario = $(this).val();
+    });
 
     // TIMER PICKER INPUTMASK
     $('[data-mask]').inputmask("hh:mm");
@@ -24,6 +28,10 @@ $(document).ready(function () {
 
     $('#newPotencia').change(function () {
         potencia_new_contratada = new Number($('#newPotencia').val());
+    });
+    
+    $('#newPotenciaUpac').change(function () {
+        potencia_new_contratada_upac = new Number($('#newPotenciaUpac').val());
     });
 
 
