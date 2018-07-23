@@ -21,6 +21,10 @@ $(document).ready(function () {
     //Consumo picker INPUTMASK
     //$('[data-mask]').inputmask("x.xx");
 
+    $('#reload-but').click(function () {
+        location.reload();
+    });
+
 
     $('#newPotencia').change(function () {
         potencia_new_contratada = new Number($('#newPotencia').val());
