@@ -97,7 +97,7 @@ var distritosI = [
 var ciclo_tarifarioI = [
     {
         nome:"Semanal",
-        numHoras:1015 
+        numHoras:1003 
     },
     {
         nome:"Diário",
@@ -129,7 +129,7 @@ var tarifa_uppI = [
 
 /**
  *
- * Tarifa UPC	0,047	€/kWh
+ * Tarifa UPAC	0,047	€/kWh
  *
  */	
 var tarifa_upacI = 0.047;
@@ -241,7 +241,7 @@ var horarioCustomTable = [
             "entrada",
             "saida"
         ]
-    },
+    }
 ];
 
 
@@ -393,19 +393,21 @@ var horariosCenI = [
         nome:"24/7",
         inicio:"00:00:00.000",
         fim:"23:59:59.999",
-        totalHoras: 8
+        totalHoras: 24
     }
-    /*{
-        nome:"Outro",
-        inicio:undefined,
-        fim:undefined,
-        totalHoras: undefined
-    }*/
+//    ,
+//    {
+//        nome:"Outro",
+//        inicio:undefined,
+//        fim:undefined,
+//        totalHoras: undefined
+//    }
 ];
 
 
 var lunchTime = ["Sim","Não"];
 
+var consumo_almoco = 0.5;
 
 var periodoEncerramento = [
     {
@@ -431,6 +433,9 @@ var periodoEncerramento = [
     
 ];
 
+
+var consumo_meses_ferias = 0.6;
+
 /**
  * producao (%)
  * @type Array
@@ -440,62 +445,62 @@ var producaoSolarMes = [
     {
         nome:"Janeiro",
         valor:1,
-        producao:4.00
+        producao:0.04
     },
     {
         nome:"Fevereiro",
         valor:2,
-        producao:5.00
+        producao:0.05
     },
     {
         nome:"Março",
         valor:3,
-        producao:7.50
+        producao:0.075
     },
     {
         nome:"Abril",
         valor:4,
-        producao:9.00
+        producao:0.09
     },
     {
         nome:"Maio",
         valor:5,
-        producao:11.00
+        producao:0.11
     },
     {
         nome:"Junho",
         valor:6,
-        producao:12.00
+        producao:0.12
     },
     {
         nome:"Julho",
         valor:7,
-        producao:13.00
+        producao:0.13
     },
     {
         nome:"Agosto",
         valor:8,
-        producao:12.50
+        producao:0.125
     },
     {
         nome:"Setembro",
         valor:9,
-        producao:10.00
+        producao:0.10
     },
     {
         nome:"Outubro",
         valor:10,
-        producao:7.50
+        producao:0.075
     },
     {
         nome:"Novembro",
         valor:11,
-        producao:4.50
+        producao:0.045
     },
     {
         nome:"Dezembro",
         valor:12,
-        producao:4.00
+        producao:0.04
     }
 ];
 
@@ -506,67 +511,67 @@ var producaoSolarDiaria = [
     {
         horas:"07:00:00.000",
         inverno: 0.00,
-        verão: 1.00
+        verão: 0.01
     },
     {
         horas:"08:00:00.000",
-        inverno: 2.50,
-        verão: 2.00
+        inverno: 0.025,
+        verão: 0.02
     },
     {
         horas:"09:00:00.000",
-        inverno: 5.25,
-        verão: 4.00
+        inverno: 0.0525,
+        verão: 0.04
     },
     {
         horas:"10:00:00.000",
-        inverno: 10.25,
-        verão: 8.00
+        inverno: 0.1025,
+        verão: 0.08
     },
     {
         horas:"11:00:00.000",
-        inverno: 20.50,
-        verão: 12.00
+        inverno: 0.2050,
+        verão: 0.12
     },
     {
         horas:"12:00:00.000",
-        inverno: 23.00,
-        verão: 15.00
+        inverno: 0.23,
+        verão: 0.15
     },
     {
         horas:"13:00:00.000",
-        inverno: 20.50,
-        verão: 16.00
+        inverno: 0.205,
+        verão: 0.16
     },
     {
         horas:"14:00:00.000",
-        inverno: 10.25,
-        verão: 15.00
+        inverno: 0.1025,
+        verão: 0.15
     },
     {
         horas:"15:00:00.000",
         inverno: 0.00,
-        verão: 1.00
+        verão: 0.01
     },
     {
         horas:"16:00:00.000",
-        inverno: 5.25,
-        verão: 12.00
+        inverno: 0.0525,
+        verão: 0.12
     },
     {
         horas:"17:00:00.000",
         inverno: 0.00,
-        verão: 4.00
+        verão: 0.04
     },
     {
         horas:"18:00:00.000",
         inverno: 0.00,
-        verão: 2.00
+        verão: 0.02
     },
     {
         horas:"19:00:00.000",
         inverno: 0.00,
-        verão: 1.00
+        verão: 0.01
     }
 ];
 
@@ -582,18 +587,18 @@ var producaoSolarPeriodo = [
         periodoTarifario: [ 
             { 
                 nome: "ponta",
-                inverno: "25",
-                verao: "17" 
+                inverno: 0.25,
+                verao: 0.17 
             },
             { 
                 nome: "cheia",
-                inverno: "55",
-                verao: "62"
+                inverno: 0.55,
+                verao: 0.62
             },
             { 
                 nome: "vazio",
-                inverno: "20",
-                verao: "21"
+                inverno: 0.20,
+                verao: 0.21
             }]
     },
     {
@@ -602,18 +607,18 @@ var producaoSolarPeriodo = [
         periodoTarifario: [ 
             { 
                 nome: "ponta",
-                inverno: "15",
-                verao: "28"
+                inverno: 0.15,
+                verao: 0.28
             },
             { 
                 nome: "cheia",
-                inverno: "85",
-                verao: "71"
+                inverno: 0.85,
+                verao: 0.71
             },
             { 
                 nome: "vazio",
-                inverno: "0",
-                verao: "1"
+                inverno: 0.00,
+                verao: 0.01
             }]
     },
     {
@@ -622,13 +627,13 @@ var producaoSolarPeriodo = [
         periodoTarifario: [ 
             { 
                 nome: "fora_vazio",
-                inverno: "100",
-                verao: "0"
+                inverno: 1,
+                verao: 0.99
             },
             { 
                 nome: "vazio",
-                inverno: "99",
-                verao: "1"
+                inverno: 0,
+                verao: 0.01
             }]        
     }
 ];
@@ -942,6 +947,68 @@ var varConsumoMensal = [
 ];
 
 
+var consumoHorasSolGlobal = [
+    {
+        cicloTarifario: ciclo_tarifarioI[0],
+        cicloHorairo: ciclo_horarioI[2],
+        periodoTarifario: [ 
+            { 
+                nome: "ponta",
+                inverno: 0,
+                verao: 0 
+            },
+            { 
+                nome: "cheia",
+                inverno: 0,
+                verao: 0
+            },
+            { 
+                nome: "vazio",
+                inverno: 0,
+                verao: 0
+            }
+        ]
+    },
+    {
+        cicloTarifario: ciclo_tarifarioI[1],
+        cicloHorario: ciclo_horarioI[2],
+        periodoTarifario: [ 
+            { 
+                nome: "ponta",
+                inverno: 0,
+                verao: 0
+            },
+            { 
+                nome: "cheia",
+                inverno: 0,
+                verao: 0
+            },
+            { 
+                nome: "vazio",
+                inverno: 0,
+                verao: 0
+            }
+        ]
+    },
+    {
+        cicloTarifario: undefined,
+        cicloHorario: ciclo_horarioI[1],
+        periodoTarifario: [ 
+            { 
+                nome: "fora_vazio",
+                inverno: 0,
+                verao: 0
+            },
+            { 
+                nome: "vazio",
+                inverno: 0,
+                verao: 0
+            }
+        ]        
+    }
+];
+
+
 var condicoesLimitePotencia = [
     "Potência da central limitada pela área disponível",
     "Potência da central limitada pela potência contratada",
@@ -960,5 +1027,20 @@ var modulosSolares = {
 };
 
 
+var des_consumo = {
+    base: 0.3,
+    rest_consumo: 0.7
+};
 
 
+
+/**
+ * Avisos de excedente UPAC
+ */
+
+var avisos_excedente_upac = {
+    encerramento_agosto: 0.2,
+    funcionamento_continuo: 0.05,
+    outros: 0.15,
+    description: "UPAC com muito excedente! <br> Considere reduzir a potência da Central. <br> Tenha no entanto também em consideração <br> o período de retorno do investimento."
+};
