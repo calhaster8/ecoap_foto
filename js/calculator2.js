@@ -60,7 +60,16 @@ $(document).ready(function () {
 
     //BUTTON DISABLING
 
-
+    /*$('form#teste').validate({
+        rules: {
+            distrito: "required",
+            PEPtInstalada: "required"
+        },
+        messages: {
+            distrito: "Insira um distrito",
+            peptInstalada: "insira uma potencia"
+        }
+    });*/
 
 
     $('#vacations').change(function () {
@@ -493,6 +502,17 @@ function buildConsumos(){
 
 // BUTTONS STEPS
 function nextStep() {
+    /*$('form#teste').validate({
+        rules: {
+            distrito: "required",
+            PEPtInstalada: "required"
+        },
+        messages: {
+            distrito: "Insira um distrito",
+            peptInstalada: "insira uma potencia"
+        }
+    });*/
+
     var id = $('.step:visible').data('id');
     var nextId = $('.step:visible').data('id') + 1;
     $('[data-id="' + id + '"]').hide();
