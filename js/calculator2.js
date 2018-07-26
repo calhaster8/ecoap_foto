@@ -4,7 +4,7 @@ $(document).ready(function () {
     buildHorarioFuncionamento();
     buildVacations();
     buildSelectConsumos();
-    buildGraphFinal();
+    //buildGraphFinal();
     somaRow();
 
     $("#cenarios").change(buildHorariosFuncionamento);
@@ -112,6 +112,10 @@ $(document).ready(function () {
             $('#timepicker' + $(this).val() + 'End').val('00:00');
         }
     });
+    
+//    $(".seguinte").click(function(){
+//        $("")
+//    });
 });
 
 
@@ -250,8 +254,8 @@ function buildTarifario() {
         //append to tarifarios a table with correct data
         $("#tarifarioNome").html(ciclo_horarioI[idcicloHorario].nome);
         //var hr = '<hr>';
-        var tabletarifasTitle = '<span>Tarifário</span>';
-        var tabletarifasNota = '<span>Introduzir custos unitários de energia, incluindo tarifas de acesso às redes<br><br><strong>* Usar "." (ponto) como separador das casas decimais</strong><br></span>';
+        var tabletarifasTitle = '<span>Tarifário</span><br><label style="font-size:14px;text-transform:none; font-weight:nromal;">* Usar "." (ponto) como separador das casas decimais</label>';
+        var tabletarifasNota = '<span>Introduzir custos unitários de energia, incluindo tarifas de acesso às redes</span><br><br>';
         var tabletarifas = '<table class="table table-bordered" id="tableTarif"><tbody><tr style="font-weight:bold;"><th class="tituloTH">Ciclos</th><th class="tituloTH">Custos (€\/kWh) *</th></tr>';
         for (i = 0; i < ciclo_horarioI[idcicloHorario].periodoTarifario.length; i++) {
         	if(i==4){
@@ -259,7 +263,7 @@ function buildTarifario() {
             }
             tabletarifas += '<tr class="textTR">';
             tabletarifas += '<td class="in">' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].nome +
-                    '</td><td class="in"><input class="form-control xInput" type="number" placeholder="Ex: 1000.00 " id="' +
+                    '</td><td class="in"><input class="form-control xInput" step="0.0   1" type="number" placeholder="Ex: 0.10 " id="' +
                     ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + ciclo_horarioI[idcicloHorario].valor + '" name="' +
                     ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + ciclo_horarioI[idcicloHorario].valor + '"></td>';
             tabletarifas += '</tr>';
@@ -490,7 +494,6 @@ function buildConsumos(){
 }*/
 
 
-
 // BUTTONS STEPS
 function nextStep() {
     var id = $('.step:visible').data('id');
@@ -512,6 +515,7 @@ function nextStep() {
         $('.but-2').hide();
         $('.end-step').hide();
         $('.print_pdf').show();
+        $(".reload-but").show();
         $('.analise').show();
     }
 }
@@ -529,12 +533,15 @@ function prevStep() {
     if (prevId < 3) {
         $('.end-step').hide();
         $('.analise').hide();
+        $('.print_pdf').hide();
         $('.but-2').show();
     }
 
     if (prevId == 3) {
         $('.but-2').hide();
         $('.analise').hide();
+        $('.print_pdf').hide();
+        $(".reload-but").hide();
         $('.end-step').show();
     }
 

@@ -107,9 +107,9 @@ function uppResultados() {
     $('#observations').html(upp_condicao);
     $('#consumo_instalacao').html(consumo_anual.toFixed(0) + ' kWh');
     $('#prod_foto').html(upp_resultados_prod_volt.toFixed(0) + ' kWh');
-    $('#excede').html(excedente_resultados.toFixed(0) + ' kWh');
-    $('#excedentePercent').html(excedente_resultados_perc.toFixed(0) + ' %');
-    $('#auto_consumo').html(upp_autoconsumo.toFixed(0) + ' kWh');
+    $('#excede').html(excedente_resultados>0 ? excedente_resultados.toFixed(0) + ' kWh' : '-');
+    $('#excedentePercent').html(excedente_resultados_perc>0 ? excedente_resultados_perc.toFixed(0) + ' %' : '-');
+    $('#auto_consumo').html('Não aplicável');
     $('#consumo_energia_ren').html(upp_resultados_reducao_dep_ene.toFixed(0) + '%');
     $('#custos_energia').html(upp_resultados_custos_energicos.toFixed(0) + ' €');
     $('#receita_foto').html(upp_resultados_rec_foto.toFixed(0) + ' €' + '<br>' + catUPP.nome);
