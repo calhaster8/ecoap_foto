@@ -90,7 +90,7 @@ body {
     flex-direction: column; }
     .main.container .main-content .dados-child .dado {
       margin: 20px 0;
-      width: 50%;
+      width: 60%;
       display: flex;
       flex-direction: column;
       font-size: 1.2em; }
