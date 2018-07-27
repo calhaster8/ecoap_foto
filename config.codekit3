@@ -44,19 +44,6 @@
 		"oF": 0,
 		"oS": 3
 		},
-	"\/css\/main.sass": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 2,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "\/css\/main.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
 	"\/dist\/inputmask\/bindings\/inputmask.binding.js": {
 		"ft": 64,
 		"ma": 0,
@@ -605,231 +592,11 @@
 		"oAP": "\/fonts\/Amelia\/TTF\/Amelia-Basic.ttf",
 		"oF": 0
 		},
-	"\/img\/footer\/2020.png": {
-		"ft": 32768,
-		"iS": 3409,
-		"oA": 0,
-		"oAP": "\/img\/footer\/2020.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/footer\/base-adene.png": {
-		"ft": 32768,
-		"iS": 3136,
-		"oA": 0,
-		"oAP": "\/img\/footer\/base-adene.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/footer\/dgeg.png": {
-		"ft": 32768,
-		"iS": 5186,
-		"oA": 0,
-		"oAP": "\/img\/footer\/dgeg.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/footer\/Ee.png": {
-		"ft": 32768,
-		"iS": 3485,
-		"oA": 0,
-		"oAP": "\/img\/footer\/Ee.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/footer\/LogoLNEC.png": {
-		"ft": 32768,
-		"iS": 5777,
-		"oA": 0,
-		"oAP": "\/img\/footer\/LogoLNEC.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/footer\/portugal-energia-direct.png": {
-		"ft": 32768,
-		"iS": 4606,
-		"oA": 0,
-		"oAP": "\/img\/footer\/portugal-energia-direct.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/footer\/posteur.png": {
-		"ft": 32768,
-		"iS": 3884,
-		"oA": 0,
-		"oAP": "\/img\/footer\/posteur.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/footer\/rep-port.png": {
-		"ft": 32768,
-		"iS": 5561,
-		"oA": 0,
-		"oAP": "\/img\/footer\/rep-port.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/footer\/UE.png": {
-		"ft": 32768,
-		"iS": 3129,
-		"oA": 0,
-		"oAP": "\/img\/footer\/UE.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
 	"\/img\/fundo.png": {
 		"ft": 32768,
 		"iS": 93167,
 		"oA": 0,
 		"oAP": "\/img\/fundo.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/fundo\/AF-Mandalas_2018__0000_Mandala-01.png": {
-		"ft": 32768,
-		"iS": 608865,
-		"oA": 0,
-		"oAP": "\/img\/fundo\/AF-Mandalas_2018__0000_Mandala-01.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/fundo\/AF-Mandalas_2018__0001_Mandala-02.png": {
-		"ft": 32768,
-		"iS": 1634404,
-		"oA": 0,
-		"oAP": "\/img\/fundo\/AF-Mandalas_2018__0001_Mandala-02.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/fundo\/AF-Mandalas_2018__0002_Mandala-03.png": {
-		"ft": 32768,
-		"iS": 823273,
-		"oA": 0,
-		"oAP": "\/img\/fundo\/AF-Mandalas_2018__0002_Mandala-03.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/fundo\/AF-Mandalas_2018__0003_Mandala-04.png": {
-		"ft": 32768,
-		"iS": 2066492,
-		"oA": 0,
-		"oAP": "\/img\/fundo\/AF-Mandalas_2018__0003_Mandala-04.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/fundo\/AF-Mandalas_2018__0004_Mandala-05.png": {
-		"ft": 32768,
-		"iS": 931809,
-		"oA": 0,
-		"oAP": "\/img\/fundo\/AF-Mandalas_2018__0004_Mandala-05.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/fundo\/AF-Mandalas_2018__0005_Mandala-06.png": {
-		"ft": 32768,
-		"iS": 1156403,
-		"oA": 0,
-		"oAP": "\/img\/fundo\/AF-Mandalas_2018__0005_Mandala-06.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/fundo\/AF-Mandalas_2018__0006_Mandala-07.png": {
-		"ft": 32768,
-		"iS": 775750,
-		"oA": 0,
-		"oAP": "\/img\/fundo\/AF-Mandalas_2018__0006_Mandala-07.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/fundo\/AF-Mandalas_2018__0007_Mandala-08.png": {
-		"ft": 32768,
-		"iS": 1100886,
-		"oA": 0,
-		"oAP": "\/img\/fundo\/AF-Mandalas_2018__0007_Mandala-08.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/fundo\/AF-Mandalas_2018__0009_Mandala-10.png": {
-		"ft": 32768,
-		"iS": 755905,
-		"oA": 0,
-		"oAP": "\/img\/fundo\/AF-Mandalas_2018__0009_Mandala-10.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/fundo\/AF-Mandalas_2018__0010_Mandala-11.png": {
-		"ft": 32768,
-		"iS": 590951,
-		"oA": 0,
-		"oAP": "\/img\/fundo\/AF-Mandalas_2018__0010_Mandala-11.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/fundo\/AF-Mandalas_2018__0011_Mandala-12.png": {
-		"ft": 32768,
-		"iS": 620907,
-		"oA": 0,
-		"oAP": "\/img\/fundo\/AF-Mandalas_2018__0011_Mandala-12.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
@@ -858,44 +625,11 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/img\/logo.png": {
-		"ft": 32768,
-		"iS": 14980,
-		"oA": 0,
-		"oAP": "\/img\/logo.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
 	"\/img\/seta.png": {
 		"ft": 32768,
 		"iS": 237,
 		"oA": 0,
 		"oAP": "\/img\/seta.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/urso-small.png": {
-		"ft": 32768,
-		"iS": 918855,
-		"oA": 0,
-		"oAP": "\/img\/urso-small.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
-	"\/img\/urso.png": {
-		"ft": 32768,
-		"iS": 1310117,
-		"oA": 0,
-		"oAP": "\/img\/urso.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
@@ -909,32 +643,12 @@
 		"oAP": "\/index.html",
 		"oF": 0
 		},
-	"\/js\/calculator2-min.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/calculator2-min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
 	"\/js\/calculator2.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/js\/calculator2-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"\/js\/globals-min.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/globals-min-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -949,42 +663,12 @@
 		"sC": 3,
 		"tS": 0
 		},
-	"\/js\/graph-min.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/graph-min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
 	"\/js\/graph.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/js\/graph-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"\/js\/info.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/info-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"\/js\/info2-min.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/info2-min-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -999,72 +683,12 @@
 		"sC": 3,
 		"tS": 0
 		},
-	"\/js\/main.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "\/js\/main-min.css",
-		"oF": 0,
-		"oS": 3
-		},
-	"\/js\/main.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/main-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"\/js\/resumo-min.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/resumo-min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
 	"\/js\/resumo.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/js\/resumo-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"\/js\/soma-min.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/soma-min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"\/js\/soma-teste-min.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/soma-teste-min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"\/js\/soma-teste.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/js\/soma-teste-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
