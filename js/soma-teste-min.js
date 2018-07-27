@@ -1,1 +1,0 @@
-function faturaSoma(){var a=$("#cicloHorario").val(),o=$("#facturas").val();$("#mensal_consumo").on("change",function(){var a=$("#mensal_consumo").val();$("#totalMensal").html(a)})}

@@ -329,7 +329,7 @@ body {
       .main.container .main-content #horarios-group #otherCenario table tbody tr td.in,
       .main.container .main-content #horarios-group #otherCenario table tbody .textTR td,
       .main.container .main-content #horarios-group #otherCenario table tbody .textTR td.in {
-        padding: 0;
+        padding: 0 10px;
         text-align: center;
         vertical-align: middle;
         margin: 0;

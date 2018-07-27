@@ -6,12 +6,11 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400|Open+Sans:300,400|Roboto:100,300,400" rel="stylesheet"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous"/>
         <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css"/>
         <link rel="stylesheet" href="css/main.css"/>
         <link rel="shortcut icon" href="img/logo-head-small.png" type="image/png"/>
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
-        <!--script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js")-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="js/calculator2.js"></script>
         <script src="js/info2.js"></script>
@@ -19,35 +18,22 @@
         <script src="js/resumo.js"></script>
         <script src="js/globals.js"></script>
         <script src="js/graph.js"></script>
-        <script src="dist/inputmask/inputmask.js"></script>
-        <script src="dist/inputmask/inputmask.extensions.js"></script>
-        <script src="dist/inputmask/inputmask.numeric.extensions.js"></script>
-        <script src="dist/inputmask/inputmask.date.extensions.js"></script>
-        <script src="dist/inputmask/inputmask.phone.extensions.js"></script>
-        <script src="dist/inputmask/jquery.inputmask.js"></script>
-        <script src="dist/inputmask/phone-codes/phone.js"></script>
-        <script src="dist/inputmask/phone-codes/phone-be.js"></script>
-        <script src="dist/inputmask/phone-codes/phone-ru.js"></script>
-        <!--script(src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js")-->
         <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+<!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>-->
         <title>Calculadora - Solar Fotovoltaico</title>
     </head>
     <body>
         <header class="header">
-            <!--span Eco.AP Calculator-->
-            <!--.logo--><span class="header-title">Calculadora - solar fotovoltaico</span>
-            <!--img.logo-img(src="img/logo.png", alt="logo")-->
+            <span class="header-title">Calculadora - solar fotovoltaico</span>
         </header>
         <main class="main container">
             <div class="row">
-                <div class="col-md-5 col-xs-12 col-sm-12">
+                <div class="col-md-5 col-xs-12 col-sm-12 col-lg-8">
                     <div class="main-content">
+                        <form id="fotovoltaico">
                         <div id="dados-group" style="display: block;" data-id="1" class="step">
-                            <div class="dados-titulo">
-                                <span class="first">Dados</span>
-                            </div>
+                            <div class="dados-titulo"><span class="first">Dados</span></div>
                             <div class="dados-child dados-first">
                                 <div class="dado dist">
                                     <!--Distrito -->
@@ -56,14 +42,11 @@
                                         <option value="">Seleccione uma das opções</option>
                                     </select>
                                 </div>
-                                <div class="dado pept">
+                                <div class="dado pept" style="display:none;">
                                     <!--Potencia instalada-->
                                     <label for="peptInstalada">Produção Específica</label>
-                                    <input id="peptInstalada" type="number" name="peptInstalada" value="" placeholder="O valor será introduzido automaticamente"
-                                        disabled="disabled" class="pept-in xInput" required/>
+                                    <input id="peptInstalada" type="number" name="peptInstalada" value="" placeholder="O valor será introduzido automaticamente" disabled="disabled" class="pept-in xInput"/>
                                 </div>
-
-                                
                                 <div class="dado tens">
                                     <!--Nivel de tensao-->
                                     <label for="ntensao">Nível de tensão</label>
@@ -73,11 +56,8 @@
                                 </div>
                                 <div class="dado pot">
                                     <!--Potencia contratada-->
-                                    <label for="potencia">Potência contratada * </label>
-                                    <input id="potencia" type="number" name="potencia" placeholder="Insira a potência contratada (Ex: 12.23)" class="pot-in"
-                                    />
-                                    <br>
-                                    <label>* Usar "." (ponto) como separador das casas decimais</label>
+                                    <label for="potencia">Potência contratada</label><label style="font-size:14px;">(Usar "." (ponto) como separador das casas decimais)</label>
+                                    <input id="potencia" type="number" name="potencia" placeholder="Insira a potência contratada (Ex: 12.23)" class="pot-in"/>
                                 </div>
                                 <div class="dado ctarif">
                                     <!--Ciclo tarifario-->
@@ -112,8 +92,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        
                         <!-- TARIFARIO-->
                         <div id="tarifas-group" data-id="2" class="step">
                             <!--.hr-line-->
@@ -151,109 +129,109 @@
                                     </select>
                                 </div>
                             </div>
-                            <div id="otherCenario" style="display: none;">
+<!--                            <div id="otherCenario" style="display: none;">
                                 <label for="otherCenarios">Seleccione os dias e os horários de funcionamento:</label>
                                 <table class="table table-bordered table-striped">
                                     <tbody>
-                                        <!--TITLES-->
+                                        TITLES
                                         <tr style="font-weight: bold;">
                                             <th class="tituloTH">&nbsp</th>
                                             <th class="tituloTH">Dia da semana</th>
                                             <th class="tituloTH">Horário de entrada (hora)</th>
                                             <th class="tituloTH">Horário de saída (hora)</th>
                                         </tr>
-                                        <!--SEGUNDA-->
+                                        SEGUNDA
                                         <tr class="textTR">
                                             <td>
                                                 <input id="seg-check" type="checkbox" class="check"/>
                                             </td>
                                             <td class="in">Segunda        </td>
                                             <td class="in"> 
-                                                <!--#datetimepickerSeg-->
+                                                #datetimepickerSeg
                                                 <input id="seg-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
                                             </td>
                                             <td class="in"> 
                                                 <input id="seg-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
                                             </td>
                                         </tr>
-                                        <!--TERCA-->
+                                        TERCA
                                         <tr class="textTR terca"> 
                                             <td>
                                                 <input id="ter-check" type="checkbox" class="check"/>
                                             </td>
                                             <td class="in">Terça       </td>
                                             <td class="in"> 
-                                                <!--#datetimepickerSeg-->
+                                                #datetimepickerSeg
                                                 <input id="ter-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
                                             </td>
                                             <td class="in"> 
                                                 <input id="ter-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
                                             </td>
                                         </tr>
-                                        <!--QUARTA-->
+                                        QUARTA
                                         <tr class="textTR quarta">
                                             <td>
                                                 <input id="quarta-check" type="checkbox" class="check"/>
                                             </td>
                                             <td class="in">Quarta      </td>
                                             <td class="in"> 
-                                                <!--#datetimepickerSeg-->
+                                                #datetimepickerSeg
                                                 <input id="quarta-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
                                             </td>
                                             <td class="in"> 
                                                 <input id="quarta-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
                                             </td>
                                         </tr>
-                                        <!--QUINTA-->
+                                        QUINTA
                                         <tr class="textTR quinta">
                                             <td>
                                                 <input id="quinta-check" type="checkbox" class="check"/>
                                             </td>
                                             <td class="in">Quinta       </td>
                                             <td class="in"> 
-                                                <!--#datetimepickerSeg-->
+                                                #datetimepickerSeg
                                                 <input id="quinta-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
                                             </td>
                                             <td class="in"> 
                                                 <input id="quinta-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
                                             </td>
                                         </tr>
-                                        <!--SEXTA-->
+                                        SEXTA
                                         <tr class="textTR sexta">
                                             <td>
                                                 <input id="sex-check" type="checkbox" class="check"/>
                                             </td>
                                             <td class="in">Sexta        </td>
                                             <td class="in"> 
-                                                <!--#datetimepickerSeg-->
+                                                #datetimepickerSeg
                                                 <input id="sex-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
                                             </td>
                                             <td class="in"> 
                                                 <input id="sex-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
                                             </td>
                                         </tr>
-                                        <!--SABADO-->
+                                        SABADO
                                         <tr class="textTR sabado">
                                             <td>
                                                 <input id="sab-check" type="checkbox" class="check"/>
                                             </td>
                                             <td class="in">Sábado       </td>
                                             <td class="in"> 
-                                                <!--#datetimepickerSeg-->
+                                                #datetimepickerSeg
                                                 <input id="sab-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
                                             </td>
                                             <td class="in"> 
                                                 <input id="sab-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
                                             </td>
                                         </tr>
-                                        <!--DOMINGO-->
+                                        DOMINGO
                                         <tr class="textTR domingo">
                                             <td>
                                                 <input id="dom-check" type="checkbox" class="check"/>
                                             </td>
                                             <td class="in">Domingo       </td>
                                             <td class="in"> 
-                                                <!--#datetimepickerSeg-->
+                                                #datetimepickerSeg
                                                 <input id="dom-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
                                             </td>
                                             <td class="in"> 
@@ -262,7 +240,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
+                            </div>-->
                             <div class="lunch-box dados-child">
                                 <div class="dado lunch">
                                     <label for="lunchBreak">Pausa para almoço</label>
@@ -388,9 +366,15 @@
                                 </table>
                             </div>
                             <p class="nota-resumo">NOTA: Estes valores são obtidos para painéis virados a sul com 35º de Inclinação (condições ideais)</p>
+                            <p class="nota-resumo">NOTA: No âmbito do POSEUR apenas são elegíveis investimentos em UPAC e desde que façam parte de soluções integradas que visem a eficiência energética do edifício. Apenas a UPAC é susceptível de alteração da classe energética do edifício. </p>
                             
                             <div class="resumo-box">
-                                <div class="dados-child">
+                                <div class="dados-child">                                       
+                                    <div class="dado new-ar">
+                                        <!--Potencia instalada-->
+                                        <label for="newArea">Inserir nova área para a Central Solar</label>
+                                        <input id="newArea" type="number" name="newArea" value="" placeholder="Insira a nova area" class="new-area-in"/>
+                                    </div>
                                     <div class="dado new-pot">
                                         <!--Potencia instalada-->
                                         <label for="newPotencia">Inserir nova potência para a Central Solar UPP</label>
@@ -401,11 +385,6 @@
                                         <label for="newPotenciaUpac">Inserir nova potência para a Central Solar UPAC</label>
                                         <input id="newPotenciaUpac" type="number" name="newPotenciaUpac" value="" placeholder="Insira nova a potência" class="new-pot-in"/>
                                     </div>
-                                    <div class="dado new-ar">
-                                        <!--Potencia instalada-->
-                                        <label for="newArea">Inserir nova área para a Central Solar</label>
-                                        <input id="newArea" type="number" name="newArea" value="" placeholder="Insira a nova area" class="new-area-in"/>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -413,7 +392,7 @@
                         <div class="but-2">
                             <!--.but-view (hidden)-->
                             <button type="button" onclick="prevStep()" class="but anterior">Anterior</button>
-                            <button type="submit" onclick="nextStep()" class="but seguinte">Próximo</button>
+                            <button type="button" class="but seguinte">Próximo</button>
                             <!--button.but.seguinte(type="button" onclick="addData()" /*disabled*/) teste-->
 
                         </div>
@@ -432,6 +411,7 @@
                             <span class="print_text">Deseja imprimir?
                                 <button type="button" onclick="printJS('upp-table', 'html')" class="print_link">Clique aqui</button></span>
                         </div>
+                        </form>
                     </div>
 
                     <!--.graph
@@ -441,5 +421,6 @@
                 <div class="col-md-7d-none d-md-block"></div>
             </div>
         </main>
+      
     </body>
 </html>
