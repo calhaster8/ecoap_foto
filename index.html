@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css"/>
         <link rel="stylesheet" href="css/main.css"/>
         <link rel="shortcut icon" href="img/logo-head-small.png" type="image/png"/>
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="js/calculator2.js"></script>
         <script src="js/info2.js"></script>
@@ -18,7 +18,7 @@
         <script src="js/resumo.js"></script>
         <script src="js/globals.js"></script>
         <script src="js/graph.js"></script>
-        <script src="dist/inputmask/inputmask.js"></script>
+<!--        <script src="dist/inputmask/inputmask.js"></script>
         <script src="dist/inputmask/inputmask.extensions.js"></script>
         <script src="dist/inputmask/inputmask.numeric.extensions.js"></script>
         <script src="dist/inputmask/inputmask.date.extensions.js"></script>
@@ -26,10 +26,9 @@
         <script src="dist/inputmask/jquery.inputmask.js"></script>
         <script src="dist/inputmask/phone-codes/phone.js"></script>
         <script src="dist/inputmask/phone-codes/phone-be.js"></script>
-        <script src="dist/inputmask/phone-codes/phone-ru.js"></script>
+        <script src="dist/inputmask/phone-codes/phone-ru.js"></script>-->
         <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
-<!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>-->
         <title>Calculadora - Solar Fotovoltaico</title>
     </head>
     <body>
@@ -66,7 +65,7 @@
                                 <div class="dado pot">
                                     <!--Potencia contratada-->
                                     <label for="potencia">Potência contratada</label><label style="font-size:14px;">(Usar "." (ponto) como separador das casas decimais)</label>
-                                    <input id="potencia" type="number" name="potencia" placeholder="Insira a potência contratada (Ex: 12.23)" class="pot-in"/>
+                                    <input id="potencia" type="number" name="potencia" placeholder="Insira a potência contratada (Ex: 12.23)" class="pot-in" step="0.1" min="1" />
                                 </div>
                                 <div class="dado ctarif">
                                     <!--Ciclo tarifario-->

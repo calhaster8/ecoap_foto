@@ -127,7 +127,8 @@ $(document).ready(function () {
             },
             potencia: {
                 required: true,
-                min: 1
+                min: 1,
+                step: 0.1
             },
             cicloTarifario: {
                 //required: ( $("#ntensao").val()!="" && $("#ntensao").val()!=undefined && ( $("#ntensao").val()==0 || $("#ntensao").val()==1 || $("#ntensao").val()==2 ) ? true : false) 
@@ -188,7 +189,8 @@ $(document).ready(function () {
             },
             potencia: {
                 required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
-                min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior que zero.</label>'
+                min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior que zero.</label>',
+                step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 0.1</label>' 
             },
             cicloTarifario: {
                 required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>'
