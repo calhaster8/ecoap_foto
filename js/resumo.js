@@ -6,7 +6,7 @@ function uppPotenciaCalc() {
     //todo extract hardcoded value to info
     potencia_max_area = new Number($("#newArea").val());
     potencia_max_contratada = new Number($("#potencia").val());
-
+    potencia_new_contratada = new Number($("#newPotencia").val());
     pept_value = new Number($('#peptInstalada').val());
 
     potencia_array = [
@@ -82,9 +82,9 @@ function uppResultados() {
 
     upp_resultados_prod_volt = upp_resultados_pc * pept_value;  //upp_resultados_pc/potencia_max_pe_pi;
 
-    var consumo_producao = getConsumo(consumoLetter, cicloHorarioLetter, i);
+    //var consumo_producao = getConsumo(consumoLetter, cicloHorarioLetter, i);
 
-    upp_resultados_reducao_dep_ene = (upp_resultados_prod_volt / consumo_producao) * 100;
+    upp_resultados_reducao_dep_ene = (upp_resultados_prod_volt / consumo_anual) * 100;
 
     upp_resultados_custos_energia = getUppCustosComEnergia(); // analisar folha
     upp_resultados_custos_php = getUppCustosComPhp(); //analisar folha 

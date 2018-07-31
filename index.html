@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="dado pot">
                                     <!--Potencia contratada-->
-                                    <label for="potencia">Potência contratada</label><label style="font-size:14px;">(Usar "." (ponto) como separador das casas decimais)</label>
+                                    <label for="potencia">Potência contratada</label>
                                     <input id="potencia" type="number" name="potencia" placeholder="Insira a potência contratada (Ex: 12.23)" class="pot-in" step="0.1" min="1" />
                                 </div>
                                 <div class="dado ctarif">
@@ -373,7 +373,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <p class="nota-resumo">NOTA: Estes valores são obtidos para painéis virados a sul com 35º de Inclinação (condições ideais)</p>
+                            <p class="nota-resumo">NOTA: Estes valores são obtidos para módulos solares virados a sul com 35º de Inclinação (condições ideais) e a potência da central corresponde à potência nominal sendo equivalente a potência de ligação.</p>
                             <p class="nota-resumo">NOTA: No âmbito do POSEUR apenas são elegíveis investimentos em UPAC e desde que façam parte de soluções integradas que visem a eficiência energética do edifício. Apenas a UPAC é susceptível de alteração da classe energética do edifício. </p>
                             
                             <div class="resumo-box">
@@ -381,17 +381,17 @@
                                     <div class="dado new-ar">
                                         <!--Potencia instalada-->
                                         <label for="newArea">Inserir nova área para a Central Solar</label>
-                                        <input id="newArea" type="number" name="newArea" value="" placeholder="Insira a nova area" class="new-area-in"/>
+                                        <input id="newArea" type="number" name="newArea"  min="1" step="0.1" placeholder="Insira a nova area" class="new-area-in"/>
                                     </div>
                                     <div class="dado new-pot">
                                         <!--Potencia instalada-->
                                         <label for="newPotencia">Inserir nova potência para a Central Solar UPP</label>
-                                        <input id="newPotencia" type="number" name="newPotencia" value="" placeholder="Insira nova a potência" class="new-pot-in"/>
+                                        <input id="newPotencia" type="number" name="newPotencia"  min="1" step="0.1" max="250"  placeholder="Insira nova a potência" class="new-pot-in"/>
                                     </div>
                                     <div class="dado new-pot">
                                         <!--Potencia instalada-->
                                         <label for="newPotenciaUpac">Inserir nova potência para a Central Solar UPAC</label>
-                                        <input id="newPotenciaUpac" type="number" name="newPotenciaUpac" value="" placeholder="Insira nova a potência" class="new-pot-in"/>
+                                        <input id="newPotenciaUpac" type="number" name="newPotenciaUpac" min="1" step="0.1" max="1000" placeholder="Insira nova a potência" class="new-pot-in"/>
                                     </div>
                                 </div>
                             </div>

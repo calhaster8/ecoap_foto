@@ -21,7 +21,7 @@ $(document).ready(function () {
     });
 
     // TIMER PICKER INPUTMASK
-    $('[data-mask]').inputmask("hh:mm");
+//    $('[data-mask]').inputmask("hh:mm");
 
     //Consumo picker INPUTMASK
     //$('[data-mask]').inputmask("x.xx");
@@ -173,6 +173,20 @@ $(document).ready(function () {
                         return false;
                     }
                 }
+            },
+            newArea: {
+                min: 1,
+                step: 0.1
+            },
+            newPotencia:{
+                min: 1,
+                step: 0.1,
+                max: 250
+            },
+            newPotenciaUpac: {
+                min: 1,
+                step: 0.1,
+                max: 1000
             }
 
         },
@@ -220,8 +234,21 @@ $(document).ready(function () {
             },
             vacationsTime: {
                 required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>'
-            }
-            
+            },
+            newArea: {
+                min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior ou igual que 1.</label>',
+                step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 0.1</label>' 
+            },
+            newPotencia:{
+                min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior ou igual que 1.</label>',
+                step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 0.1</label>' ,
+                max: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre menor ou igual que 250.</label>'
+            },
+            newPotenciaUpac: {
+                min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior ou igual que 1.</label>',
+                step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 0.1</label>' ,
+                max: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre menor ou igual que 1000.</label>'
+            }            
         }
 
     });
@@ -376,7 +403,7 @@ function buildTarifario() {
         //append to tarifarios a table with correct data
         $("#tarifarioNome").html(ciclo_horarioI[idcicloHorario].nome);
         //var hr = '<hr>';
-        var tabletarifasTitle = '<span>Tarifário</span><br><label style="font-size:14px;text-transform:none; font-weight:nromal;">* Usar "." (ponto) como separador das casas decimais</label>';
+        var tabletarifasTitle = '<span>Tarifário</span>';
         var tabletarifasNota = '<span>Introduzir custos unitários de energia, incluindo tarifas de acesso às redes</span><br><br>';
         var tabletarifas = '<table class="table table-bordered" id="tableTarif"><tbody><tr style="font-weight:bold;"><th class="tituloTH">Ciclos</th><th class="tituloTH">Custos (€\/kWh) *</th></tr>';
         for (i = 0; i < ciclo_horarioI[idcicloHorario].periodoTarifario.length; i++) {
@@ -384,7 +411,7 @@ function buildTarifario() {
                 tabletarifas += '<tr><th colspan=2 class="tituloTH">Custo (€/kWh.dia) *</th></tr>';
                 tabletarifas += '<tr class="textTR">';
                 tabletarifas += '<td class="in">' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].nome +
-                        '</td><td class="in"><input required class="form-control xInput" step="0.00001" type="number" placeholder="Ex: 0.10 " id="' +
+                        '</td><td class="in"><input required class="form-control xInput" min="0" step="0.0001" max="1" type="number" placeholder="Ex: 0.10 " id="' +
                         ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + ciclo_horarioI[idcicloHorario].valor + '" name="' +
                         ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + ciclo_horarioI[idcicloHorario].valor + '"></td>';
                 tabletarifas += '</tr>';
@@ -393,7 +420,7 @@ function buildTarifario() {
             
                 tabletarifas += '<tr class="textTR">';
                 tabletarifas += '<td class="in">' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].nome +
-                        '</td><td class="in"><input required class="form-control xInput" step="0.00001" type="number" placeholder="Ex: 0.10 " id="' +
+                        '</td><td class="in"><input required class="form-control xInput" min="0" step="0.0001" max="1" type="number" placeholder="Ex: 0.10 " id="' +
                         ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + ciclo_horarioI[idcicloHorario].valor + '" name="' +
                         ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + ciclo_horarioI[idcicloHorario].valor + '"></td>';
                 tabletarifas += '</tr>';
@@ -412,12 +439,12 @@ function buildTarifario() {
                 required: true,
                 min: 0,
                 number: true,
-                step: 0.00001,
+                max: 1,
                 messages: {
                     required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
-                    min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
-                    number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>',
-                    step: '<label style="font-size: 14px; color: red;">O número só deverá conter conter no máx. 5 casas decimais. Ex: 0.00001</label>',
+                    min: '<label style="font-size: 14px; color: red;">O custo tem que ser maior que 0.</label>',
+                    max: '<label style="font-size: 14px; color: red;">O custo tem que ser menor a 1.</label>',
+                    number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>'
                 }
             });
             
@@ -805,13 +832,19 @@ function prevStep() {
         $('.analise').hide();
         $('.print_pdf').hide();
         $(".reload-but").hide();
+        $("#newArea").val("");
+        $("#newPotencia").val("");
+        $("#newPotenciaUpac").val("");
         $('.end-step').show();
     }
 
     if (prevId == 4) {
         $('.analise').hide();
         $('.but-2').hide();
-        $('.print_pdf').hide();
+        $('.print_pdf').hide();        
+        $("#newArea").val("");
+        $("#newPotencia").val("");
+        $("#newPotenciaUpac").val("");
         $('.end-step').show();
     }
 }
