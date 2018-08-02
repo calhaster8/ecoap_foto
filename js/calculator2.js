@@ -128,7 +128,8 @@ $(document).ready(function () {
             potencia: {
                 required: true,
                 min: 1,
-                step: 0.1
+                step: 0.1,
+                number: true
             },
             cicloTarifario: {
                 //required: ( $("#ntensao").val()!="" && $("#ntensao").val()!=undefined && ( $("#ntensao").val()==0 || $("#ntensao").val()==1 || $("#ntensao").val()==2 ) ? true : false) 
@@ -181,12 +182,26 @@ $(document).ready(function () {
             newPotencia:{
                 min: 1,
                 step: 0.1,
-                max: 250
+                max: function (element) {
+
+                    if ($("#newPotencia").val() != "" && $("#newPotencia").val() != undefined && $("#newPotencia").val() > potencia_upp) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
             },
             newPotenciaUpac: {
                 min: 1,
                 step: 0.1,
-                max: 1000
+                max: function (element) {
+
+                    if ($("#newPotenciaUpac").val() != "" && $("#newPotenciaUpac").val() != undefined && $("#newPotenciaUpac").val()>potencia_upac) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
             }
 
         },
@@ -204,7 +219,8 @@ $(document).ready(function () {
             potencia: {
                 required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
                 min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior que zero.</label>',
-                step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 0.1</label>' 
+                step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 0.1</label>' ,
+                number: '<label style="font-size: 14px; color: red;">Introduza um número válido. Ex: 13.2 </label>'
             },
             cicloTarifario: {
                 required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>'
@@ -242,16 +258,32 @@ $(document).ready(function () {
             newPotencia:{
                 min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior ou igual que 1.</label>',
                 step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 0.1</label>' ,
-                max: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre menor ou igual que 250.</label>'
+                max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido: Potência da central limitada pelo consumo da instalação</label>'
             },
             newPotenciaUpac: {
                 min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior ou igual que 1.</label>',
                 step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 0.1</label>' ,
-                max: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre menor ou igual que 1000.</label>'
+                max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido: Potência da central limitada pelo consumo da instalação</label>'
             }            
         }
 
     });
+    /**
+     * newPotencia:{
+                min: 1,
+                step: 0.1,
+                max: 250
+            },
+            newPotenciaUpac: 
+     */
+    $("#newPotencia").change(function(){
+        var npot = $(this).val();
+        if(npot!="" && npot!=undefined && npot>potencia_upac){
+            $("#newPotencia")
+        }
+    });
+    
+    
 
     $(".seguinte").click(function () {
         if ($("#fotovoltaico").valid()) {
@@ -405,10 +437,10 @@ function buildTarifario() {
         //var hr = '<hr>';
         var tabletarifasTitle = '<span>Tarifário</span>';
         var tabletarifasNota = '<span>Introduzir custos unitários de energia, incluindo tarifas de acesso às redes</span><br><br>';
-        var tabletarifas = '<table class="table table-bordered" id="tableTarif"><tbody><tr style="font-weight:bold;"><th class="tituloTH">Ciclos</th><th class="tituloTH">Custos (€\/kWh) *</th></tr>';
+        var tabletarifas = '<table class="table table-bordered" id="tableTarif"><tbody><tr style="font-weight:bold;"><th class="tituloTH">Ciclos</th><th class="tituloTH">Custos (€\/kWh)</th></tr>';
         for (i = 0; i < ciclo_horarioI[idcicloHorario].periodoTarifario.length; i++) {
             if (i == 4) {
-                tabletarifas += '<tr><th colspan=2 class="tituloTH">Custo (€/kWh.dia) *</th></tr>';
+                tabletarifas += '<tr><th colspan=2 class="tituloTH">Custo (€/kWh.dia)</th></tr>';
                 tabletarifas += '<tr class="textTR">';
                 tabletarifas += '<td class="in">' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].nome +
                         '</td><td class="in"><input required class="form-control xInput" min="0" step="0.0001" max="1" type="number" placeholder="Ex: 0.10 " id="' +

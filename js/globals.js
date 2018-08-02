@@ -38,8 +38,8 @@ var upacExcedenteValue=0;
 var upacExcedentePerc=0;
 
 var curvaFinal = [];
-
-var potencia_upac =0;
+var potencia_upp = 0;
+var potencia_upac = 0;
 var producaoFotovoltaica = 0;
 
 var consumos_balanco_prd = [];
