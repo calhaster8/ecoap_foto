@@ -624,7 +624,7 @@ function buildConsumos() {
                         messages: {
                             required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
                             min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
-                            digits: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,).</label>',
+                            digits: '<label style="font-size: 14px; color: red;">Introduza um número inteiro</label>',
                             step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 1.</label>',
                         }
                     });
@@ -637,7 +637,7 @@ function buildConsumos() {
                         messages: {
                             required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
                             min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
-                            digits: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,).</label>',
+                            digits: '<label style="font-size: 14px; color: red;">Introduza um número inteiro</label>',
                             step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 1.</label>',
                         }
                     });
