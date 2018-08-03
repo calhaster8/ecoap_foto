@@ -183,24 +183,14 @@ $(document).ready(function () {
                 min: 1,
                 step: 0.1,
                 max: function (element) {
-
-                    if ($("#newPotencia").val() != "" && $("#newPotencia").val() != undefined && $("#newPotencia").val() > potencia_upp) {
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    return potencia_upp;
                 }
             },
             newPotenciaUpac: {
                 min: 1,
                 step: 0.1,
-                max: function (element) {
-
-                    if ($("#newPotenciaUpac").val() != "" && $("#newPotenciaUpac").val() != undefined && $("#newPotenciaUpac").val()>potencia_upac) {
-                        return true;
-                    } else {
-                        return false;
-                    }
+                max:  function (element) {
+                    return potencia_upac;
                 }
             }
 
@@ -268,20 +258,7 @@ $(document).ready(function () {
         }
 
     });
-    /**
-     * newPotencia:{
-                min: 1,
-                step: 0.1,
-                max: 250
-            },
-            newPotenciaUpac: 
-     */
-    $("#newPotencia").change(function(){
-        var npot = $(this).val();
-        if(npot!="" && npot!=undefined && npot>potencia_upac){
-            $("#newPotencia")
-        }
-    });
+  
     
     
 
