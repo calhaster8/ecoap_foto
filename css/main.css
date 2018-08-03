@@ -738,7 +738,7 @@ body {
     .main.container .main-content .end-step .print_text,
     .main.container .main-content .analise .print_text,
     .main.container .main-content .print_pdf .print_text {
-      color: #696969;
+      color: #4D4D4D;
       font-size: 1.05em; }
       .main.container .main-content .but-2 .print_text .print_link,
       .main.container .main-content .end-step .print_text .print_link,
@@ -747,6 +747,7 @@ body {
         margin-left: 5px;
         background-color: transparent;
         border: none;
+        text-decoration: underline;
         color: #0099cc; }
         .main.container .main-content .but-2 .print_text .print_link:hover,
         .main.container .main-content .end-step .print_text .print_link:hover,

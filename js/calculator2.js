@@ -339,12 +339,12 @@ function buildTarifario() {
         //append to tarifarios a table with correct data
         $("#tarifarioNome").html(ciclo_horarioI[idcicloHorario].nome);
         //var hr = '<hr>';
-        var tabletarifasTitle = '<span>Tarifário</span><br><label style="font-size:14px;text-transform:none; font-weight:nromal;">* Usar "." (ponto) como separador das casas decimais</label>';
+        var tabletarifasTitle = '<span>Tarifário</span>';
         var tabletarifasNota = '<span>Introduzir custos unitários de energia, incluindo tarifas de acesso às redes</span><br><br>';
-        var tabletarifas = '<table class="table table-bordered" id="tableTarif"><tbody><tr style="font-weight:bold;"><th class="tituloTH">Ciclos</th><th class="tituloTH">Custos (€\/kWh) *</th></tr>';
+        var tabletarifas = '<table class="table table-bordered" id="tableTarif"><tbody><tr style="font-weight:bold;"><th class="tituloTH">Ciclos</th><th class="tituloTH">Custos (€\/kWh)</th></tr>';
         for (i = 0; i < ciclo_horarioI[idcicloHorario].periodoTarifario.length; i++) {
             if (i == 4) {
-                tabletarifas += '<tr><th colspan=2 class="tituloTH">Custo (€/kWh.dia) *</th></tr>';
+                tabletarifas += '<tr><th colspan=2 class="tituloTH">Custo (€/kWh.dia)</th></tr>';
                 tabletarifas += '<tr class="textTR">';
                 tabletarifas += '<td class="in">' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].nome +
                         '</td><td class="in"><input required class="form-control xInput" step="0.00001" type="number" placeholder="Ex: 0.10 " id="' +
@@ -374,12 +374,12 @@ function buildTarifario() {
             $('#' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + ciclo_horarioI[idcicloHorario].valor).rules("add", {
                 required: true,
                 min: 0,
-                digits: true,
+                number: true,
                 step: 0.00001,
                 messages: {
                     required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
                     min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
-                    digits: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,).</label>',
+                    number: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,).</label>',
                     step: '<label style="font-size: 14px; color: red;">O número só deverá conter conter no máx. 5 casas decimais. Ex: 0.00001</label>',
                 }
             });
