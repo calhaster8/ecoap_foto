@@ -26,7 +26,9 @@ function uppPotenciaCalc() {
 
     uppConsumoAnual = (potencia_upp > 250 ? 250 : potencia_upp);
 
-    if (potencia_new_contratada != "" && potencia_new_contratada != null && potencia_new_contratada != undefined && potencia_new_contratada > 0 && (potencia_max_area == "" || potencia_max_area == null || potencia_max_area == undefined || potencia_max_area == 0)) {
+    if (potencia_new_contratada != "" && potencia_new_contratada != null && potencia_new_contratada != undefined && 
+            potencia_new_contratada > 0 && 
+            (potencia_max_area == "" || potencia_max_area == null || potencia_max_area == undefined || potencia_max_area == 0)) {
         uppConsumoAnual = potencia_new_contratada > 250 ? 250 : potencia_new_contratada;
     } else if ((potencia_new_contratada == "" || potencia_new_contratada == null || potencia_new_contratada == undefined || potencia_new_contratada == 0) && (potencia_max_area != "" && potencia_max_area != null && potencia_max_area != undefined && potencia_max_area > 0)) {
         //todo if needed
@@ -862,7 +864,7 @@ function upacPotenciaCalc() {
         potencia_upac = potencia_new_contratada_upac > minimo ? minimo : potencia_new_contratada_upac;
     } else if ((potencia_new_contratada_upac == "" || potencia_new_contratada_upac == null || potencia_new_contratada_upac == undefined || potencia_new_contratada_upac == 0) && (potencia_max_area_upac != "" && potencia_max_area_upac != null && potencia_max_area_upac != undefined && potencia_max_area_upac > 0)) {
          potencia_upac = minimo;
-    } else if (potencia_new_contratada_upac != "" && potencia_new_contratada_upac != null && potencia_new_contratada_upac != undefined && potencia_new_contratada_upac > 0 && potencia_max_area_upac != "" && potencia_max_area_upac != null && potencia_max_area_upac != undefined && potencia_max_area_upac > 0 && potencia_new_contratada_upac < potencia_upac) {
+    } else if (potencia_new_contratada_upac != "" && potencia_new_contratada_upac != null && potencia_new_contratada_upac != undefined && potencia_new_contratada_upac > 0 && potencia_max_area_upac != "" && potencia_max_area_upac != null && potencia_max_area_upac != undefined && potencia_max_area_upac > 0 && potencia_new_contratada_upac < potencia_max_contratada_upac) {
         potencia_upac = potencia_new_contratada_upac;
     }else{
         potencia_upac = minimo;

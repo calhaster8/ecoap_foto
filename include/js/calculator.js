@@ -4,27 +4,18 @@ $(document).ready(function () {
     buildHorarioFuncionamento();
     buildVacations();
     buildSelectConsumos();
-    //buildGraphFinal();
     somaRow();
-
 
     $("#cenarios").change(buildHorariosFuncionamento);
 
     $("#distrito").change(getDistrictValues);
     $("#ntensao").change(getNTensionValues);
-    //$("#potencia").change(buildCHorarioPotencia);
     $("#cicloHorario").change(buildTarifario);
     $("#cicloHorario").select(buildTarifario);
     $("#facturas").change(buildConsumos);
     $('#cicloTarifario').change(function () {
         cicloTarifario = $(this).val();
     });
-
-    // TIMER PICKER INPUTMASK
-//    $('[data-mask]').inputmask("hh:mm");
-
-    //Consumo picker INPUTMASK
-    //$('[data-mask]').inputmask("x.xx");
 
     $('#reload-but').click(function () {
         location.reload();
@@ -38,29 +29,12 @@ $(document).ready(function () {
     $('#newPotenciaUpac').change(function () {
         potencia_new_contratada_upac = new Number($('#newPotenciaUpac').val());
     });
-
-    //SUBMIT DADOS
-//    $('#analise-but').click(function () {
-//        uppResultados();
-//        upacResultados();
-//        nextStep();
-//    });
-
+    
     //REANALISE DADOS
     $('.reanalise').click(function () {
         uppResultados();
         upacResultados();
     });
-
-
-    //REFRESH WARNING
-    /*
-     $(window).bind('beforeunload', function () {
-     return 'Poderá perder os seus dados';
-     })*/
-
-    //BUTTON DISABLING
-
 
 
 
@@ -77,40 +51,6 @@ $(document).ready(function () {
             $("#otherCenario").show();
         } else {
             $("#otherCenario").hide();
-        }
-    });
-
-    //Timepicker
-    /*$('.timepickerStart').timepicker({
-     showInputs: false,
-     showMeridian: false,
-     maxHours: 24,
-     minuteStep: 1,
-     defaultTime: '00:00'
-     });
-     $('.timepickerEnd').timepicker({
-     showInputs: false,
-     showMeridian: false,
-     maxHours: 24,
-     minuteStep: 1,
-     defaultTime: '00:00'
-     });*/
-
-    //disable timepickers
-    $('.timepickerStart').attr('disabled', true);
-    $('.timepickerEnd').attr('disabled', true);
-
-    $('.checkBox').change(function () {
-        if ($(this)[0].checked == true) {
-            $('#timepicker' + $(this).val() + 'Start').removeAttr('disabled');
-            $('#timepicker' + $(this).val() + 'End').removeAttr('disabled');
-            $('#timepicker' + $(this).val() + 'Start').val('09:00');
-            $('#timepicker' + $(this).val() + 'End').val('17:00');
-        } else {
-            $('#timepicker' + $(this).val() + 'Start').attr('disabled', true);
-            $('#timepicker' + $(this).val() + 'End').attr('disabled', true);
-            $('#timepicker' + $(this).val() + 'Start').val('00:00');
-            $('#timepicker' + $(this).val() + 'End').val('00:00');
         }
     });
 
@@ -453,7 +393,7 @@ function buildTarifario() {
                     required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
                     min: '<label style="font-size: 14px; color: red;">O custo tem que ser maior que 0.</label>',
                     max: '<label style="font-size: 14px; color: red;">O custo tem que ser menor a 1.</label>',
-                    number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>'
+                    number: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,). Ex: 10.0</label>'
                 }
             });
             
@@ -663,6 +603,7 @@ function buildConsumos() {
                             min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
                             digits: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>',
                             step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 1.</label>',
+                            number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>'
                         }
                     });
 
@@ -677,6 +618,7 @@ function buildConsumos() {
                             min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
                             digits: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>',
                             step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 1.</label>',
+                            number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>'
                         }
                     });
                 }
@@ -699,6 +641,7 @@ function buildConsumos() {
                             min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
                             digits: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>',
                             step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 1.</label>',
+                            number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>'
                         }
                     });
                 } else if (j == 1 && i >= 0) {
@@ -712,6 +655,7 @@ function buildConsumos() {
                             min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
                             digits: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>',
                             step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 1.</label>',
+                            number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>'
                         }
                     });
                 }
@@ -738,6 +682,7 @@ function buildConsumos() {
                             min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
                             digits: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>',
                             step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 1.</label>',
+                            number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>'
                         }
                     });
                 } else if (j > 0 && i >= 0) {
@@ -751,6 +696,7 @@ function buildConsumos() {
                             min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
                             digits: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>',
                             step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 1.</label>',
+                            number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>'
                         }
                     });
                 }
@@ -763,34 +709,6 @@ function buildConsumos() {
 
 
 
-// HORARIOS CUSTOM
-/*function buildHorariosCustom() {
- //tarifario
- var timeChoice = new Number($("#cenarios").val());
- 
- if(timeChoice == 3) {
- var customTable = '<table class="table table-bordered table-striped"><tbody><tr style="font-weight:bold;"><th class="tituloTH">&nbsp</th><th class="tituloTH">Dia da semana</th><th class="tituloTH">Horário de entrada</th><th class="tituloTH">Horário de saída</th>';
- }
- if (ciclo_horarioI[idcicloHorario] != undefined && ciclo_horarioI[idcicloHorario] != null) {
- //append to tarifarios a table with correct data
- $("#tarifarioNome").html(ciclo_horarioI[idcicloHorario].nome);
- //var hr = '<hr>';
- var tabletarifasTitle = '<span>Tarifário</span>';
- var tabletarifas = '<table class="table table-bordered" id="tableTarif"><tbody><tr style="font-weight:bold;"><th class="tituloTH">Ciclos</th><th class="tituloTH">Custos (€\/kWh)</th></tr>';
- for (i = 0; i < ciclo_horarioI[idcicloHorario].periodoTarifario.length; i++) {
- tabletarifas += '<tr class="textTR">';
- tabletarifas += '<td class="in">' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].nome +
- '</td><td class="in"><input class="form-control xInput" type="text" placeholder="X,XXX" id="' +
- ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + ciclo_horarioI[idcicloHorario].valor + '" name="' +
- ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + ciclo_horarioI[idcicloHorario].valor + '"></td>';
- tabletarifas += '</tr>';
- }
- //$('.hr-line').html(hr);
- $('.dados-titulo.second').html(tabletarifasTitle);
- $("#tarifarios").html(tabletarifas + '</tbody></table>');
- buildConsumos();
- }
- }*/
 
 
 // BUTTONS STEPS
