@@ -458,10 +458,6 @@ function buildConsumos() {
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '" name="mensal_' +
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '"></td>';
 
-                    /*consumosTable += '<td class="in"><input class="form-control txtCal" type="text" name="mensal_vazio" placeholder="ex: 100" id="mensal_' +
-                     ciclo_horarioI[idcicloHorarioLetter].periodoTarifario[i].valor + '"></td>';*/
-
-
                     //consumosTable += '<td><label id="total_mensal"></label></td>';
                     consumosTable += '<td class="in" id="totalMensal"></td>';
                     // id standard = somatorio_ufm_th
@@ -470,9 +466,7 @@ function buildConsumos() {
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '" name="mensal_' +
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '"></td>';
 
-                    /*consumosTable += '<td class="in"><input class="form-control txtCal" type="text" name="mensal_ponta" placeholder="ex: 100" id="mensal_' +
-                     ciclo_horarioI[idcicloHorarioLetter].periodoTarifario[i].valor + '"></td>';*/
-
+                  
                 } else if (j == 2 && ciclo_horarioI[idcicloHorario].valor == 4 && i == colunas - 1) {
                     //do nothing
                     consumosTable += '<td class="in" id="total_anual"></td>';

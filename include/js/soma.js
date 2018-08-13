@@ -1,6 +1,5 @@
 function somaRow() {
-    //var idcicloHorarioLetter = new Number($("#cicloHorarioLetter").val()) - 1;
-    //var consumos = new Number($("#facturas").val());
+    
 
     // UFM, CA, 12F
     consumoLetter = $('#facturas').val();

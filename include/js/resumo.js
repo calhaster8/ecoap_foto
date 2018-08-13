@@ -76,16 +76,14 @@ function uppResultados() {
     upp_resultados_pc = potencia_upp_call;
 
     //todo extract hardcoded value to info
-    upp_resultados_n_paineis = upp_resultados_pc / 0.275; //Info C157
-    upp_resultados_area_ocupada = potencia_max_area > 0 && (upp_resultados_n_paineis * 1.7 / 0.8) > potencia_max_area ? potencia_max_area : upp_resultados_n_paineis * 1.7 / 0.8; // * Info C158 / 0.8
+    upp_resultados_n_paineis = upp_resultados_pc / 0.275; 
+    upp_resultados_area_ocupada = potencia_max_area > 0 && (upp_resultados_n_paineis * 1.7 / 0.8) > potencia_max_area ? potencia_max_area : upp_resultados_n_paineis * 1.7 / 0.8; 
     if (potencia_new_area == 0) {
         potencia_new_area = upp_resultados_area_ocupada;
     }
 
-    upp_resultados_prod_volt = upp_resultados_pc * pept_value;  //upp_resultados_pc/potencia_max_pe_pi;
-
-    //var consumo_producao = getConsumo(consumoLetter, cicloHorarioLetter, i);
-
+    upp_resultados_prod_volt = upp_resultados_pc * pept_value;  
+    
     upp_resultados_reducao_dep_ene = (upp_resultados_prod_volt / consumo_anual) * 100;
 
     upp_resultados_custos_energia = getUppCustosComEnergia(); // analisar folha
@@ -309,7 +307,6 @@ function getConsumo(consumoLetter, cicloHorarioLetter, mes) {
             //consumoLetter
             var consumo_ufm_bh_foravazio = new Number($("#mensal_fora_vazio").val());
             var consumo_ufm_bh_vazio = new Number($("#mensal_vazio").val());
-            //var somatorio_ufm_bh = new Number(consumo_ufm_bh_foravazio + consumo_ufm_bh_vazio);
             //anuais
             somatorio_anual_ufm_bh_foravazio = consumo_ufm_bh_foravazio * 12;
             somatorio_anual_ufm_bh_vazio = consumo_ufm_bh_vazio * 12;
