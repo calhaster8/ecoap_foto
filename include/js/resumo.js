@@ -759,10 +759,8 @@ function upacResultados() {
     //curva de produção da upac
     upac_resultados_prod_volt = upac_resultados_pc * pept_value;  //upp_resultados_pc/potencia_max_pe_pi;
 
-    var consumo_producao = getConsumo(consumoLetter, cicloHorarioLetter, i);
-
     var excedente_resultados_perc_upac = upacExcedentePerc * 100;    //todo extract hardcoded value to info
-    upac_resultados_reducao_dep_ene = ((upac_resultados_prod_volt - upacExcedenteValue) / consumo_producao) * 100;
+    upac_resultados_reducao_dep_ene = ((upac_resultados_prod_volt - upacExcedenteValue) / consumo_anual) * 100;
 
     upac_resultados_custos_energia = getUppCustosComEnergia();
     upac_resultados_custos_php = getUppCustosComPhp();

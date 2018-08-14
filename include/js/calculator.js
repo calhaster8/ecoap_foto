@@ -68,7 +68,7 @@ $(document).ready(function () {
             potencia: {
                 required: true,
                 min: 1,
-                step: 0.1,
+                step: 0.01,
                 number: true
             },
             cicloTarifario: {
@@ -117,19 +117,22 @@ $(document).ready(function () {
             },
             newArea: {
                 min: 1,
-                step: 0.1
+                step: 0.1,
+                number: true
             },
             newPotencia:{
                 min: 1,
                 step: 0.1,
-                max: function (element) {
+                number: true,
+                max: function () {
                     return potencia_upp;
                 }
             },
             newPotenciaUpac: {
                 min: 1,
                 step: 0.1,
-                max:  function (element) {
+                number: true,
+                max:  function () {
                     return potencia_upac;
                 }
             }
@@ -149,7 +152,7 @@ $(document).ready(function () {
             potencia: {
                 required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
                 min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior que zero.</label>',
-                step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 0.1</label>' ,
+                step: '<label style="font-size: 14px; color: red;">O passo de incremento deverá ser de 0.01</label>' ,
                 number: '<label style="font-size: 14px; color: red;">Introduza um número válido. Ex: 13.2 </label>'
             },
             cicloTarifario: {
@@ -183,17 +186,20 @@ $(document).ready(function () {
             },
             newArea: {
                 min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior ou igual que 1.</label>',
-                step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 0.1</label>' 
+                step: '<label style="font-size: 14px; color: red;">O passo de incremento deverá ser de 0.1</label>',
+                number: '<label style="font-size: 14px; color: red;">Introduza um número válido. Ex: 13.2 </label>'
             },
             newPotencia:{
                 min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior ou igual que 1.</label>',
-                step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 0.1</label>' ,
-                max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido: Potência da central limitada pelo consumo da instalação</label>'
+                step: '<label style="font-size: 14px; color: red;">O passo de incremento deverá ser de 0.1</label>' ,
+                max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido: Potência da central limitada pelo consumo da instalação</label>',
+                number: '<label style="font-size: 14px; color: red;">Introduza um número válido. Ex: 13.2 </label>'
             },
             newPotenciaUpac: {
                 min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior ou igual que 1.</label>',
-                step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 0.1</label>' ,
-                max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido: Potência da central limitada pelo consumo da instalação</label>'
+                step: '<label style="font-size: 14px; color: red;">O passo de incremento deverá ser de 0.1</label>' ,
+                max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido: Potência da central limitada pelo consumo da instalação</label>',
+                number: '<label style="font-size: 14px; color: red;">Introduza um número válido. Ex: 13.2 </label>'
             }            
         }
 
