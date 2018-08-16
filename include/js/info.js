@@ -1,10 +1,4 @@
 
-/*
- *
- * PEPtInstalada - Produção Especifica de Potência Instalada - kWh
- * PEArea - Produção Especifica de Área - kWh
- *
- */
 var distritosI = [
     {
         nome:"Aveiro", 
@@ -88,12 +82,6 @@ var distritosI = [
     }
 ];
 
-/**
- *
- * Ciclo Tarifário
- * nome (string)
- * valor (int - horas/ano)
- */
 var ciclo_tarifarioI = [
     {
         nome:"Semanal",
@@ -105,12 +93,6 @@ var ciclo_tarifarioI = [
     }
 ];
 
-
-/**
- *
- * Tarifa UPP	0,095	€/kWh
- *
- */	
 var tarifa_uppI = [
     {
         nome:"Categoria I",
@@ -126,24 +108,8 @@ var tarifa_uppI = [
     }
 ];
 
-
-/**
- *
- * Tarifa UPAC	0,047	€/kWh
- *
- */	
 var tarifa_upacI = 0.047;
 
-
-/**
- *
- * Investimento  (€/kWp)
- * nome (string)
- * min (int)
- * max (int, sempre exclusivé, isto é, se o máximo for 100 é até 100 sem incluir o 100)
- * valor (decimal - €/kWp)
- * valores de base, podem ser alterados
- */
 var investimentoI = [
     {
         nome:"<10 kW",
@@ -244,15 +210,6 @@ var horarioCustomTable = [
     }
 ];
 
-
-
-
-/**
- *
- * Ciclo Horário
- * nome (string)
- * valor (int - horas/ano)
- */
 var ciclo_horarioI = [
     {   
         nome:"Simples",
@@ -273,7 +230,7 @@ var ciclo_horarioI = [
                 valor: "vazio"
             },
             {
-                nome: "Fora Vazio",
+                nome: "Fora de Vazio",
                 valor: "fora_vazio"
             } 
         ],
@@ -309,7 +266,7 @@ var ciclo_horarioI = [
                 valor: "cheia"
             },
             {
-                nome: "Vazio",
+                nome: "Vazio Normal",
                 valor: "vazio"
             },
             {
@@ -325,10 +282,6 @@ var ciclo_horarioI = [
     }
 ];
 
-/**
- *
- * Nível de tensão 
- */
 var ntensaoI = [
     { 
         nome: "Alta tensão", 
@@ -356,25 +309,23 @@ var ntensaoI = [
     }
 ];
 
-
 var consumosI = [
     {
         nome: "Fatura de um mês",
-        help: "Quando só possuir uma fatura de um dos meses do ano.",
+        help: "Quando só possuir uma fatura de um dos meses do ano (representativo).",
         value: 1
     },
     {
         nome: "Consumos anuais",
-        help: "Quando só possuir a fatura dos consumos totais anuais.",
+        help: "Quando só possuir os consumos totais anuais.",
         value: 2        
     },
     {
-        nome: "12 Faturas",
-        help: "Quando possuir todas as faturas de um ano ou apenas algumas delas.",
+        nome: "12 Faturas mensais",
+        help: "Quando possuir todas as faturas mensais.",
         value: 12  
     }
 ];
-
 
 var horariosCenI = [
     {
@@ -395,15 +346,7 @@ var horariosCenI = [
         fim:"23:59:59.999",
         totalHoras: 24
     }
-//    ,
-//    {
-//        nome:"Outro",
-//        inicio:undefined,
-//        fim:undefined,
-//        totalHoras: undefined
-//    }
 ];
-
 
 var lunchTime = ["Sim","Não"];
 
@@ -433,14 +376,8 @@ var periodoEncerramento = [
     
 ];
 
-
 var consumo_meses_ferias = 0.6;
 
-/**
- * producao (%)
- * @type Array
- *
- */
 var producaoSolarMes = [
     {
         nome:"Janeiro",
@@ -504,9 +441,6 @@ var producaoSolarMes = [
     }
 ];
 
-/**
- *  inverno e verao %
- */
 var producaoSolarDiaria = [
     {
         horas:"07:00:00.000",
@@ -575,11 +509,6 @@ var producaoSolarDiaria = [
     }
 ];
 
-
-/**
- * inverno e verão %
- * type Array
- */
 var producaoSolarPeriodo = [
     {
         cicloTarifario: ciclo_tarifarioI[0],
@@ -638,11 +567,7 @@ var producaoSolarPeriodo = [
     }
 ];
 var cons_meses_ferias = 0.6;
-/**
- * variacao do consumo mensal em função do periodo de encerramento
- * periodo value %
- * @type Array
- */
+
 var varConsumoMensal = [
     { 
         mes: "Janeiro", 
@@ -946,7 +871,6 @@ var varConsumoMensal = [
     }  
 ];
 
-
 var consumoHorasSolGlobal = [
     {
         cicloTarifario: ciclo_tarifarioI[0],
@@ -1008,7 +932,6 @@ var consumoHorasSolGlobal = [
     }
 ];
 
-
 var condicoesLimitePotencia = [
     "Potência da central limitada pela área disponível",
     "Potência da central limitada pela potência contratada",
@@ -1016,27 +939,15 @@ var condicoesLimitePotencia = [
     "Potência da central limitada a 250kW (regime jurídico aplicável às UPP)"
 ];
 
-/**
- * potencia kW
- * area m2
- * @type type
- */
 var modulosSolares = {
     potencia: 0.275,
     area: 1.7
 };
 
-
 var des_consumo = {
     base: 0.3,
     rest_consumo: 0.7
 };
-
-
-
-/**
- * Avisos de excedente UPAC
- */
 
 var avisos_excedente_upac = {
     encerramento_agosto: 0.2,

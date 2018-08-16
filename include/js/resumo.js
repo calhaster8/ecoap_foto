@@ -3,7 +3,7 @@ function uppPotenciaCalc() {
     upp_condicao = upp_condicao != "" && upp_condicao != null && upp_condicao != undefined ? upp_condicao : "";
     uppConsumoAnual = 0;
     potencia_max_consumo_anual = 0;
-    //todo extract hardcoded value to info
+   
     potencia_max_area = new Number($("#newArea").val());
     potencia_max_contratada = new Number($("#potencia").val());
     potencia_new_contratada = new Number($("#newPotencia").val());
@@ -18,7 +18,6 @@ function uppPotenciaCalc() {
         potencia_max_consumo_anual
     ];
 
-    //todo extract hardcoded value to info
     var uppca = getUppConsumoAnual();
 
     potencia_array[2] = (uppca * 2) / pept_value;
@@ -31,19 +30,19 @@ function uppPotenciaCalc() {
             (potencia_max_area == "" || potencia_max_area == null || potencia_max_area == undefined || potencia_max_area == 0)) {
         uppConsumoAnual = potencia_new_contratada > 250 ? 250 : potencia_new_contratada;
     } else if ((potencia_new_contratada == "" || potencia_new_contratada == null || potencia_new_contratada == undefined || potencia_new_contratada == 0) && (potencia_max_area != "" && potencia_max_area != null && potencia_max_area != undefined && potencia_max_area > 0)) {
-        //todo if needed
+        
     } else if (potencia_new_contratada != "" && potencia_new_contratada != null && potencia_new_contratada != undefined && potencia_new_contratada > 0 && potencia_max_area != "" && potencia_max_area != null && potencia_max_area != undefined && potencia_max_area > 0 && potencia_new_contratada < potencia_upp) {
         uppConsumoAnual = potencia_new_contratada;
 
     }
     if (uppConsumoAnual == potencia_array[1]) {
-        upp_condicao = condicoesLimitePotencia[1];//"Limite de potência pela potência contratada";//condicoesLimitePotencia[1]
+        upp_condicao = condicoesLimitePotencia[1];
     } else if (uppConsumoAnual == potencia_array[2]) {
-        upp_condicao = condicoesLimitePotencia[2];//"Limite de potência pelo consumo"; //
+        upp_condicao = condicoesLimitePotencia[2];
     } else if (potencia_upp > 250) {
-        upp_condicao = condicoesLimitePotencia[3];//"Limite de potência pela lei"; //
+        upp_condicao = condicoesLimitePotencia[3];
     } else if (uppConsumoAnual == potencia_array[0]) {
-        upp_condicao = condicoesLimitePotencia[0]; //"Limite de potência pela área disponível"; //
+        upp_condicao = condicoesLimitePotencia[0];
     }
 
     return uppConsumoAnual;
@@ -70,12 +69,11 @@ function tarifaUpp() {
 }
 
 function uppResultados() {
-    //criar var potencia upp, chama uppCalc
+    
     var potencia_upp_call = uppPotenciaCalc();
 
     upp_resultados_pc = potencia_upp_call;
 
-    //todo extract hardcoded value to info
     upp_resultados_n_paineis = upp_resultados_pc / 0.275; 
     upp_resultados_area_ocupada = potencia_max_area > 0 && (upp_resultados_n_paineis * 1.7 / 0.8) > potencia_max_area ? potencia_max_area : upp_resultados_n_paineis * 1.7 / 0.8; 
     if (potencia_new_area == 0) {
@@ -86,10 +84,10 @@ function uppResultados() {
     
     upp_resultados_reducao_dep_ene = (upp_resultados_prod_volt / consumo_anual) * 100;
 
-    upp_resultados_custos_energia = getUppCustosComEnergia(); // analisar folha
-    upp_resultados_custos_php = getUppCustosComPhp(); //analisar folha 
+    upp_resultados_custos_energia = getUppCustosComEnergia();
+    upp_resultados_custos_php = getUppCustosComPhp(); 
     var excedente_resultados = (upp_resultados_prod_volt > consumo_anual * 2) ? upp_resultados_prod_volt - consumo_anual : 0;
-    var excedente_resultados_perc = (excedente_resultados / upp_resultados_prod_volt) * 100;    //todo extract hardcoded value to info
+    var excedente_resultados_perc = (excedente_resultados / upp_resultados_prod_volt) * 100;
     upp_resultados_custos_isp = consumo_anual * 0.001;
 
     upp_resultados_custos_energicos = upp_resultados_custos_energia + upp_resultados_custos_isp + upp_resultados_custos_php;
@@ -98,24 +96,24 @@ function uppResultados() {
     upp_resultados_investimento = getUppInvestimento();
     upp_custos_anuais_new = upp_resultados_investimento * 0.02;
     upp_resultados_payback = upp_resultados_investimento / upp_resultados_rec_foto;
-    var upp_autoconsumo = upp_resultados_prod_volt - excedente_resultados;
 
+    var upp_autoconsumo = upp_resultados_prod_volt - excedente_resultados;
 
     $('#pot_central').html(upp_resultados_pc.toFixed(0) + ' kW');
     $('#nPaineis').html(upp_resultados_n_paineis.toFixed(0));
-    $('#area_ocupada').html(upp_resultados_area_ocupada.toFixed(0) + " m²");
+    $('#area_ocupada').html(upp_resultados_area_ocupada.toFixed(0) + " mÂ²");
     $('#observations').html(upp_condicao);
     $('#consumo_instalacao').html(consumo_anual.toFixed(0) + ' kWh');
     $('#prod_foto').html(upp_resultados_prod_volt.toFixed(0) + ' kWh');
     $('#excede').html(excedente_resultados>0 ? excedente_resultados.toFixed(0) + ' kWh' : '-');
     $('#excedentePercent').html(excedente_resultados_perc>0 ? excedente_resultados_perc.toFixed(0) + ' %' : '-');
-    $('#auto_consumo').html('Não aplicável');
+    $('#auto_consumo').html('NÃ£o aplicÃ¡vel');
     $('#consumo_energia_ren').html(upp_resultados_reducao_dep_ene.toFixed(0) + '%');
-    $('#custos_energia').html(upp_resultados_custos_energicos.toFixed(0) + ' €');
-    $('#receita_foto').html(upp_resultados_rec_foto.toFixed(0) + ' €' + '<br>' + catUPP.nome);
+    $('#custos_energia').html(upp_resultados_custos_energicos.toFixed(0) + ' â‚¬');
+    $('#receita_foto').html(upp_resultados_rec_foto.toFixed(0) + ' â‚¬' + '<br>' + catUPP.nome);
     $('#reduc_custos').html(upp_resultados_reducao_custos.toFixed(0) + '%');
-    $('#investe').html(upp_resultados_investimento.toFixed(0) + ' €');
-    $('#custos_anuais').html(upp_custos_anuais_new.toFixed(0) + ' €');
+    $('#investe').html(upp_resultados_investimento.toFixed(0) + ' â‚¬');
+    $('#custos_anuais').html(upp_custos_anuais_new.toFixed(0) + ' â‚¬');
     $('#paybck').html(upp_resultados_payback.toFixed(1) + ' anos');
 }
 
@@ -126,7 +124,7 @@ function getUppCustosComEnergia() {
 
         if (cicloHorarioLetter == 1) {
 
-            var custo_simples = new Number($("#consumo1").val()); //Tarifario table
+            var custo_simples = new Number($("#consumo1").val());
             custosEnergia = custo_simples * somatorio_anual_ufm_simples;
 
         } else if (cicloHorarioLetter == 2) {
@@ -184,7 +182,6 @@ function getUppCustosComEnergia() {
             var custo_tth_svazio = new Number($("#super_vazio4").val());
 
             custosEnergia = (custo_tth_ponta * consumo_ca_tth_ponta) + (custo_tth_cheia * consumo_ca_tth_cheia) + (custo_tth_vazio * consumo_ca_tth_vazio) + (custo_tth_svazio * consumo_ca_tth_svazio);
-
         }
 
     } else if (consumoLetter == 12) {
@@ -218,7 +215,6 @@ function getUppCustosComEnergia() {
 
             custosEnergia = (custo_tth_ponta * somatorio_anual_f_tth_ponta) + (custo_tth_cheia * somatorio_anual_f_tth_cheia) + (custo_tth_vazio * somatorio_anual_f_tth_vazio) + (custo_tth_svazio * somatorio_anual_f_tth_svazio);
         }
-
     }
 
     return custosEnergia;
@@ -238,8 +234,6 @@ function getUppCustosComPhp() {
 
 function getUppInvestimento() {
 
-    //var upp_investimento = 0;
-
     for (var i = 0; i < investimentoI.length; i++) {
         if (investimentoI[i].max == undefined) {
             return upp_resultados_pc * investimentoI[i].valor;
@@ -247,7 +241,6 @@ function getUppInvestimento() {
             return upp_resultados_pc * investimentoI[i].valor;
         }
     }
-
 }
 
 function min(array) {
@@ -266,14 +259,11 @@ function getUppConsumoAnual() {
 
     consumo_anual = 0;
 
-    //get facturas
     var consumoLetter = $('#facturas').val();
-    //get ciclo horario
     var cicloHorarioLetter = $('#cicloHorario').val();
-    //get periodos encerramento
     var periodos = $('#vacationsTime').val();
     var encerra = $("#vacations").val();
-    //forloop ?
+
     for (var i = 1; i < 13; i++) {
         if (consumoLetter == 12) {
             consumo_anual += getConsumo(consumoLetter, cicloHorarioLetter, i);
@@ -297,22 +287,19 @@ function getUppConsumoAnual() {
 
 function getConsumo(consumoLetter, cicloHorarioLetter, mes) {
 
-    //Fatura 1 mes
-    if (consumoLetter == 1) {
-        //Simples
+    if (consumoLetter == 1) {     
         if (cicloHorarioLetter == 1) {
             return (new Number($("#mensal_consumo").val()) * 12);
-            //Bi-Horario
+         
         } else if (cicloHorarioLetter == 2) {
-            //consumoLetter
+          
             var consumo_ufm_bh_foravazio = new Number($("#mensal_fora_vazio").val());
             var consumo_ufm_bh_vazio = new Number($("#mensal_vazio").val());
-            //anuais
+        
             somatorio_anual_ufm_bh_foravazio = consumo_ufm_bh_foravazio * 12;
             somatorio_anual_ufm_bh_vazio = consumo_ufm_bh_vazio * 12;
             return somatorio_anual_ufm_bh_foravazio + somatorio_anual_ufm_bh_vazio;
-
-            //Tri-Horario
+        
         } else if (cicloHorarioLetter == 3) {
             var consumo_ufm_th_ponta = new Number($("#mensal_ponta").val());
             var consumo_ufm_th_cheia = new Number($("#mensal_cheia").val());
@@ -322,17 +309,14 @@ function getConsumo(consumoLetter, cicloHorarioLetter, mes) {
             somatorio_anual_ufm_th_cheia = consumo_ufm_th_cheia * 12;
             somatorio_anual_ufm_th_vazio = consumo_ufm_th_vazio * 12;
             return somatorio_anual_ufm_th_ponta + somatorio_anual_ufm_th_cheia + somatorio_anual_ufm_th_vazio;
-
-            //Tetra-Horario
+           
         } else if (cicloHorarioLetter == 4) {
 
             var consumo_ufm_tth_ponta = new Number($("#mensal_ponta").val());
             var consumo_ufm_tth_cheia = new Number($("#mensal_cheia").val());
             var consumo_ufm_tth_vazio = new Number($("#mensal_vazio").val());
             var consumo_ufm_tth_super_vazio = new Number($("#mensal_super_vazio").val());
-
-
-            //anuais
+           
             somatorio_anual_ufm_tth_ponta = consumo_ufm_tth_ponta * 12;
             somatorio_anual_ufm_tth_cheia = consumo_ufm_tth_cheia * 12;
             somatorio_anual_ufm_tth_vazio = consumo_ufm_tth_vazio * 12;
@@ -340,42 +324,39 @@ function getConsumo(consumoLetter, cicloHorarioLetter, mes) {
             return somatorio_anual_ufm_tth_ponta + somatorio_anual_ufm_tth_cheia + somatorio_anual_ufm_tth_vazio + somatorio_anual_ufm_tth_svazio;
 
         }
-
-        //consumoLetter Anuais
+        
     } else if (consumoLetter == 2) {
-
-        //Simples
+       
         if (cicloHorarioLetter == 1) {
             var consumo_ca_simples = new Number($("#anual_consumo").val());
-            //valor anuais
+          
             return new Number(consumo_ca_simples);
-            //Bi-Horario
+        
         } else if (cicloHorarioLetter == 2) {
             var consumo_ca_bh_foravazio = new Number($("#anual_fora_vazio").val());
             var consumo_ca_bh_vazio = new Number($("#anual_vazio").val());
-            //valor anuais
+           
             return consumo_ca_bh_foravazio + consumo_ca_bh_vazio;
-            //Tri-Horario
+           
         } else if (cicloHorarioLetter == 3) {
             var consumo_ca_th_ponta = new Number($("#anual_ponta").val());
             var consumo_ca_th_cheia = new Number($("#anual_cheia").val());
             var consumo_ca_th_vazio = new Number($("#anual_vazio").val());
-            //valor anuais
+            
             return consumo_ca_th_ponta + consumo_ca_th_cheia + consumo_ca_th_vazio;
-
-            //Tetra-Horario
+         
         } else if (cicloHorarioLetter == 4) {
             var consumo_ca_tth_ponta = new Number($("#anual_ponta").val());
             var consumo_ca_tth_cheia = new Number($("#anual_cheia").val());
             var consumo_ca_tth_vazio = new Number($("#anual_vazio").val());
             var consumo_ca_tth_svazio = new Number($("#anual_super_vazio").val());
-            //valor anuais
+         
             return consumo_ca_tth_ponta + consumo_ca_tth_cheia + consumo_ca_tth_vazio + consumo_ca_tth_svazio;
 
         }
-        //12 Faturas
+      
     } else if (consumoLetter == 12) {
-        //Simples
+        
         if (cicloHorarioLetter == 1) {
             if (mes == 1) {
                 return new Number($("#consumo_1_consumo").val());
@@ -413,8 +394,7 @@ function getConsumo(consumoLetter, cicloHorarioLetter, mes) {
             if (mes == 12) {
                 return new Number($("#consumo_12_consumo").val());
             }
-
-            //Bi-Horario
+            
         } else if (cicloHorarioLetter == 2) {
             var consumo_f_bh_foravazio_jan = new Number($("#consumo_1_fora_vazio").val());
             var consumo_f_bh_foravazio_fev = new Number($("#consumo_2_fora_vazio").val());
@@ -478,8 +458,7 @@ function getConsumo(consumoLetter, cicloHorarioLetter, mes) {
             if (mes == 12) {
                 return consumo_f_bh_foravazio_dez + consumo_f_bh_vazio_dez;
             }
-
-            //Tri-Horario
+           
         } else if (cicloHorarioLetter == 3) {
             var consumo_f_th_ponta_jan = new Number($("#consumo_1_ponta").val());
             var consumo_f_th_ponta_fev = new Number($("#consumo_2_ponta").val());
@@ -556,9 +535,7 @@ function getConsumo(consumoLetter, cicloHorarioLetter, mes) {
             if (mes == 12) {
                 return consumo_f_th_ponta_dez + consumo_f_th_cheia_dez + consumo_f_th_vazio_dez;
             }
-
-
-            //Tetra-Horario
+            
         } else if (cicloHorarioLetter == 4) {
             var consumo_f_tth_ponta_jan = new Number($("#consumo_1_ponta").val());
             var consumo_f_tth_ponta_fev = new Number($("#consumo_2_ponta").val());
@@ -611,7 +588,6 @@ function getConsumo(consumoLetter, cicloHorarioLetter, mes) {
             var consumo_f_tth_svazio_out = new Number($("#consumo_10_super_vazio").val());
             var consumo_f_tth_svazio_nov = new Number($("#consumo_11_super_vazio").val());
             var consumo_f_tth_svazio_dez = new Number($("#consumo_12_super_vazio").val());
-
 
             if (mes == 1) {
                 return consumo_f_tth_ponta_jan + consumo_f_tth_cheia_jan + consumo_f_tth_vazio_jan + consumo_f_tth_svazio_jan;
@@ -685,7 +661,7 @@ function getReducaoCustoEnergia() {
     
     if (cicloHorarioLetter == 1) {
 
-        custo_simples = new Number($("#consumo1").val()); //Tarifario table
+        custo_simples = new Number($("#consumo1").val());
 
     } else if (cicloHorarioLetter == 2) {
 
@@ -704,8 +680,7 @@ function getReducaoCustoEnergia() {
         custo_cheia = new Number($("#cheia4").val());
         custo_vazio = new Number($("#vazio4").val());
     }
-    
-    
+       
     if (cicloTarifario != "" && cicloTarifario == 0 && (cicloHorarioLetter == 3 || cicloHorarioLetter == 4)) {
         reducaoCustosEnergia = (autoconsumo_ponta*custo_ponta)+ (autoconsumo_cheia*custo_cheia) + (autoconsumo_vazio*custo_vazio);
     } else if ((cicloTarifario == 1 && (cicloHorarioLetter == 3 || cicloHorarioLetter == 4)) || cicloHorarioLetter == 3) {
@@ -723,8 +698,7 @@ function getReducaoCustoPhp() {
     var reducaoCustosPhp = 0;
     var tarifaHoraPonta = $("#pt_horas_ponta4").val();
     var tensao = $("#ntensao").val();
-    
-    
+        
     if(tensao==3){
         return reducaoCustosPhp;
     }else if(cicloTarifario!="" && cicloTarifario==0){
@@ -733,10 +707,8 @@ function getReducaoCustoPhp() {
         reducaoCustosPhp = autoconsumo_ponta/ciclo_tarifarioI[1].numHoras*tarifaHoraPonta*365;
     }
 
-
     return reducaoCustosPhp;
 }
-
 
 function upacResultados() {
 
@@ -747,19 +719,18 @@ function upacResultados() {
     getBalancoConsumoProducao();
 
     excedente();
-    //upacExcedente();
+    
     upac_resultados_pc = potencia_upac_call;
 
-    //todo extract hardcoded value to info
-    upac_resultados_n_paineis = upac_resultados_pc / 0.275; //Info C157
-    upac_resultados_area_ocupada = potencia_max_area > 0 && (upac_resultados_n_paineis * 1.7 / 0.8) > potencia_max_area ? potencia_max_area : upac_resultados_n_paineis * 1.7 / 0.8; // * Info C158 / 0.8
+  
+    upac_resultados_n_paineis = upac_resultados_pc / 0.275; 
+    upac_resultados_area_ocupada = potencia_max_area > 0 && (upac_resultados_n_paineis * 1.7 / 0.8) > potencia_max_area ? potencia_max_area : upac_resultados_n_paineis * 1.7 / 0.8;
     if (potencia_new_area == 0) {
         potencia_new_area = upac_resultados_area_ocupada;
     }
-    //curva de produção da upac
-    upac_resultados_prod_volt = upac_resultados_pc * pept_value;  //upp_resultados_pc/potencia_max_pe_pi;
+    upac_resultados_prod_volt = upac_resultados_pc * pept_value;
 
-    var excedente_resultados_perc_upac = upacExcedentePerc * 100;    //todo extract hardcoded value to info
+    var excedente_resultados_perc_upac = upacExcedentePerc * 100;
     upac_resultados_reducao_dep_ene = ((upac_resultados_prod_volt - upacExcedenteValue) / consumo_anual) * 100;
 
     upac_resultados_custos_energia = getUppCustosComEnergia();
@@ -775,7 +746,6 @@ function upacResultados() {
 
     upac_resultados_reducao_custos_php = getReducaoCustoPhp();
     
-
     upac_resultados_reducao_custos_isp = upac_autoconsumo_upac * 0.001;
 
     upac_resultados_venda_excedente = upacExcedenteValue * 0.05248*0.9;
@@ -799,7 +769,7 @@ function upacResultados() {
 
     $('#pot_central_upac').html(upac_resultados_pc.toFixed(0) + ' kW');
     $('#nPaineis_upac').html(upac_resultados_n_paineis.toFixed(0));
-    $('#area_ocupada_upac').html(upac_resultados_area_ocupada.toFixed(0) + " m²");
+    $('#area_ocupada_upac').html(upac_resultados_area_ocupada.toFixed(0) + " mÂ²");
     $('#observations_upac').html(upac_condicao);
     $('#consumo_instalacao_upac').html(consumo_anual.toFixed(0) + ' kWh');
     $('#prod_foto_upac').html(upac_resultados_prod_volt.toFixed(0) + ' kWh');
@@ -807,16 +777,16 @@ function upacResultados() {
     $('#excedentePercent_upac').html(excedente_resultados_perc_upac.toFixed(0) + ' %');
     $('#auto_consumo_upac').html(upac_autoconsumo_upac.toFixed(0) + ' kWh');
     $('#consumo_energia_ren_upac').html(upac_resultados_reducao_dep_ene.toFixed(0) + '%');
-    $('#custos_energia_upac').html(upac_resultados_custos_energicos.toFixed(0) + ' €');
-    $('#receita_foto_upac').html(upac_resultados_rec_foto.toFixed(0) + ' €');
+    $('#custos_energia_upac').html(upac_resultados_custos_energicos.toFixed(0) + ' â‚¬');
+    $('#receita_foto_upac').html(upac_resultados_rec_foto.toFixed(0) + ' â‚¬');
     $('#reduc_custos_upac').html((upac_resultados_reducao_custos*100).toFixed(0) + '%');
-    $('#investe_upac').html(upac_resultados_investimento.toFixed(0) + ' €');
-    $('#custos_anuais_upac').html(upac_custos_anuais_new.toFixed(0) + ' €');
+    $('#investe_upac').html(upac_resultados_investimento.toFixed(0) + ' â‚¬');
+    $('#custos_anuais_upac').html(upac_custos_anuais_new.toFixed(0) + ' â‚¬');
     $('#paybck_upac').html(upac_resultados_payback.toFixed(1) + ' anos');
 }
 
 function upacPotenciaCalc() {
-    //var iniciais
+ 
     instalacao_array_upac = [];
     potencia_array = [];
     potencia_upac = 0;
@@ -826,13 +796,10 @@ function upacPotenciaCalc() {
     var instalacao_potencia_contratada = 0;
     var instalacao_consumo = 0;
 
-    //todo extract hardcoded value to info
     potencia_max_area_upac = new Number($("#newArea").val());
     potencia_max_contratada_upac = new Number($("#potencia").val());
     pept_value = new Number($('#peptInstalada').val());
 
-    //getBalancoConsumoProducao();
-    //todo get global values from getBalancoConsumoProducao
     instalacao_consumo = 0;
     instalacao_array_upac = [
         ((potencia_max_area_upac != 0 &&
@@ -866,15 +833,12 @@ function upacPotenciaCalc() {
     }
 
     if (potencia_upac == potencia_array[1]) {
-        upac_condicao = condicoesLimitePotencia[1];//"Limite de potência pela potência contratada";//condicoesLimitePotencia[1]
+        upac_condicao = condicoesLimitePotencia[1];
     } else if (potencia_upac == potencia_array[2]) {
-        upac_condicao = condicoesLimitePotencia[2];//"Limite de potência pelo consumo"; //
+        upac_condicao = condicoesLimitePotencia[2];
     } else if (potencia_upac == potencia_array[0]) {
-        upac_condicao = condicoesLimitePotencia[0]; //"Limite de potência pela área disponível"; //
+        upac_condicao = condicoesLimitePotencia[0];
     }
-
-
-
     return potencia_upac;
 }
 
@@ -890,7 +854,6 @@ function calcCurvaConsumoUpacPotencia() {
     return somatorio;
 }
 
-
 function getScheduleMarks(diaSemana, horaDia) {
 
     var cenario = $("#cenarios").val();
@@ -903,7 +866,6 @@ function getScheduleMarks(diaSemana, horaDia) {
     } else {
         return 0;
     }
-
 }
 
 function buildHorariosFuncionamento() {
@@ -931,7 +893,6 @@ function buildHorariosFuncionamento() {
     }
 
     horasFuncionamento = horasFuncionamento * 52;
-
 }
 
 function getCurvaConsumo() {
@@ -954,8 +915,7 @@ function getCurvaConsumo() {
         for (j = 0; j < 24; j++) {
             var inverno = 0;
             var verao = 0;
-
-            //inverno
+  
             if (pausaAlmoco != "" && pausaAlmoco != undefined && pausaAlmoco == 0 && horarioFuncionamentoSemanal[i][j] == 'X' && j == 13) {
 
                 inverno = (consumo_anual * des_consumo.rest_consumo / (horasFuncionamento - (lunchTime * 22)) * consumo_almoco) + ((consumo_anual * des_consumo.base) / 8760);
@@ -972,9 +932,7 @@ function getCurvaConsumo() {
                 inverno = consumo_anual * des_consumo.base / 8760;
             }
             inverno = inverno * 22;
-
-
-            // verao 
+          
             if (pausaAlmoco != "" && pausaAlmoco != undefined && pausaAlmoco == 0 && horarioFuncionamentoSemanal[i][j] == 'X' && j == 13) {
 
                 verao = (consumo_anual * des_consumo.rest_consumo / (horasFuncionamento - (lunchTime * 30)) * consumo_almoco) + ((consumo_anual * des_consumo.base) / 8760);
@@ -991,13 +949,11 @@ function getCurvaConsumo() {
                 verao = consumo_anual * des_consumo.base / 8760;
             }
             verao = verao * 30;
-
-            //constroi curva de consumo
+            
             curvaConsumo[i][j] = {
                 inverno: inverno,
                 verao: verao
             };
-
 
             invernoSum += inverno;
             veraoSum += verao;
@@ -1006,9 +962,8 @@ function getCurvaConsumo() {
             totaisVerao += verao;
             totalInvernoVertical[j] += inverno;
             totalVeraoVertical[j] += verao;
-
         }
-        //constroi somatorios
+        
         curvaConsumo[i][j] = {
             inverno: totaisInverno,
             verao: totaisVerao
@@ -1022,22 +977,18 @@ function getCurvaConsumo() {
             verao: totalVeraoVertical[j]
         };
     }
-
     curvaConsumo[i][j] = {
         inverno: invernoSum,
         verao: veraoSum
     };
 
-
     calcConsumoHorasSol();
 }
 
 function calcConsumoHorasSol() {
-
-
-    //ciclo semanal
+    
     if (cicloTarifario != "" && cicloTarifario == 0) {
-        //consumoHorasSolGlobal[cicloTarifario].periodoTarifario[0].verao
+       
         var somaPontaInverno = 0;
         var somaPontaVerao = 0;
         var somaCheiaInverno = 0;
@@ -1046,13 +997,12 @@ function calcConsumoHorasSol() {
         var totaisSemanalVerao = 0;
         for (i = 0; i < 7; i++) {
             for (j = 0; j < 24; j++) {
-                //soma ponta
+                
                 if (i >= 0 && i < 5 && j >= 9 && j < 12) {
                     somaPontaInverno += curvaConsumo[i][j].inverno;
                     somaPontaVerao += curvaConsumo[i][j].verao;
                 }
-
-                //soma cheia
+              
                 if (i >= 0 && i < 5 && (j == 8 || (j >= 12 && j < 17))) {
                     somaCheiaInverno += curvaConsumo[i][j].inverno;
                 } else if (i == 5 && j >= 9 && j < 13) {
@@ -1063,17 +1013,12 @@ function calcConsumoHorasSol() {
                 } else if (i == 5 && j >= 9 && j < 14) {
                     somaCheiaVerao += curvaConsumo[i][j].verao;
                 }
-
-
-                //construir totais ciclo semanal
                 if (j >= 8 && j < 17) {
                     totaisSemanalInverno += curvaConsumo[i][j].inverno;
                 }
                 if (j >= 7 && j < 20) {
                     totaisSemanalVerao += curvaConsumo[i][j].verao;
                 }
-
-
             }
         }
         consumoHorasSolGlobal[0].periodoTarifario[0].verao = somaPontaVerao / totaisSemanalVerao;
@@ -1083,7 +1028,6 @@ function calcConsumoHorasSol() {
         consumoHorasSolGlobal[0].periodoTarifario[0].inverno = somaPontaInverno / totaisSemanalInverno;
         consumoHorasSolGlobal[0].periodoTarifario[1].inverno = somaCheiaInverno / totaisSemanalInverno;
         consumoHorasSolGlobal[0].periodoTarifario[2].inverno = 1 - consumoHorasSolGlobal[0].periodoTarifario[1].inverno - consumoHorasSolGlobal[0].periodoTarifario[0].inverno;
-
 
     } else if (cicloTarifario == 1 || cicloHorarioLetter == 3 || cicloHorarioLetter == 2) {
         var somaPontaInverno = 0;
@@ -1095,29 +1039,23 @@ function calcConsumoHorasSol() {
 
         for (i = 0; i < 7; i++) {
             for (j = 0; j < 24; j++) {
-                //soma ponta
+                
                 if (j >= 9 && j < 11) {
                     somaPontaInverno += curvaConsumo[i][j].inverno;
                 } else if ((j >= 11 && j < 13) || j == 19) {
                     somaPontaVerao += curvaConsumo[i][j].verao;
                 }
 
-                //soma cheia
-
                 if ((j >= 8 && j < 11) || (j >= 13 && j < 19)) {
                     somaCheiaVerao += curvaConsumo[i][j].verao;
                 }
-
-
-                //construir totais ciclo dirario e tri
+               
                 if (j >= 8 && j < 17) {
                     totaisDiarioTriInverno += curvaConsumo[i][j].inverno;
                 }
                 if (j >= 7 && j < 20) {
                     totaisDiarioTriVerao += curvaConsumo[i][j].verao;
                 }
-
-
             }
         }
         consumoHorasSolGlobal[1].periodoTarifario[0].verao = somaPontaVerao / totaisDiarioTriVerao;
@@ -1127,21 +1065,19 @@ function calcConsumoHorasSol() {
         consumoHorasSolGlobal[1].periodoTarifario[0].inverno = somaPontaInverno / totaisDiarioTriInverno;
         consumoHorasSolGlobal[1].periodoTarifario[1].inverno = 1 - consumoHorasSolGlobal[1].periodoTarifario[0].inverno;
         consumoHorasSolGlobal[1].periodoTarifario[2].inverno = 0;
-
-        //bihorario
+       
         consumoHorasSolGlobal[2].periodoTarifario[0].verao = consumoHorasSolGlobal[1].periodoTarifario[1].verao + consumoHorasSolGlobal[1].periodoTarifario[0].verao;
         consumoHorasSolGlobal[2].periodoTarifario[1].verao = 1 - consumoHorasSolGlobal[2].periodoTarifario[0].verao;
 
         consumoHorasSolGlobal[2].periodoTarifario[0].inverno = 1;
         consumoHorasSolGlobal[2].periodoTarifario[1].inverno = 0;
     }
-
 }
 
 function getConsumoBalanco(mes) {
 
     var consumo = 0;
-    //get periodos encerramento
+ 
     var periodos = $('#vacationsTime').val();
     var encerra = $("#vacations").val();
 
@@ -1159,7 +1095,6 @@ function getConsumoBalanco(mes) {
     return consumo;
 }
 
-
 function getBalancoConsumoProducao() {
 
     consumos_balanco_prd = [];
@@ -1172,14 +1107,10 @@ function getBalancoConsumoProducao() {
         producao_upp[i] = (uppConsumoAnual * pept_value * producaoSolarMes[i].producao > 2 * consumos_balanco_prd[i]) ? 2 * consumos_balanco_prd[i] : uppConsumoAnual * pept_value * producaoSolarMes[i].producao;
     }
 
-
     producao_upac = [];
     for (i = 0; i < 12; i++) {
         producao_upac[i] = producaoSolarMes[i].producao * potencia_upac * pept_value;
     }
-
-    //TODO - excedente
-
 }
 
 function curvaProducaoUpac() {
@@ -1199,7 +1130,6 @@ function getConsumoHorasSolInverno() {
     return somaConsumo;
 }
 
-
 function getConsumoHorasSolVerao() {
     var somaConsumo = 0;
     for (i = 0; i < 7; i++) {
@@ -1212,11 +1142,10 @@ function getConsumoHorasSolVerao() {
     return somaConsumo;
 }
 
-
 function excedente() {
 
     var cicloHorarioLetter = $('#cicloHorario').val();
-    // calculo excedente 
+   
     var consumo_inverno = curvaConsumo[7][24].inverno;
     var consumo_verao = curvaConsumo[7][24].verao;
     var consumoIVTotal = consumo_inverno + consumo_verao;
@@ -1233,8 +1162,6 @@ function excedente() {
 
     var totalTotal = consumoHorasSolTotal / consumoIVTotal;
 
-
-    //tabelas producao
     var producao_mes_ponta = [];
     var producao_mes_cheia = [];
     var producao_mes_vazio = [];
@@ -1266,7 +1193,7 @@ function excedente() {
     var control = 0;
     for (i = 0; i < 12; i++) {
         control = 0;
-        //semanal
+       
         if (cicloTarifario != "" && cicloTarifario == 0 && (cicloHorarioLetter == 3 || cicloHorarioLetter == 4)) {
             if (i >= 3 && i < 10) {
                 producao_mes_ponta[i] = producao_upac[i] * producaoSolarPeriodo[cicloTarifario].periodoTarifario[0].verao;
@@ -1308,7 +1235,6 @@ function excedente() {
             totaisExcedentes[control++] += excedente_mes_vazio[i];
 
             totaisExcedentes[control++] += excedente_mes_ponta[i] + excedente_mes_cheia[i] + excedente_mes_vazio[i];
-
 
         } else if ((cicloTarifario == 1 && (cicloHorarioLetter == 3 || cicloHorarioLetter == 4)) || cicloHorarioLetter == 3) {
             if (i >= 3 && i < 10) {
@@ -1394,21 +1320,16 @@ function excedente() {
 
             excedente_mes_simples[i] = producao_upac[i] - consumosHorasSolTotais[i] < 0 ? 0 : producao_upac[i] - consumosHorasSolTotais[i];
             totaisExcedentes[control++] += excedente_mes_simples[i];
-
         }
-
     }
 
     if (cicloTarifario != "" && cicloTarifario == 0 && (cicloHorarioLetter == 3 || cicloHorarioLetter == 4)) {
 
-        //construir autoconsumos upacExcedente
-        //totalprodponta 0 
         autoconsumo_ponta = totaisExcedentes[0] - totaisExcedentes[control - 4];
         autoconsumo_cheia = totaisExcedentes[1] - totaisExcedentes[control - 3];
         autoconsumo_vazio = totaisExcedentes[2] - totaisExcedentes[control - 2];
 
     } else if ((cicloTarifario == 1 && (cicloHorarioLetter == 3 || cicloHorarioLetter == 4)) || cicloHorarioLetter == 3) {
-
 
         autoconsumo_ponta = totaisExcedentes[0] - totaisExcedentes[control - 4];
         autoconsumo_cheia = totaisExcedentes[1] - totaisExcedentes[control - 3];
@@ -1420,15 +1341,11 @@ function excedente() {
         autoconsumo_foravazio = totaisExcedentes[2] - totaisExcedentes[control - 2];
     } else if (cicloHorarioLetter == 1) {
 
-
         autoconsumo_simples = (potencia_upac * pept_value) - totaisExcedentes[control - 1];
     }
 
     totaisExcedentes[control] = totaisExcedentes[control - 1] / (potencia_upac * pept_value);
 
-    //todo set values of excedente e excedente perc to global variables 
-
     upacExcedenteValue = totaisExcedentes[control - 1];
     upacExcedentePerc = totaisExcedentes[control];
 }
-

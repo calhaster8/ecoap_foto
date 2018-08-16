@@ -1,32 +1,23 @@
-// UFM, CA, 12F
 var consumoLetter=0;
 
-// S, BH, TH, TTH 
 var cicloHorarioLetter=0;
 
-//Potencia Horas de Ponta
 var ptHorasPonta = 0;
 
-//Upp Consumo Anual
 var consumo_anual = 0;
 
-//Categoria UPP
 var catUPP = [];
 
-//Nova potencia
 var potencia_new_contratada = 0;
 var potencia_new_contratada_upac = 0;
 
-//Nova area
 var potencia_new_area = 0;
 var potencia_new_area_upac = 0;
 var potencia_max_area = 0;
 var potencia_max_area_upac = 0;
 
-//upp_condicao
 var upp_condicao ="";
 var upac_condicao ="";
-
 
 var horarioFuncionamentoSemanal = [];
 
@@ -61,16 +52,10 @@ var custo_vazio = 0;
 var custo_ponta = 0;
 var custo_cheia = 0;
 
-
-// SOMAS
-//////UFM
-//////////S
         var consumo_ufm_simples = 0;
         var somatorio_anual_ufm_simples = 0;
         var somatorio_anual_ufm_simples_total = 0;
 
-
-//////////BH
         var consumo_ufm_bh_foravazio = 0;
         var consumo_ufm_bh_vazio = 0;
         var somatorio_ufm_bh = 0;
@@ -79,7 +64,6 @@ var custo_cheia = 0;
         var somatorio_anual_ufm_bh_vazio = 0;
         var somatorio_anual_ufm_bh_total = 0;
 
-//////////TH
         var consumo_ufm_th_ponta = 0;
         var consumo_ufm_th_cheia = 0;
         var consumo_ufm_th_vazio = 0;
@@ -91,8 +75,6 @@ var custo_cheia = 0;
         var somatorio_anual_ufm_th_vazio = 0;
         var somatorio_anual_ufm_th_total = 0;
 
-
-//////////TTH
         var consumo_ufm_tth_ponta = 0;
         var consumo_ufm_tth_cheia = 0;
         var consumo_ufm_tth_vazio = 0;
@@ -104,25 +86,21 @@ var custo_cheia = 0;
         var somatorio_anual_ufm_tth_vazio = 0;
         var somatorio_anual_ufm_tth_svazio = 0;
         var somatorio_anual_ufm_tth_total = 0;
-////CA
-//////////S
+
         var consumo_ca_simples = 0;
         var somatorio_ca_simples_total = 0;
 
-
-//////////BH
         var consumo_ca_bh_foravazio = 0;
         var consumo_ca_bh_vazio = 0;
 
         var somatorio_ca_bh_total = 0;
-//////////TH
+
         var consumo_ca_th_ponta = 0;
         var consumo_ca_th_cheia = 0;
         var consumo_ca_th_vazio = 0;
 
         var somatorio_ca_th_total = 0;
 
-//////////TTH
         var consumo_ca_tth_ponta = 0;
         var consumo_ca_tth_cheia = 0;
         var consumo_ca_tth_vazio = 0;
@@ -130,9 +108,6 @@ var custo_cheia = 0;
 
         var somatorio_ca_tth_total = 0;
 
-
-//////12F
-//////////S
         var consumo_f_simples_jan = 0;
         var consumo_f_simples_fev = 0;
         var consumo_f_simples_mar = 0;
@@ -146,12 +121,9 @@ var custo_cheia = 0;
         var consumo_f_simples_nov = 0;
         var consumo_f_simples_dez = 0;
 
-
         var somatorio_anual_f_simples = 0;
         var somatorio_anual_f_simples_total = 0;
 
-
-//////////BH
         var consumo_f_bh_foravazio_jan = 0;
         var consumo_f_bh_foravazio_fev = 0;
         var consumo_f_bh_foravazio_mar = 0;
@@ -195,8 +167,6 @@ var custo_cheia = 0;
         var somatorio_anual_f_bh_vazio = 0;
         var somatorio_anual_f_bh_total = 0;
 
-
-//////////TH
         var consumo_f_th_ponta_jan = 0;
         var consumo_f_th_ponta_fev = 0;
         var consumo_f_th_ponta_mar = 0;
@@ -255,8 +225,6 @@ var custo_cheia = 0;
 
         var somatorio_anual_f_th_total = 0;
 
-
-//////////TTH
         var consumo_f_tth_ponta_jan = 0;
         var consumo_f_tth_ponta_fev = 0;
         var consumo_f_tth_ponta_mar = 0;
@@ -328,4 +296,3 @@ var custo_cheia = 0;
         var somatorio_anual_f_tth_svazio = 0;
 
         var somatorio_anual_f_tth_total = 0;
-

@@ -1,10 +1,7 @@
 function somaRow() {
-    
 
-    // UFM, CA, 12F
     consumoLetter = $('#facturas').val();
 
-    // S, BH, TH, TTH 
     cicloHorarioLetter = $('#cicloHorario').val();
 
     if (consumoLetter == 1) {
@@ -82,7 +79,6 @@ function somaRow() {
 
             consumo_ca_simples = new Number($("#anual_consumo").val());
             somatorio_ca_simples_total = new Number(consumo_ca_simples);
-
         
             $("#total_anual").html(somatorio_ca_simples_total);
 
@@ -92,7 +88,6 @@ function somaRow() {
             consumo_ca_bh_vazio = new Number($("#anual_vazio").val());
 
             somatorio_ca_bh_total = consumo_ca_bh_foravazio + consumo_ca_bh_vazio;
-
 
             $("#total_anual").html(somatorio_ca_bh_total);
 
@@ -104,7 +99,6 @@ function somaRow() {
 
             somatorio_ca_th_total = consumo_ca_th_ponta + consumo_ca_th_cheia + consumo_ca_th_vazio;
 
-
             $("#total_anual").html(somatorio_ca_th_total);
 
         } else if (cicloHorarioLetter == 4) {
@@ -115,11 +109,7 @@ function somaRow() {
             consumo_ca_tth_svazio = new Number($("#anual_super_vazio").val());
 
             somatorio_ca_tth_total = consumo_ca_tth_ponta + consumo_ca_tth_cheia + consumo_ca_tth_vazio + consumo_ca_tth_svazio;
-
-
-
-            $("#total_anual").html(somatorio_ca_tth_total);
-
+         $("#total_anual").html(somatorio_ca_tth_total);
         }
 
     } else if (consumoLetter == 12) {
@@ -138,7 +128,6 @@ function somaRow() {
             consumo_f_simples_out = new Number($("#consumo_10_consumo").val());
             consumo_f_simples_nov = new Number($("#consumo_11_consumo").val());
             consumo_f_simples_dez = new Number($("#consumo_12_consumo").val());
-
 
             somatorio_anual_f_simples = consumo_f_simples_jan + consumo_f_simples_fev + consumo_f_simples_mar + consumo_f_simples_abr + consumo_f_simples_mai + consumo_f_simples_jun + consumo_f_simples_jul + consumo_f_simples_ago + consumo_f_simples_set + consumo_f_simples_out + consumo_f_simples_nov + consumo_f_simples_dez;
             somatorio_anual_f_simples_total = somatorio_anual_f_simples;
@@ -204,7 +193,6 @@ function somaRow() {
             somatorio_anual_f_bh_vazio = consumo_f_bh_vazio_jan + consumo_f_bh_vazio_fev + consumo_f_bh_vazio_mar + consumo_f_bh_vazio_abr + consumo_f_bh_vazio_mai + consumo_f_bh_vazio_jun + consumo_f_bh_vazio_jul + consumo_f_bh_vazio_ago + consumo_f_bh_vazio_set + consumo_f_bh_vazio_out + consumo_f_bh_vazio_nov + consumo_f_bh_vazio_dez;
             somatorio_anual_f_bh_total = somatorio_anual_f_bh_foravazio + somatorio_anual_f_bh_vazio;
 
-
             $("#total_mensal_1").html(somatorio_f_bh_jan);
             $("#total_mensal_2").html(somatorio_f_bh_fev);
             $("#total_mensal_3").html(somatorio_f_bh_mar);
@@ -221,7 +209,6 @@ function somaRow() {
             $("#anual_fora_vazio").html(somatorio_anual_f_bh_foravazio);
             $("#anual_vazio").html(somatorio_anual_f_bh_vazio);
             $("#total_anual").html(somatorio_anual_f_bh_total);
-
 
         } else if (cicloHorarioLetter == 3) {
 
@@ -282,7 +269,6 @@ function somaRow() {
             somatorio_anual_f_th_vazio = consumo_f_th_vazio_jan + consumo_f_th_vazio_fev + consumo_f_th_vazio_mar + consumo_f_th_vazio_abr + consumo_f_th_vazio_mai + consumo_f_th_vazio_jun + consumo_f_th_vazio_jul + consumo_f_th_vazio_ago + consumo_f_th_vazio_set + consumo_f_th_vazio_out + consumo_f_th_vazio_nov + consumo_f_th_vazio_dez;
 
             somatorio_anual_f_th_total = somatorio_anual_f_th_ponta + somatorio_anual_f_th_cheia + somatorio_anual_f_th_vazio;
-
 
             $("#total_mensal_1").html(somatorio_f_th_jan);
             $("#total_mensal_2").html(somatorio_f_th_fev);
@@ -376,8 +362,6 @@ function somaRow() {
 
             somatorio_anual_f_tth_total = somatorio_anual_f_tth_ponta + somatorio_anual_f_tth_cheia + somatorio_anual_f_tth_vazio + somatorio_anual_f_tth_svazio;
 
-
-
             $("#total_mensal_1").html(somatorio_f_tth_jan);
             $("#total_mensal_2").html(somatorio_f_tth_fev);
             $("#total_mensal_3").html(somatorio_f_tth_mar);
@@ -396,7 +380,6 @@ function somaRow() {
             $("#anual_vazio").html(somatorio_anual_f_tth_vazio);
             $("#anual_super_vazio").html(somatorio_anual_f_tth_svazio);
             $("#total_anual").html(somatorio_anual_f_tth_total);
-
         }
     }
 }

@@ -18,7 +18,7 @@
         <script src="include/js/graph.js"></script>
         <script src="include/js/print.min.js"></script>
         <script src="include/js/jquery.validate.min.js"></script>
-        <title>Calculadora - Solar Fotovoltaico</title>
+        <title>ECO.AP - Calculadora - Solar Fotovoltaico</title>
     </head>
     <body>
         <header class="header">
@@ -36,45 +36,45 @@
                                     <!--Distrito -->
                                     <label for="distrito">Distrito</label>
                                     <select id="distrito" name="distrito" class="sel">
-                                        <option value="">Seleccione uma das opções</option>
+                                        <option value="">Selecionar distrito</option>
                                     </select>
                                 </div>
                                 <div class="dado pept" style="display:none;">
                                     <!--Potencia instalada-->
-                                    <label for="peptInstalada">Produção Específica</label>
+                                    <label for="peptInstalada">Produção Específica (kWh/kWp)</label>
                                     <input id="peptInstalada" type="number" name="peptInstalada" value="" placeholder="O valor será introduzido automaticamente" disabled="disabled" class="pept-in xInput"/>
                                 </div>
                                 <div class="dado tens">
                                     <!--Nivel de tensao-->
                                     <label for="ntensao">Nível de tensão</label>
                                     <select id="ntensao" name="ntensao" class="sel">
-                                        <option value="">Seleccione uma das opções</option>
+                                        <option value="">Selecionar nível de tensão</option>
                                     </select>
                                 </div>
                                 <div class="dado pot">
                                     <!--Potencia contratada-->
                                     <label for="potencia">Potência contratada</label>
-                                    <input id="potencia" type="number" name="potencia" placeholder="Insira a potência contratada (Ex: 12.23)" class="pot-in" step="0.1" min="1" />
+                                    <input id="potencia" type="number" name="potencia" placeholder="Inserir a potência contratada (Ex: 12.34)" class="pot-in" step="0.1" min="1" />
                                 </div>
                                 <div class="dado ctarif">
                                     <!--Ciclo tarifario-->
                                     <label for="cicloTarifario">Ciclo tarifário</label>
                                     <select id="cicloTarifario" name="cicloTarifario" class="sel">
-                                        <option value="">Seleccione uma das opções</option>
+                                        <option value="">Selecionar opção</option>
                                     </select>
                                 </div>
                                 <div class="dado chora">
                                     <!--Ciclo horario-->
                                     <label for="cicloHorario">Ciclo horário</label>
                                     <select id="cicloHorario" name="cicloHorario" class="sel">
-                                        <option value="">Seleccione uma das opções</option>
+                                        <option value="">Selecionar opção</option>
                                     </select>
                                 </div>
                                 <!-- QUESTIONS-->
                                 <div class="dado question1">
                                     <label for="question_one">O edifício tem tomada elétrica para o carregamento de veículos elétricos ou a entidade tem viatura elétrica?</label>
                                     <select id="question_one" name="question_one" class="sel">
-                                        <option value="">Seleccione uma das opções</option>
+                                        <option value="">Selecionar opção</option>
                                         <option value="1">Sim</option>
                                         <option value="2">Não</option>
                                     </select>
@@ -82,7 +82,7 @@
                                 <div class="dado question2">
                                     <label for="question_two">O edifício tem coletores solares térmicos ou caldeira a biomassa?</label>
                                     <select id="question_two" name="question_two" class="sel">
-                                        <option value="">Seleccione uma das opções</option>
+                                        <option value="">Selecionar opção</option>
                                         <option value="1">Sim</option>
                                         <option value="2">Não</option>
                                     </select>
@@ -99,9 +99,9 @@
                             <div id="tarifarios"></div>
                             <div class="facturas-for-input dados-child">
                                 <div class="dado facturas">
-                                    <label for="facturas">Faturas</label>
+                                    <label for="facturas">Consumo anual de energia</label>
                                     <select id="facturas" name="facturas" class="sel">
-                                        <option value="">Seleccione uma das opções</option>
+                                        <option value="">Selecionar dados disponíveis (faturas de energia elétrica)</option>
                                     </select>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
                                 <div class="dado horario">
                                     <label for="cenarios">Horário de funcionamento</label>
                                     <select id="cenarios" name="cenarios" class="sel">
-                                        <option value="">Seleccione uma das opções</option>
+                                        <option value="">Selecionar opção</option>
                                     </select>
                                 </div>
                             </div>
@@ -240,9 +240,9 @@
                             </div>-->
                             <div class="lunch-box dados-child">
                                 <div class="dado lunch">
-                                    <label for="lunchBreak">Pausa para almoço</label>
+                                    <label for="lunchBreak">Pausa para almoço?</label>
                                     <select id="lunchBreak" name="lunchBreak" class="sel">
-                                        <option value="">Seleccione uma das opções</option>
+                                        <option value="">Selecionar opção</option>
                                         <option value="0" class="op">Sim</option>
                                         <option value="1" class="op">Não</option>
                                     </select>
@@ -250,16 +250,16 @@
                             </div>
                             <div class="vacations-box dados-child">
                                 <div class="dado vacations-thing">
-                                    <label for="vacations">Períodos de encerramento anual</label>
+                                    <label for="vacations">Períodos de encerramento anual?</label>
                                     <select id="vacations" name="vacations" class="sel">
-                                        <option value="">Seleccione uma das opções</option>
+                                        <option value="">Selecionar opção</option>
                                         <option value="Sim" class="op">Sim</option>
                                         <option value="Não" class="op">Não</option>
                                     </select>
                                     <div id="vacationTimeDiv" style="display: none;">
-                                        <label for="vacationsTime">Quais:</label>
+                                        <label for="vacationsTime">Quais?</label>
                                         <select id="vacationsTime" name="vacationsTime" class="sel">
-                                            <option value="">Seleccione uma das opções</option>
+                                            <option value="">Selecionar opção</option>
                                         </select>
                                     </div>
                                 </div>
@@ -280,17 +280,17 @@
                                         </tr>
                                         <!--SEGUNDA-->
                                         <tr class="textTR">
-                                            <td class="in">Potência Central</td>
+                                            <td class="in">Potência do solar fotovoltaico</td>
                                             <td id="pot_central" class="in center">   </td>
                                             <td id="pot_central_upac" class="in center">   </td>
                                         </tr>
                                         <tr class="textTR"> 
-                                            <td class="in">Nº de painéis fotovoltaicos</td>
+                                            <td class="in">N.º de painéis fotovoltaicos</td>
                                             <td id="nPaineis" class="in center"></td>
                                             <td id="nPaineis_upac" class="in center"></td>
                                         </tr>
                                         <tr class="textTR">
-                                            <td class="in">Área ocupada pela Central Fotovoltaica</td>
+                                            <td class="in">Área ocupada pelo solar fotovoltaico</td>
                                             <td id="area_ocupada" class="in center"></td>
                                             <td id="area_ocupada_upac" class="in center"></td>
                                         </tr>
@@ -300,22 +300,22 @@
                                             <td id="observations_upac" class="in center"></td>
                                         </tr>
                                         <tr class="textTR">
-                                            <td class="in">Consumo da instalação</td>
+                                            <td class="in">Consumo de energia do edifício</td>
                                             <td id="consumo_instalacao" class="in center"></td>
                                             <td id="consumo_instalacao_upac" class="in center"></td>
                                         </tr>
                                         <tr class="textTR">
-                                            <td class="in">Produção fotovoltaica</td>
+                                            <td class="in">Produção de energia solar</td>
                                             <td id="prod_foto" class="in center"> </td>
                                             <td id="prod_foto_upac" class="in center"> </td>
                                         </tr>
                                         <tr class="textTR">
-                                            <td class="in">Excedente</td>
+                                            <td class="in">Energia excedentária</td>
                                             <td id="excede" class="in center"> </td>
                                             <td id="excede_upac" class="in center"> </td>
                                         </tr>
                                         <tr class="textTR">
-                                            <td class="in">Excedente (%) </td>
+                                            <td class="in">Energia excedentária (%) </td>
                                             <td id="excedentePercent" class="in center"> </td>
                                             <td id="excedentePercent_upac" class="in center"> </td>
                                         </tr>
@@ -330,40 +330,41 @@
                                             <td id="consumo_energia_ren_upac" class="in center"> </td>
                                         </tr>
                                         <tr class="textTR">
-                                            <td class="in">Fatura energética</td>
+                                            <td class="in">Custos energéticos anuais</td>
                                             <td id="custos_energia" class="in center"> </td>
                                             <td id="custos_energia_upac" class="in center"> </td>
                                         </tr>
                                         <tr class="textTR">
-                                            <td class="in">Receita com fotovoltaico</td>
+                                            <td class="in">Receita anual com fotovoltaico</td>
                                             <td id="receita_foto" class="in center"></td>
                                             <td id="receita_foto_upac" class="in center"></td>
                                         </tr>
                                         <tr class="textTR">
-                                            <td class="in">Redução de custos</td>
+                                            <td class="in">Redução anual da fatura energética</td>
                                             <td id="reduc_custos" class="in center"></td>
                                             <td id="reduc_custos_upac" class="in center"></td>
                                         </tr>
                                         <tr class="textTR">
-                                            <td class="in">Investimento</td>
+                                            <td class="in">Investimento estimado *</td>
                                             <td id="investe" class="in center"></td>
                                             <td id="investe_upac" class="in center"></td>
                                         </tr>
                                         <tr class="textTR">
-                                            <td class="in">Custos com O&M</td>
+                                            <td class="in">Custos anuais com operação e manutenção</td>
                                             <td id="custos_anuais" class="in center"></td>
                                             <td id="custos_anuais_upac" class="in center"></td>
                                         </tr>
                                         <tr class="textTR">
-                                            <td class="in">Payback</td>
+                                            <td class="in">Período de retorno</td>
                                             <td id="paybck" class="in center"> </td>
                                             <td id="paybck_upac" class="in center"> </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <p class="nota-resumo">NOTA: Estes valores são obtidos para módulos solares virados a sul com 35º de Inclinação (condições ideais) e a potência da central corresponde à potência nominal sendo equivalente a potência de ligação.</p>
-                            <p class="nota-resumo">NOTA: No âmbito do POSEUR apenas são elegíveis investimentos em UPAC e desde que façam parte de soluções integradas que visem a eficiência energética do edifício. Apenas a UPAC é susceptível de alteração da classe energética do edifício. </p>
+                            <p class="nota-resumo">* O investimento estimado incorpora os custos com os módulos solares, com inversor(es) e os respetivos custos de instalação.</p>
+							<p class="nota-resumo">NOTA 1: Estes valores são obtidos para módulos solares virados a Sul, com 35º de inclinação (condições ideais) e a potência da central corresponde à potência nominal, sendo equivalente a potência de ligação.</p>
+                            <p class="nota-resumo">NOTA 2: No âmbito do POSEUR apenas são elegíveis investimentos em UPAC e desde que façam parte de soluções integradas que visem a eficiência energética do edifício. Apenas a UPAC é susceptível de alteração da classe energética do edifício.</p>
                             
                             <div class="resumo-box">
                                 <div class="dados-child">                                       
@@ -375,12 +376,12 @@
                                     <div class="dado new-pot">
                                         <!--Potencia instalada-->
                                         <label for="newPotencia">Inserir nova potência para a Central Solar UPP</label>
-                                        <input id="newPotencia" type="number" name="newPotencia"  min="1" step="0.1" max="250"  placeholder="Insira nova a potência" class="new-pot-in"/>
+                                        <input id="newPotencia" type="number" name="newPotencia"  min="1" step="0.1" max="250"  placeholder="Insira a nova potência" class="new-pot-in"/>
                                     </div>
                                     <div class="dado new-pot">
                                         <!--Potencia instalada-->
                                         <label for="newPotenciaUpac">Inserir nova potência para a Central Solar UPAC</label>
-                                        <input id="newPotenciaUpac" type="number" name="newPotenciaUpac" min="1" step="0.1" max="1000" placeholder="Insira nova a potência" class="new-pot-in"/>
+                                        <input id="newPotenciaUpac" type="number" name="newPotenciaUpac" min="1" step="0.1" max="1000" placeholder="Insira a nova potência" class="new-pot-in"/>
                                     </div>
                                 </div>
                             </div>

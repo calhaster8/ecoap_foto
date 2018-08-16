@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    buildDistricts(); // dados
-    buildNTension(); // dados
+    buildDistricts();
+    buildNTension();
     buildHorarioFuncionamento();
     buildVacations();
     buildSelectConsumos();
@@ -21,7 +21,6 @@ $(document).ready(function () {
         location.reload();
     });
 
-
     $('#newPotencia').change(function () {
         potencia_new_contratada = new Number($('#newPotencia').val());
     });
@@ -30,13 +29,10 @@ $(document).ready(function () {
         potencia_new_contratada_upac = new Number($('#newPotenciaUpac').val());
     });
     
-    //REANALISE DADOS
     $('.reanalise').click(function () {
         uppResultados();
         upacResultados();
     });
-
-
 
     $('#vacations').change(function () {
         if ($("#vacations").val() == "Sim") {
@@ -72,7 +68,6 @@ $(document).ready(function () {
                 number: true
             },
             cicloTarifario: {
-                //required: ( $("#ntensao").val()!="" && $("#ntensao").val()!=undefined && ( $("#ntensao").val()==0 || $("#ntensao").val()==1 || $("#ntensao").val()==2 ) ? true : false) 
                 required: function (element) {
 
                     if ($("#ntensao").val() != "" && $("#ntensao").val() != undefined && ($("#ntensao").val() == 0 || $("#ntensao").val() == 1 || $("#ntensao").val() == 2)) {
@@ -92,7 +87,6 @@ $(document).ready(function () {
                 required: true
             },
 
-            //segundo passo cicloHorario
             facturas: {
                 required: true
             },
@@ -136,7 +130,6 @@ $(document).ready(function () {
                     return potencia_upac;
                 }
             }
-
         },
         messages: {
             distrito: {
@@ -147,13 +140,12 @@ $(document).ready(function () {
             },
             ntensao: {
                 required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>'
-
             },
             potencia: {
                 required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
-                min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior que zero.</label>',
-                step: '<label style="font-size: 14px; color: red;">O passo de incremento deverá ser de 0.01</label>' ,
-                number: '<label style="font-size: 14px; color: red;">Introduza um número válido. Ex: 13.2 </label>'
+                min: '<label style="font-size: 14px; color: red;">A potência contratada deverá ser maior que 1</label>',
+                step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 0.01</label>' ,
+                number: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,)</label>'
             },
             cicloTarifario: {
                 required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>'
@@ -167,8 +159,6 @@ $(document).ready(function () {
             question_two: {
                 required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>'
             },
-
-            //segundo passo
             facturas: {
                 required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>'
             },
@@ -185,28 +175,24 @@ $(document).ready(function () {
                 required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>'
             },
             newArea: {
-                min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior ou igual que 1.</label>',
-                step: '<label style="font-size: 14px; color: red;">O passo de incremento deverá ser de 0.1</label>',
-                number: '<label style="font-size: 14px; color: red;">Introduza um número válido. Ex: 13.2 </label>'
+                min: '<label style="font-size: 14px; color: red;">A área disponível tem que ser superior a 1 m2</label>',
+                step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 0.1</label>',
+                number: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,)</label>'
             },
             newPotencia:{
-                min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior ou igual que 1.</label>',
-                step: '<label style="font-size: 14px; color: red;">O passo de incremento deverá ser de 0.1</label>' ,
-                max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido: Potência da central limitada pelo consumo da instalação</label>',
-                number: '<label style="font-size: 14px; color: red;">Introduza um número válido. Ex: 13.2 </label>'
+                min: '<label style="font-size: 14px; color: red;">A potência da central tem que ser superior a 1 kW</label>',
+                step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 0.1</label>' ,
+                max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido: ver Observações</label>',
+                number: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,)</label>'
             },
             newPotenciaUpac: {
-                min: '<label style="font-size: 14px; color: red;">Este campo deverá ser sempre positivo e maior ou igual que 1.</label>',
-                step: '<label style="font-size: 14px; color: red;">O passo de incremento deverá ser de 0.1</label>' ,
-                max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido: Potência da central limitada pelo consumo da instalação</label>',
-                number: '<label style="font-size: 14px; color: red;">Introduza um número válido. Ex: 13.2 </label>'
+                min: '<label style="font-size: 14px; color: red;">A potência da central tem que ser superior a 1 kW</label>',
+                step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 0.1</label>' ,
+                max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido: ver Observações</label>',
+                number: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,)</label>'
             }            
         }
-
     });
-  
-    
-    
 
     $(".seguinte").click(function () {
         if ($("#fotovoltaico").valid()) {
@@ -222,10 +208,6 @@ $(document).ready(function () {
     });
 });
 
-
-//////////////////////////////
-///     DADOS
-//////////////////////////////
 function buildDistricts() {
     for (var i = 0; i < distritosI.length; i++) {
         $("#distrito").append($('<option class="op"></option>').val(i).html(distritosI[i].nome));
@@ -244,13 +226,13 @@ function buildNTension() {
 }
 
 function getNTensionValues() {
-    //adicionar alerta para a perda dos valores seleccionados de tarifário e horário com a alteração da tensão
+
     var idTension = new Number($("#ntensao").val());
     cleanCTarifarioHorario();
     buildCTarifario(ntensaoI[idTension].cicloTarifario);
     buildCHorario(ntensaoI[idTension].cicloHorario, $("#potencia").val());
     buildCHorarioPotencia();
-    //set unique element in select 
+    
     if ($("#cicloHorario").children().length == 2) {
         var hasTet = $("#cicloHorario").children('option[value="4"]')[0] != '' && $("#cicloHorario").children('option[value="4"]')[0] != undefined ? $("#cicloHorario").children('option[value="4"]')[0].value : 0;
         var hasTri = $("#cicloHorario").children('option[value="3"]')[0] != '' && $("#cicloHorario").children('option[value="3"]')[0] != undefined ? $("#cicloHorario").children('option[value="3"]')[0].value : 0;
@@ -264,17 +246,16 @@ function getNTensionValues() {
             $("#cicloHorario").val(v);
             $("#cicloHorario").select();
         }
-
     }
 }
 
 function buildCTarifario(cicloTarifario) {
     if ($("#ntensao").val() == 3) {
         $('#cicloTarifario').attr('disabled', 'disabled').addClass('sel-disable');
-        $('#cicloTarifario option:contains("Seleccione uma das opções")').text('Não aplicável');
+        $('#cicloTarifario option:contains("Selecionar opção")').text('Não aplicável');
     } else if (cicloTarifario != undefined && cicloTarifario != null && cicloTarifario != '') {
         $('#cicloTarifario').removeAttr('disabled').removeClass('sel-disable');
-        $('#cicloTarifario option:contains("Não aplicável")').text('Seleccione uma das opções');
+        $('#cicloTarifario option:contains("Não aplicável")').text('Selecionar opção');
         for (var i = 0; i < cicloTarifario.length; i++) {
             $("#cicloTarifario").append($('<option class="op"></option>').val(i).html(cicloTarifario[i].nome));
         }
@@ -282,15 +263,14 @@ function buildCTarifario(cicloTarifario) {
 }
 
 function buildCHorario(cicloHorario_input, potencia_input) {
-    //CUSTOM START
-    //CUSTOM END
+   
     if ($("#ntensao").val() == 3 && potencia_input >= 20.7) {
         $("#cicloHorario").append($('<option class="op"></option>').val(ciclo_horarioI[2].valor).html(ciclo_horarioI[2].nome));
         $("#cicloHorario").val(ciclo_horarioI[2].valor);
         $("#cicloHorario").select();
-        //$('#cicloHorario option:contains("Seleccione uma das opções")').remove();
+       
     } else {
-        //$('#cicloHorario').attr('disabled', 'disabled').val(ciclo_horarioI[3].valor).html(ciclo_horarioI[3].nome);
+        
         for (var i = 0; i < cicloHorario_input.length; i++) {
             $("#cicloHorario").append($('<option class="op"></option>').val(cicloHorario_input[i].valor).html(cicloHorario_input[i].nome));
         }
@@ -305,14 +285,13 @@ function buildCHorarioPotencia() {
             var idTension = new Number($("#ntensao").val());
             var potenciaCHorario = new Number($("#potencia").val());
             buildCHorario(ntensaoI[idTension].cicloHorario, potenciaCHorario);
-            //keep selected values
-            //setSelect($('#cicloHorario'), cicloHorarioSelected);
+         
         } else if ($("#ntensao").val() == 3 && ($("#potencia").val() > 41.40 || $("#potencia").val() < 1.15)) {
-            alert("A potência introduzida para BTN's deverá estar entre 1.15 e 41.40 kVA.");
+            alert("A potência contratada deverá ser de 1.15 a 41.40 kVA.");
         } else if ($("#ntensao").val() == 2 && $("#potencia").val() <= 41.40) {
-            alert("A potência introduzida para BTE's deverá ser sempre superior a 41.41 kW.");
+            alert("A potência contratada deverá ser superior a 41.4 kW.");
         } else if (($("#ntensao").val() == 1 || $("#ntensao").val() == 0) && $("#potencia").val() <= 0) {
-            alert("A potência introduzida para AT's e MT's deverá ser sempre superior a 0 kW.");
+            alert("A potência contrtatda deverá ser superior a 1 kW.");
         }
     }
 }
@@ -352,15 +331,15 @@ function buildVacations() {
 }
 
 function buildTarifario() {
-    //tarifario
+    
     var idcicloHorario = new Number($("#cicloHorario").val()) - 1;
     if (ciclo_horarioI[idcicloHorario] != undefined && ciclo_horarioI[idcicloHorario] != null) {
-        //append to tarifarios a table with correct data
+       
         $("#tarifarioNome").html(ciclo_horarioI[idcicloHorario].nome);
-        //var hr = '<hr>';
+        
         var tabletarifasTitle = '<span>Tarifário</span>';
         var tabletarifasNota = '<span>Introduzir custos unitários de energia, incluindo tarifas de acesso às redes</span><br><br>';
-        var tabletarifas = '<table class="table table-bordered" id="tableTarif"><tbody><tr style="font-weight:bold;"><th class="tituloTH">Ciclos</th><th class="tituloTH">Custos (€\/kWh)</th></tr>';
+        var tabletarifas = '<table class="table table-bordered" id="tableTarif"><tbody><tr style="font-weight:bold;"><th class="tituloTH">Ciclo Horário</th><th class="tituloTH">Custo unitário (€/kWh)</th></tr>';
         for (i = 0; i < ciclo_horarioI[idcicloHorario].periodoTarifario.length; i++) {
             if (i == 4) {
                 tabletarifas += '<tr><th colspan=2 class="tituloTH">Custo (€/kWh.dia)</th></tr>';
@@ -371,8 +350,7 @@ function buildTarifario() {
                         ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + ciclo_horarioI[idcicloHorario].valor + '"></td>';
                 tabletarifas += '</tr>';
             }else{
-                
-            
+                            
                 tabletarifas += '<tr class="textTR">';
                 tabletarifas += '<td class="in">' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].nome +
                         '</td><td class="in"><input required class="form-control xInput" min="0" step="0.0001" max="1" type="number" placeholder="Ex: 0.10 " id="' +
@@ -380,35 +358,28 @@ function buildTarifario() {
                         ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + ciclo_horarioI[idcicloHorario].valor + '"></td>';
                 tabletarifas += '</tr>';
             }
-
         }
-        //$('.hr-line').html(hr);
+        
         $('.second').html(tabletarifasTitle);
         $('.nota-tarifas').html(tabletarifasNota);
         $("#tarifarios").html(tabletarifas + '</tbody></table>');
 
         for (i = 0; i < ciclo_horarioI[idcicloHorario].periodoTarifario.length; i++) {
-            
-                
+                            
             $('#' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + ciclo_horarioI[idcicloHorario].valor).rules("add", {
                 required: true,
-                min: 0,
+                min: 0.01,
                 number: true,
                 max: 1,
                 messages: {
                     required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
-                    min: '<label style="font-size: 14px; color: red;">O custo tem que ser maior que 0.</label>',
-                    max: '<label style="font-size: 14px; color: red;">O custo tem que ser menor a 1.</label>',
-                    number: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,). Ex: 10.0</label>'
+                    min: '<label style="font-size: 14px; color: red;">O custo unitário tem que ser maior que 0.01€/kWh</label>',
+                    max: '<label style="font-size: 14px; color: red;">O custo unitário tem que ser menor que 1,00€/kWh</label>',
+                    number: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,)</label>'
                 }
-            });
-            
-            
-        }
-        //buildConsumos();
+            });            
+        }        
     }
-
-
 }
 
 function buildSelectConsumos() {
@@ -419,7 +390,6 @@ function buildSelectConsumos() {
 
 function buildConsumos() {
 
-    //div to fill 'factura-consumo'
     var idcicloHorario = new Number($("#cicloHorario").val()) - 1;
     var consumos = new Number($("#facturas").val());
     var consumosTable = '';
@@ -427,15 +397,12 @@ function buildConsumos() {
     var colunas = ciclo_horarioI[idcicloHorario].periodoTarifario.length;
     var facturaNewTitle = '<span>Fatura</span>';
 
-
     if (consumos == 1) {
         size = 3;
-        //construir for para table headers
-        //construir um for para table rows
-
+      
         consumosTable = '<table class="table table-bordered" id="tbl-factura-mensal">';
 
-        for (j = 0; j < size; j++) { //linhas
+        for (j = 0; j < size; j++) {
 
             if (j == 0) {
                 consumosTable += '<tr style="font-weight:bold;"><th class="tituloTH">&nbsp;</th>';
@@ -447,9 +414,9 @@ function buildConsumos() {
                 consumosTable += '<tr id="anual" class="textTR"><td class="title-padd">Anual</td>';
             }
 
-            for (i = 0; i < colunas; i++) { //colunas
+            for (i = 0; i < colunas; i++) { 
                 if (j == 0 && ciclo_horarioI[idcicloHorario].valor == 4 && i == colunas - 1) {
-                    //do nothing
+                    
                     consumosTable += '<th class="tituloTH">Total</th>';
                 } else if (j == 0 && i == colunas - 1) {
                     consumosTable += '<th class="tituloTH">' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].nome + '</th>';
@@ -457,24 +424,23 @@ function buildConsumos() {
                 } else if (j == 0 && i >= 0) {
                     consumosTable += '<th class="tituloTH">' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].nome + '</th>';
                 } else if (j == 1 && ciclo_horarioI[idcicloHorario].valor == 4 && i == colunas - 1) {
-                    //do nothing
+                    
                     consumosTable += '<td class="in" id="totalMensal"></td>';
                 } else if (j == 1 && i == colunas - 1) {
                     consumosTable += '<td><input class="form-control xInput" type="number" onchange="somaRow()" placeholder="ex: 100" id="mensal_' +
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '" name="mensal_' +
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '"></td>';
 
-                    //consumosTable += '<td><label id="total_mensal"></label></td>';
+                    
                     consumosTable += '<td class="in" id="totalMensal"></td>';
-                    // id standard = somatorio_ufm_th
+                    
                 } else if (j == 1 && i >= 0) {
                     consumosTable += '<td><input class="form-control xInput" type="number" onchange="somaRow()" placeholder="ex: 100" id="mensal_' +
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '" name="mensal_' +
                             ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '"></td>';
-
                   
                 } else if (j == 2 && ciclo_horarioI[idcicloHorario].valor == 4 && i == colunas - 1) {
-                    //do nothing
+                    
                     consumosTable += '<td class="in" id="total_anual"></td>';
                 } else if (j == 2 && i == colunas - 1) {
                     consumosTable += '<td class="in" id="anual_' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '"></td>';
@@ -489,11 +455,10 @@ function buildConsumos() {
 
     } else if (consumos == 2) {
         size = 2;
-        //construir for para table headers
-        //construir um for para table rows
+   
         consumosTable = '<table class="table table-bordered" id="tbl-consumos-anuais"><tbody>';
 
-        for (j = 0; j < size; j++) { //linhas
+        for (j = 0; j < size; j++) {
             if (j == 0) {
                 consumosTable += '<tr class="textTR" style="font-weight:bold;"><th class="tituloTH">&nbsp;</th>';
             }
@@ -501,10 +466,10 @@ function buildConsumos() {
                 consumosTable += '<tr class="textTR"><td class="title-padd">Anual</td>';
             }
 
-            for (i = 0; i < colunas; i++) { //colunas
+            for (i = 0; i < colunas; i++) {
 
                 if (j == 0 && ciclo_horarioI[idcicloHorario].valor == 4 && i == colunas - 1) {
-                    //do nothing
+                 
                     consumosTable += '<th class="tituloTH">Total</th>';
                 } else if (j == 0 && i == colunas - 1) {
                     consumosTable += '<th class="tituloTH">' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].nome + '</th>';
@@ -512,7 +477,7 @@ function buildConsumos() {
                 } else if (j == 0 && i >= 0) {
                     consumosTable += '<th class="tituloTH">' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].nome + '</th>';
                 } else if (j == 1 && ciclo_horarioI[idcicloHorario].valor == 4 && i == colunas - 1) {
-                    //do nothing
+                  
                     consumosTable += '<td class="in" id="total_anual"></td>';
                 } else if (j == 1 && i == colunas - 1) {
                     consumosTable += '<td class="in"><input class="form-control xInput" type="number" onchange="somaRow()" placeholder="ex: 100" id="anual_' +
@@ -529,15 +494,13 @@ function buildConsumos() {
         }
         consumosTable += '</table>';
 
-
     } else if (consumos == 12) {
         size = 14;
-        //construir for para table headers
-        //construir um for para table rows
+      
         consumosTable = '<table class="table table-bordered" id="tbl-facturas"><tbody>';
 
-        for (j = 0; j < size; j++) { //linhas
-            //console.log(j);
+        for (j = 0; j < size; j++) { 
+           
             if (j == 0) {
                 consumosTable += '<tr class="textTR" style="font-weight:bold;"><th class="tituloTH">&nbsp;</th>';
             }
@@ -547,9 +510,9 @@ function buildConsumos() {
                 consumosTable += '<tr class="textTR"><td class="title-padd">' + producaoSolarMes[j - 1].nome + '</td>';
             }
 
-            for (i = 0; i < colunas; i++) { //colunas                
+            for (i = 0; i < colunas; i++) {                
                 if (j == 0 && ciclo_horarioI[idcicloHorario].valor == 4 && i == colunas - 1) {
-                    //do nothing
+                   
                     consumosTable += '<th class="tituloTH">Total</th>';
                 } else if (j == 0 && i == colunas - 1) {
                     consumosTable += '<th class="tituloTH">' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].nome + '</th>';
@@ -557,7 +520,7 @@ function buildConsumos() {
                 } else if (j == 0 && i >= 0) {
                     consumosTable += '<th class="tituloTH">' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].nome + '</th>';
                 } else if (j == size - 1 && ciclo_horarioI[idcicloHorario].valor == 4 && i == colunas - 1) {
-                    //do nothing
+                   
                     consumosTable += '<td class="in" id="total_anual"></td>';
                 } else if (j == size - 1 && i == colunas - 1) {
                     consumosTable += '<td class="in" id="anual_' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '"></td>';
@@ -565,7 +528,7 @@ function buildConsumos() {
                 } else if (j == size - 1 && i >= 0) {
                     consumosTable += '<td class="in" id="anual_' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor + '"></td>';
                 } else if (j > 0 && ciclo_horarioI[idcicloHorario].valor == 4 && i == colunas - 1) {
-                    //do nothing
+                    
                     consumosTable += '<td class="in" id="total_mensal_' + producaoSolarMes[j - 1].valor + '"></td>';
                 } else if (j > 0 && i == colunas - 1) {
                     consumosTable += '<td class="in"><input class="form-control xInput" type="number" onchange="somaRow()" placeholder="ex: 100" id="consumo_' + producaoSolarMes[j - 1].valor + '_' +
@@ -581,44 +544,42 @@ function buildConsumos() {
             consumosTable += '</tr>';
         }
         consumosTable += '</table>';
-
     }
 
     $('.third').html(facturaNewTitle);
     $("#factura-consumo").html(consumosTable);
 
-
     if (consumos == 1) {
         size = 3;
-        for (j = 0; j < size; j++) { //linhas
-            for (i = 0; i < colunas; i++) { //colunas
+        for (j = 0; j < size; j++) { 
+            for (i = 0; i < colunas; i++) { 
                 if (j == 1 && i == colunas - 1) {     
                     $('#mensal_' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor).rules("add", {
                         required: true,
-                        min: 0,
+                        min: 1,
                         digits: true,
                         step: 1,
                         messages: {
                             required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
-                            min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
-                            digits: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>',
-                            step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 1.</label>',
-                            number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>'
+                            min: '<label style="font-size: 14px; color: red;">O consumo de energia tem que ser superior a 1</label>',
+                            digits: '<label style="font-size: 14px; color: red;">Introduza números inteiros</label>',
+                            step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 1</label>',
+                            number: '<label style="font-size: 14px; color: red;">Introduza números inteiros</label>'
                         }
                     });
 
                 } else if (j == 1 && i >= 0) {                    
                     $('#mensal_' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor).rules("add", {
                         required: true,
-                        min: 0,
+                        min: 1,
                         digits: true,
                         step: 1,
                         messages: {
                             required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
-                            min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
-                            digits: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>',
-                            step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 1.</label>',
-                            number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>'
+                            min: '<label style="font-size: 14px; color: red;">O consumo de energia tem que ser superior a 1</label>',
+                            digits: '<label style="font-size: 14px; color: red;">Introduza números inteiros</label>',
+                            step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 1</label>',
+                            number: '<label style="font-size: 14px; color: red;">Introduza números inteiros</label>'
                         }
                     });
                 }
@@ -628,90 +589,80 @@ function buildConsumos() {
     } else if (consumos == 2) {
         size = 2;
 
-        for (j = 0; j < size; j++) { //linhas            
-            for (i = 0; i < colunas; i++) { //colunas
+        for (j = 0; j < size; j++) {            
+            for (i = 0; i < colunas; i++) {
                  if (j == 1 && i == colunas - 1) {
                      $('#anual_'+ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor).rules("add", {
                         required: true,
-                        min: 0,
+                        min: 1,
                         digits: true,
                         step: 1,
                         messages: {
                             required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
-                            min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
-                            digits: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>',
-                            step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 1.</label>',
-                            number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>'
+                            min: '<label style="font-size: 14px; color: red;">O consumo de energia tem que ser superior a 1</label>',
+                            digits: '<label style="font-size: 14px; color: red;">Introduza números inteiros</label>',
+                            step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 1</label>',
+                            number: '<label style="font-size: 14px; color: red;">Introduza números inteiros</label>'
                         }
                     });
                 } else if (j == 1 && i >= 0) {
                    $('#anual_'+ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor).rules("add", {
                         required: true,
-                        min: 0,
+                        min: 1,
                         digits: true,
                         step: 1,
                         messages: {
                             required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
-                            min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
-                            digits: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>',
-                            step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 1.</label>',
-                            number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>'
+                            min: '<label style="font-size: 14px; color: red;">O consumo de energia tem que ser superior a 1</label>',
+                            digits: '<label style="font-size: 14px; color: red;">Introduza números inteiros</label>',
+                            step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 1</label>',
+                            number: '<label style="font-size: 14px; color: red;">Introduza números inteiros</label>'
                         }
                     });
                 }
             }
         }
 
-
     } else if (consumos == 12) {
         size = 14;
-        //construir for para table headers
-        //construir um for para table rows
-
-        for (j = 0; j < size; j++) { //linhas
+    
+        for (j = 0; j < size; j++) { 
             
-            for (i = 0; i < colunas; i++) { //colunas                
+            for (i = 0; i < colunas; i++) {                 
                 if (j > 0 && i == colunas - 1) {
                     $('#consumo_' + producaoSolarMes[j - 1].valor + '_' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor).rules("add", {
                         required: true,
-                        min: 0,
+                        min: 1,
                         digits: true,
                         step: 1,
                         messages: {
                             required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
-                            min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
-                            digits: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>',
-                            step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 1.</label>',
-                            number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>'
+                            min: '<label style="font-size: 14px; color: red;">O consumo de energia tem que ser superior a 1</label>',
+                            digits: '<label style="font-size: 14px; color: red;">Introduza números inteiros</label>',
+                            step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 1</label>',
+                            number: '<label style="font-size: 14px; color: red;">Introduza números inteiros</label>'
                         }
                     });
                 } else if (j > 0 && i >= 0) {
                     $('#consumo_' + producaoSolarMes[j - 1].valor + '_' + ciclo_horarioI[idcicloHorario].periodoTarifario[i].valor).rules("add", {
                         required: true,
-                        min: 0,
+                        min: 1,
                         digits: true,
                         step: 1,
                         messages: {
                             required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
-                            min: '<label style="font-size: 14px; color: red;">Este campo tem que ser maior que 0.</label>',
-                            digits: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>',
-                            step: '<label style="font-size: 14px; color: red;">O passo deverá ser de 1.</label>',
-                            number: '<label style="font-size: 14px; color: red;">Introduza um número válido.</label>'
+                            min: '<label style="font-size: 14px; color: red;">O consumo de energia tem que ser superior a 1</label>',
+                            digits: '<label style="font-size: 14px; color: red;">Introduza números inteiros</label>',
+                            step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 1</label>',
+                            number: '<label style="font-size: 14px; color: red;">Introduza números inteiros</label>'
                         }
                     });
                 }
             }
-            
         }
-
     }
 }
 
-
-
-
-
-// BUTTONS STEPS
 function nextStep() {
     var id = $('.step:visible').data('id');
     var nextId = $('.step:visible').data('id') + 1;
