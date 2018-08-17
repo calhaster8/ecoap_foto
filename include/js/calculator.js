@@ -337,7 +337,7 @@ function buildTarifario() {
        
         $("#tarifarioNome").html(ciclo_horarioI[idcicloHorario].nome);
         
-        var tabletarifasTitle = '<span>Tarifário</span>';
+        var tabletarifasTitle = '<span>Tarifário e Consumos de Energia</span>';
         var tabletarifasNota = '<span>Introduzir custos unitários de energia, incluindo tarifas de acesso às redes</span><br><br>';
         var tabletarifas = '<table class="table table-bordered" id="tableTarif"><tbody><tr style="font-weight:bold;"><th class="tituloTH">Ciclo Horário</th><th class="tituloTH">Custo unitário (€/kWh)</th></tr>';
         for (i = 0; i < ciclo_horarioI[idcicloHorario].periodoTarifario.length; i++) {

@@ -107,13 +107,13 @@ function uppResultados() {
     $('#prod_foto').html(upp_resultados_prod_volt.toFixed(0) + ' kWh');
     $('#excede').html(excedente_resultados>0 ? excedente_resultados.toFixed(0) + ' kWh' : '-');
     $('#excedentePercent').html(excedente_resultados_perc>0 ? excedente_resultados_perc.toFixed(0) + ' %' : '-');
-    $('#auto_consumo').html('NÃ£o aplicÃ¡vel');
+    $('#auto_consumo').html('Não aplicável');
     $('#consumo_energia_ren').html(upp_resultados_reducao_dep_ene.toFixed(0) + '%');
-    $('#custos_energia').html(upp_resultados_custos_energicos.toFixed(0) + ' â‚¬');
-    $('#receita_foto').html(upp_resultados_rec_foto.toFixed(0) + ' â‚¬' + '<br>' + catUPP.nome);
+    $('#custos_energia').html(upp_resultados_custos_energicos.toFixed(0) + ' €');
+    $('#receita_foto').html(upp_resultados_rec_foto.toFixed(0) + ' €' + '<br>' + catUPP.nome);
     $('#reduc_custos').html(upp_resultados_reducao_custos.toFixed(0) + '%');
-    $('#investe').html(upp_resultados_investimento.toFixed(0) + ' â‚¬');
-    $('#custos_anuais').html(upp_custos_anuais_new.toFixed(0) + ' â‚¬');
+    $('#investe').html(upp_resultados_investimento.toFixed(0) + ' €');
+    $('#custos_anuais').html(upp_custos_anuais_new.toFixed(0) + ' €');
     $('#paybck').html(upp_resultados_payback.toFixed(1) + ' anos');
 }
 
@@ -769,7 +769,7 @@ function upacResultados() {
 
     $('#pot_central_upac').html(upac_resultados_pc.toFixed(0) + ' kW');
     $('#nPaineis_upac').html(upac_resultados_n_paineis.toFixed(0));
-    $('#area_ocupada_upac').html(upac_resultados_area_ocupada.toFixed(0) + " mÂ²");
+    $('#area_ocupada_upac').html(upac_resultados_area_ocupada.toFixed(0) + " m2");
     $('#observations_upac').html(upac_condicao);
     $('#consumo_instalacao_upac').html(consumo_anual.toFixed(0) + ' kWh');
     $('#prod_foto_upac').html(upac_resultados_prod_volt.toFixed(0) + ' kWh');
@@ -777,11 +777,11 @@ function upacResultados() {
     $('#excedentePercent_upac').html(excedente_resultados_perc_upac.toFixed(0) + ' %');
     $('#auto_consumo_upac').html(upac_autoconsumo_upac.toFixed(0) + ' kWh');
     $('#consumo_energia_ren_upac').html(upac_resultados_reducao_dep_ene.toFixed(0) + '%');
-    $('#custos_energia_upac').html(upac_resultados_custos_energicos.toFixed(0) + ' â‚¬');
-    $('#receita_foto_upac').html(upac_resultados_rec_foto.toFixed(0) + ' â‚¬');
+    $('#custos_energia_upac').html(upac_resultados_custos_energicos.toFixed(0) + ' €');
+    $('#receita_foto_upac').html(upac_resultados_rec_foto.toFixed(0) + ' €');
     $('#reduc_custos_upac').html((upac_resultados_reducao_custos*100).toFixed(0) + '%');
-    $('#investe_upac').html(upac_resultados_investimento.toFixed(0) + ' â‚¬');
-    $('#custos_anuais_upac').html(upac_custos_anuais_new.toFixed(0) + ' â‚¬');
+    $('#investe_upac').html(upac_resultados_investimento.toFixed(0) + ' €');
+    $('#custos_anuais_upac').html(upac_custos_anuais_new.toFixed(0) + ' €');
     $('#paybck_upac').html(upac_resultados_payback.toFixed(1) + ' anos');
 }
 
