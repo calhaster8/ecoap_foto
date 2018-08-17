@@ -145,7 +145,7 @@ $(document).ready(function () {
                 required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
                 min: '<label style="font-size: 14px; color: red;">A potência contratada deverá ser maior que 1</label>',
                 step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 0.01</label>' ,
-                number: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,)</label>'
+                number: '<label style="font-size: 14px; color: red;">Introduza números com (.) em vez de (,)</label>'
             },
             cicloTarifario: {
                 required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>'
@@ -177,19 +177,19 @@ $(document).ready(function () {
             newArea: {
                 min: '<label style="font-size: 14px; color: red;">A área disponível tem que ser superior a 1 m2</label>',
                 step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 0.1</label>',
-                number: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,)</label>'
+                number: '<label style="font-size: 14px; color: red;">Introduza números com (.) em vez de (,)</label>'
             },
             newPotencia:{
                 min: '<label style="font-size: 14px; color: red;">A potência da central tem que ser superior a 1 kW</label>',
                 step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 0.1</label>' ,
                 max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido: ver Observações</label>',
-                number: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,)</label>'
+                number: '<label style="font-size: 14px; color: red;">Introduza números com (.) em vez de (,)</label>'
             },
             newPotenciaUpac: {
                 min: '<label style="font-size: 14px; color: red;">A potência da central tem que ser superior a 1 kW</label>',
                 step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 0.1</label>' ,
                 max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido: ver Observações</label>',
-                number: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,)</label>'
+                number: '<label style="font-size: 14px; color: red;">Introduza números com (.) em vez de (,)</label>'
             }            
         }
     });
@@ -375,7 +375,7 @@ function buildTarifario() {
                     required: '<label style="font-size: 14px; color: red;">Este campo é obrigatório.</label>',
                     min: '<label style="font-size: 14px; color: red;">O custo unitário tem que ser maior que 0.01€/kWh</label>',
                     max: '<label style="font-size: 14px; color: red;">O custo unitário tem que ser menor que 1,00€/kWh</label>',
-                    number: '<label style="font-size: 14px; color: red;">Introduza (.) em vez de (,)</label>'
+                    number: '<label style="font-size: 14px; color: red;">Introduza números com (.) em vez de (,)</label>'
                 }
             });            
         }        
