@@ -126,118 +126,6 @@
                                     </select>
                                 </div>
                             </div>
-<!--                            <div id="otherCenario" style="display: none;">
-                                <label for="otherCenarios">Seleccione os dias e os horários de funcionamento:</label>
-                                <table class="table table-bordered table-striped">
-                                    <tbody>
-                                        TITLES
-                                        <tr style="font-weight: bold;">
-                                            <th class="tituloTH">&nbsp</th>
-                                            <th class="tituloTH">Dia da semana</th>
-                                            <th class="tituloTH">Horário de entrada (hora)</th>
-                                            <th class="tituloTH">Horário de saída (hora)</th>
-                                        </tr>
-                                        SEGUNDA
-                                        <tr class="textTR">
-                                            <td>
-                                                <input id="seg-check" type="checkbox" class="check"/>
-                                            </td>
-                                            <td class="in">Segunda        </td>
-                                            <td class="in"> 
-                                                #datetimepickerSeg
-                                                <input id="seg-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                                            </td>
-                                            <td class="in"> 
-                                                <input id="seg-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                                            </td>
-                                        </tr>
-                                        TERCA
-                                        <tr class="textTR terca"> 
-                                            <td>
-                                                <input id="ter-check" type="checkbox" class="check"/>
-                                            </td>
-                                            <td class="in">Terça       </td>
-                                            <td class="in"> 
-                                                #datetimepickerSeg
-                                                <input id="ter-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                                            </td>
-                                            <td class="in"> 
-                                                <input id="ter-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                                            </td>
-                                        </tr>
-                                        QUARTA
-                                        <tr class="textTR quarta">
-                                            <td>
-                                                <input id="quarta-check" type="checkbox" class="check"/>
-                                            </td>
-                                            <td class="in">Quarta      </td>
-                                            <td class="in"> 
-                                                #datetimepickerSeg
-                                                <input id="quarta-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                                            </td>
-                                            <td class="in"> 
-                                                <input id="quarta-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                                            </td>
-                                        </tr>
-                                        QUINTA
-                                        <tr class="textTR quinta">
-                                            <td>
-                                                <input id="quinta-check" type="checkbox" class="check"/>
-                                            </td>
-                                            <td class="in">Quinta       </td>
-                                            <td class="in"> 
-                                                #datetimepickerSeg
-                                                <input id="quinta-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                                            </td>
-                                            <td class="in"> 
-                                                <input id="quinta-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                                            </td>
-                                        </tr>
-                                        SEXTA
-                                        <tr class="textTR sexta">
-                                            <td>
-                                                <input id="sex-check" type="checkbox" class="check"/>
-                                            </td>
-                                            <td class="in">Sexta        </td>
-                                            <td class="in"> 
-                                                #datetimepickerSeg
-                                                <input id="sex-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                                            </td>
-                                            <td class="in"> 
-                                                <input id="sex-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                                            </td>
-                                        </tr>
-                                        SABADO
-                                        <tr class="textTR sabado">
-                                            <td>
-                                                <input id="sab-check" type="checkbox" class="check"/>
-                                            </td>
-                                            <td class="in">Sábado       </td>
-                                            <td class="in"> 
-                                                #datetimepickerSeg
-                                                <input id="sab-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                                            </td>
-                                            <td class="in"> 
-                                                <input id="sab-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                                            </td>
-                                        </tr>
-                                        DOMINGO
-                                        <tr class="textTR domingo">
-                                            <td>
-                                                <input id="dom-check" type="checkbox" class="check"/>
-                                            </td>
-                                            <td class="in">Domingo       </td>
-                                            <td class="in"> 
-                                                #datetimepickerSeg
-                                                <input id="dom-ent" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                                            </td>
-                                            <td class="in"> 
-                                                <input id="dom-saida" type="number" placeholder="xx:xx" data-mask="data-mask" class="form-control xInput"/>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>-->
                             <div class="lunch-box dados-child">
                                 <div class="dado lunch">
                                     <label for="lunchBreak">Pausa para almoço?</label>
@@ -408,6 +296,15 @@
                         <div class="print_pdf step-but">
                             <span class="print_text">Deseja imprimir?
                                 <button type="button" onclick="printJS('upp-table', 'html')" class="print_link">Clique aqui</button></span>
+                        </div>
+                                               
+                    
+                        <div class="col-md-12" id="disclaimer" style="display:none; text-align: justify; margin-top: 20px; padding:0px;">
+                            <span>Esta calculadora insere-se na campanha com o mote “A Energia tem ECO no futuro” dinamizada pela ADENE – Agência para a Energia, em 2018, promovida no âmbito de uma Campanha de Sensibilização e Promoção da Eficiência Energética na Administração Pública Central, cofinanciada pelo PO SEUR, e utiliza algoritmos de cálculo baseados em valores padrão e em médias estatísticas.
+
+Não pretende substituir o trabalho aprofundado de especialistas na área e/ou de peritos qualificados mas sim, permitir ao Gestor Local de Energia, ou a outros utilizadores, determinar, de forma indicativa, mas aproximada, o resultado da implementação de medidas de melhoria da eficiência energética em edifícios, nomeadamente da Administração Pública Central.
+
+Os resultados obtidos podem divergir relativamente a relatórios de auditorias energéticas ou de processos de certificação energética.</span>
                         </div>
                         </form>
                     </div>

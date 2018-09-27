@@ -101,7 +101,7 @@ function uppResultados() {
 
     $('#pot_central').html(upp_resultados_pc.toFixed(0) + ' kW');
     $('#nPaineis').html(upp_resultados_n_paineis.toFixed(0));
-    $('#area_ocupada').html(upp_resultados_area_ocupada.toFixed(0) + " mÂ²");
+    $('#area_ocupada').html(upp_resultados_area_ocupada.toFixed(0) + " m2");
     $('#observations').html(upp_condicao);
     $('#consumo_instalacao').html(consumo_anual.toFixed(0) + ' kWh');
     $('#prod_foto').html(upp_resultados_prod_volt.toFixed(0) + ' kWh');

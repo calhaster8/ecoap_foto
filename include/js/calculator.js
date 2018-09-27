@@ -677,6 +677,7 @@ function nextStep() {
         $('.but-2').hide();
         $('.analise').hide();
         $('.end-step').show();
+        $('#disclaimer').hide();
     }
 
     if (nextId == 4) {
@@ -685,7 +686,10 @@ function nextStep() {
         $('.print_pdf').show();
         $(".reload-but").show();
         $('.analise').show();
+        $('#disclaimer').show();
     }
+    
+    location.hash = "html";
 }
 
 function prevStep() {
@@ -696,6 +700,7 @@ function prevStep() {
 
     if (prevId == 1) {
         $('.anterior').hide();
+        $('#disclaimer').hide();
     }
 
     if (prevId < 3) {
@@ -703,6 +708,7 @@ function prevStep() {
         $('.analise').hide();
         $('.print_pdf').hide();
         $('.but-2').show();
+        $('#disclaimer').hide();
     }
 
     if (prevId == 3) {
@@ -714,6 +720,7 @@ function prevStep() {
         $("#newPotencia").val("");
         $("#newPotenciaUpac").val("");
         $('.end-step').show();
+        $('#disclaimer').hide();
     }
 
     if (prevId == 4) {
@@ -724,5 +731,8 @@ function prevStep() {
         $("#newPotencia").val("");
         $("#newPotenciaUpac").val("");
         $('.end-step').show();
+        $('#disclaimer').hide();
     }
+    
+    location.hash = "html";
 }
