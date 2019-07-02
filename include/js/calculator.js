@@ -32,6 +32,7 @@ $(document).ready(function () {
     $('.reanalise').click(function () {
         uppResultados();
         upacResultados();
+        buildGraphFinal();
     });
 
     $('#vacations').change(function () {
@@ -197,29 +198,33 @@ $(document).ready(function () {
     $(".seguinte").click(function () {
         
         if ($("#fotovoltaico").valid()) {
-            resizeWindow();
+            //TODO uncomment in production
+            //resizeWindow();
             nextStep();
         }
     });
     $(".end-but").click(function () {
         if ($("#fotovoltaico").valid()) {
-            resizeWindow();
+            //TODO uncomment in production
+            //resizeWindow();
             uppResultados();
             upacResultados();
-            nextStep();
+            nextStep();            
+            buildGraphFinal();
         }
     });
 });
 
-function resizeWindow(){
-    window.parent.document.getElementsByName('myiFrame')[0].height=document.getElementsByTagName('body')[0].scrollHeight+'px';
-}
+//function resizeWindow(){
+//    window.parent.document.getElementsByName('myiFrame')[0].height=document.getElementsByTagName('body')[0].scrollHeight+'px';
+//}
 
 function buildDistricts() {
     for (var i = 0; i < distritosI.length; i++) {
         $("#distrito").append($('<option class="op"></option>').val(i).html(distritosI[i].nome));
     }
-    resizeWindow();
+    //TODO uncomment in production
+    //resizeWindow();
 }
 
 function getDistrictValues() {
@@ -268,7 +273,8 @@ function buildCTarifario(cicloTarifario) {
             $("#cicloTarifario").append($('<option class="op"></option>').val(i).html(cicloTarifario[i].nome));
         }
     }
-    resizeWindow();
+    //TODO uncomment in production
+    //resizeWindow();
 }
 
 function buildCHorario(cicloHorario_input, potencia_input) {
@@ -284,7 +290,7 @@ function buildCHorario(cicloHorario_input, potencia_input) {
             $("#cicloHorario").append($('<option class="op"></option>').val(cicloHorario_input[i].valor).html(cicloHorario_input[i].nome));
         }
     }
-    resizeWindow();
+    //resizeWindow();
 }
 
 function buildCHorarioPotencia() {
@@ -304,7 +310,8 @@ function buildCHorarioPotencia() {
             alert("A potência contrtatda deverá ser superior a 1 kW.");
         }
     }
-    resizeWindow();
+    //TODO uncomment in production
+    //resizeWindow();
 }
 
 function cleanCTarifarioHorario() {
@@ -391,14 +398,16 @@ function buildTarifario() {
             });            
         }        
     }
-    resizeWindow();
+    //TODO uncomment in production
+    //resizeWindow();
 }
 
 function buildSelectConsumos() {
     for (var i = 0; i < consumosI.length; i++) {
         $("#facturas").append($('<option class="op"></option>').val(consumosI[i].value).html(consumosI[i].nome));
     }
-    resizeWindow();
+    //TODO uncomment in production
+    //resizeWindow();
 }
 
 function buildConsumos() {
@@ -674,7 +683,8 @@ function buildConsumos() {
             }
         }
     }
-    resizeWindow();
+    //TODO uncomment in production
+    //resizeWindow();
 }
 
 function nextStep() {

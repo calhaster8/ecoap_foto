@@ -17,7 +17,8 @@
         <script src="include/js/globals.js"></script>
         <script src="include/js/graph.js"></script>
         <script src="include/js/print.min.js"></script>
-        <script src="include/js/jquery.validate.min.js"></script>
+        <script src="include/js/jquery.validate.min.js"></script>        
+        <script src="include/js/Chart.bundle.min.js"></script>
         <title>ECO.AP - Calculadora - Solar Fotovoltaico</title>
     </head>
     <body>
@@ -309,8 +310,9 @@ Os resultados obtidos podem divergir relativamente a relatórios de auditorias e
                         </form>
                     </div>
 
-                    <!--.graph
-                    canvas#myChart(width="400" height="400")-->
+                   <div class="graph">
+                        <canvas id="myChart" style="width: 400px;height: 400px"></canvas>
+                    </div>
 
                 </div>
                 <div class="col-md-7d-none d-md-block"></div>
