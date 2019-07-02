@@ -1189,7 +1189,7 @@ function excedente() {
     autoconsumo_foravazio = 0;
     autoconsumo_simples = 0;
 
-    var totaisExcedentes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    totaisExcedentes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var control = 0;
     for (i = 0; i < 12; i++) {
         control = 0;

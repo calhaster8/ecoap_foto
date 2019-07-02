@@ -25,6 +25,9 @@ var horasFuncionamento = 0;
 
 var curvaConsumo = [];
 
+
+var totaisExcedentes = [];
+
 var upacExcedenteValue=0; 
 var upacExcedentePerc=0;
 
