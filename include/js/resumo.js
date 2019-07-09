@@ -1234,6 +1234,8 @@ function excedente() {
             excedente_mes_vazio[i] = producao_mes_vazio[i] - consumos_mes_vazio[i] < 0 ? 0 : producao_mes_vazio[i] - consumos_mes_vazio[i];
             totaisExcedentes[control++] += excedente_mes_vazio[i];
 
+            excedente_mes_total[i] = excedente_mes_ponta[i] + excedente_mes_cheia[i] + excedente_mes_vazio[i];
+
             totaisExcedentes[control++] += excedente_mes_ponta[i] + excedente_mes_cheia[i] + excedente_mes_vazio[i];
 
         } else if ((cicloTarifario == 1 && (cicloHorarioLetter == 3 || cicloHorarioLetter == 4)) || cicloHorarioLetter == 3) {
@@ -1276,6 +1278,8 @@ function excedente() {
             excedente_mes_vazio[i] = producao_mes_vazio[i] - consumos_mes_vazio[i] < 0 ? 0 : producao_mes_vazio[i] - consumos_mes_vazio[i];
             totaisExcedentes[control++] += excedente_mes_vazio[i];
 
+            excedente_mes_total[i] = excedente_mes_ponta[i] + excedente_mes_cheia[i] + excedente_mes_vazio[i];
+
             totaisExcedentes[control++] += excedente_mes_ponta[i] + excedente_mes_cheia[i] + excedente_mes_vazio[i];
 
         } else if (cicloHorarioLetter == 2) {
@@ -1308,6 +1312,8 @@ function excedente() {
             excedente_mes_vazio[i] = producao_mes_vazio[i] - consumos_mes_vazio[i] < 0 ? 0 : producao_mes_vazio[i] - consumos_mes_vazio[i];
             totaisExcedentes[control++] += excedente_mes_vazio[i];
 
+            excedente_mes_total[i] = excedente_mes_foravazio[i] + excedente_mes_vazio[i];
+
             totaisExcedentes[control++] += excedente_mes_foravazio[i] + excedente_mes_vazio[i];
         } else if (cicloHorarioLetter == 1) {
             if (i >= 3 && i < 10) {
@@ -1319,6 +1325,7 @@ function excedente() {
             }
 
             excedente_mes_simples[i] = producao_upac[i] - consumosHorasSolTotais[i] < 0 ? 0 : producao_upac[i] - consumosHorasSolTotais[i];
+            
             totaisExcedentes[control++] += excedente_mes_simples[i];
         }
     }
@@ -1348,4 +1355,10 @@ function excedente() {
 
     upacExcedenteValue = totaisExcedentes[control - 1];
     upacExcedentePerc = totaisExcedentes[control];
+    
+    if (excedente_mes_total.length == 12) {
+        excedente_mes_total_graph = excedente_mes_total;
+    } else {
+        excedente_mes_total_graph = excedente_mes_simples;
+    }
 }

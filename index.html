@@ -18,6 +18,7 @@
         <script src="include/js/graph.js"></script>
         <script src="include/js/print.min.js"></script>
         <script src="include/js/jquery.validate.min.js"></script>
+        <script src="./node_modules/chart.js/dist/Chart.bundle.js"></script>
         <title>ECO.AP - Calculadora - Solar Fotovoltaico</title>
     </head>
     <body>
@@ -26,7 +27,7 @@
         </header>
         <main class="main container">
             <div class="row">
-                <div class="col-md-5 col-xs-12 col-sm-12 col-lg-8">
+                <div class="col-md-5 col-xs-12 col-sm-12 col-lg-6">
                     <div class="main-content">
                         <form id="fotovoltaico">
                         <div id="dados-group" style="display: block;" data-id="1" class="step">
@@ -309,11 +310,12 @@ Os resultados obtidos podem divergir relativamente a relatórios de auditorias e
                         </form>
                     </div>
 
-                    <!--.graph
-                    canvas#myChart(width="400" height="400")-->
-
                 </div>
-                <div class="col-md-7d-none d-md-block"></div>
+                <div class="col-md-7 col-lg-6">
+                    <div class="graph">
+                        <canvas id="fotoChart" style="width: 400px; height: 400px"></canvas>
+                    </div>
+                </div>
             </div>
         </main>
       

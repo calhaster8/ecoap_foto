@@ -203,6 +203,7 @@ $(document).ready(function () {
         if ($("#fotovoltaico").valid()) {
             uppResultados();
             upacResultados();
+            buildGraphFinal();
             nextStep();
         }
     });
