@@ -27,7 +27,7 @@
         </header>
         <main class="main container">
             <div class="row">
-                <div class="col-md-5 col-xs-12 col-sm-12 col-lg-6">
+                <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
                     <div class="main-content">
                         <form id="fotovoltaico">
                         <div id="dados-group" style="display: block;" data-id="1" class="step">
@@ -157,123 +157,141 @@
                         <!-- RESUMO-->
                         <div id="resumo" data-id="4" class="step">
                             <div class="dados-titulo fourth"><span>Resumo - Resultados</span></div>
-                            <div id="upp-table">
-                                <table class="table table-bordered">
-                                    <tbody>
-                                        <!--TITLES-->
-                                        <tr style="font-weight: bold;">
-                                            <th class="tituloTH">&nbsp;</th>
-                                            <th class="tituloTH">UPP</th>
-                                             <th class="tituloTH">UPAC</th>
-
-                                        </tr>
-                                        <!--SEGUNDA-->
-                                        <tr class="textTR">
-                                            <td class="in">Potência do solar fotovoltaico</td>
-                                            <td id="pot_central" class="in center">   </td>
-                                            <td id="pot_central_upac" class="in center">   </td>
-                                        </tr>
-                                        <tr class="textTR"> 
-                                            <td class="in">N.º de painéis fotovoltaicos</td>
-                                            <td id="nPaineis" class="in center"></td>
-                                            <td id="nPaineis_upac" class="in center"></td>
-                                        </tr>
-                                        <tr class="textTR">
-                                            <td class="in">Área ocupada pelo solar fotovoltaico</td>
-                                            <td id="area_ocupada" class="in center"></td>
-                                            <td id="area_ocupada_upac" class="in center"></td>
-                                        </tr>
-                                        <tr class="textTR">
-                                            <td class="in">Observações</td>
-                                            <td id="observations" class="in center"></td>
-                                            <td id="observations_upac" class="in center"></td>
-                                        </tr>
-                                        <tr class="textTR">
-                                            <td class="in">Consumo de energia do edifício</td>
-                                            <td id="consumo_instalacao" class="in center"></td>
-                                            <td id="consumo_instalacao_upac" class="in center"></td>
-                                        </tr>
-                                        <tr class="textTR">
-                                            <td class="in">Produção de energia solar</td>
-                                            <td id="prod_foto" class="in center"> </td>
-                                            <td id="prod_foto_upac" class="in center"> </td>
-                                        </tr>
-                                        <tr class="textTR">
-                                            <td class="in">Energia excedentária</td>
-                                            <td id="excede" class="in center"> </td>
-                                            <td id="excede_upac" class="in center"> </td>
-                                        </tr>
-                                        <tr class="textTR">
-                                            <td class="in">Energia excedentária (%) </td>
-                                            <td id="excedentePercent" class="in center"> </td>
-                                            <td id="excedentePercent_upac" class="in center"> </td>
-                                        </tr>
-                                        <tr class="textTR">
-                                            <td class="in">Autoconsumo</td>
-                                            <td id="auto_consumo" class="in center"> </td>
-                                            <td id="auto_consumo_upac" class="in center"> </td>
-                                        </tr>
-                                        <tr class="textTR">
-                                            <td class="in">Consumo de energia renovável</td>
-                                            <td id="consumo_energia_ren" class="in center"> </td>
-                                            <td id="consumo_energia_ren_upac" class="in center"> </td>
-                                        </tr>
-                                        <tr class="textTR">
-                                            <td class="in">Custos energéticos anuais</td>
-                                            <td id="custos_energia" class="in center"> </td>
-                                            <td id="custos_energia_upac" class="in center"> </td>
-                                        </tr>
-                                        <tr class="textTR">
-                                            <td class="in">Receita anual com fotovoltaico</td>
-                                            <td id="receita_foto" class="in center"></td>
-                                            <td id="receita_foto_upac" class="in center"></td>
-                                        </tr>
-                                        <tr class="textTR">
-                                            <td class="in">Redução anual da fatura energética</td>
-                                            <td id="reduc_custos" class="in center"></td>
-                                            <td id="reduc_custos_upac" class="in center"></td>
-                                        </tr>
-                                        <tr class="textTR">
-                                            <td class="in">Investimento estimado *</td>
-                                            <td id="investe" class="in center"></td>
-                                            <td id="investe_upac" class="in center"></td>
-                                        </tr>
-                                        <tr class="textTR">
-                                            <td class="in">Custos anuais com operação e manutenção</td>
-                                            <td id="custos_anuais" class="in center"></td>
-                                            <td id="custos_anuais_upac" class="in center"></td>
-                                        </tr>
-                                        <tr class="textTR">
-                                            <td class="in">Período de retorno</td>
-                                            <td id="paybck" class="in center"> </td>
-                                            <td id="paybck_upac" class="in center"> </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <p class="nota-resumo">* O investimento estimado incorpora os custos com os módulos solares, com inversor(es) e os respetivos custos de instalação.</p>
-							<p class="nota-resumo">NOTA 1: Estes valores são obtidos para módulos solares virados a Sul, com 35º de inclinação (condições ideais) e a potência da central corresponde à potência nominal, sendo equivalente a potência de ligação.</p>
-                            <p class="nota-resumo">NOTA 2: No âmbito do POSEUR apenas são elegíveis investimentos em UPAC e desde que façam parte de soluções integradas que visem a eficiência energética do edifício. Apenas a UPAC é susceptível de alteração da classe energética do edifício.</p>
-                            
-                            <div class="resumo-box">
-                                <div class="dados-child">                                       
-                                    <div class="dado new-ar">
-                                        <!--Potencia instalada-->
-                                        <label for="newArea">Inserir nova área para a Central Solar</label>
-                                        <input id="newArea" type="number" name="newArea"  min="1" step="0.1" placeholder="Insira a nova area" class="new-area-in"/>
+                            <div class="row">
+                                <div class="col-lg-7 col-md-7 col-sm-12">
+                                    <div id="upp-table">
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <!--TITLES-->
+                                                <tr style="font-weight: bold;">
+                                                    <th class="tituloTH">&nbsp;</th>
+                                                    <th class="tituloTH">UPP</th>
+                                                    <th class="tituloTH">UPAC</th>
+                                    
+                                                </tr>
+                                                <!--SEGUNDA-->
+                                                <tr class="textTR">
+                                                    <td class="in">Potência do solar fotovoltaico</td>
+                                                    <td id="pot_central" class="in center"> </td>
+                                                    <td id="pot_central_upac" class="in center"> </td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">N.º de painéis fotovoltaicos</td>
+                                                    <td id="nPaineis" class="in center"></td>
+                                                    <td id="nPaineis_upac" class="in center"></td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">Área ocupada pelo solar fotovoltaico</td>
+                                                    <td id="area_ocupada" class="in center"></td>
+                                                    <td id="area_ocupada_upac" class="in center"></td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">Observações</td>
+                                                    <td id="observations" class="in center"></td>
+                                                    <td id="observations_upac" class="in center"></td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">Consumo de energia do edifício</td>
+                                                    <td id="consumo_instalacao" class="in center"></td>
+                                                    <td id="consumo_instalacao_upac" class="in center"></td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">Produção de energia solar</td>
+                                                    <td id="prod_foto" class="in center"> </td>
+                                                    <td id="prod_foto_upac" class="in center"> </td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">Energia excedentária</td>
+                                                    <td id="excede" class="in center"> </td>
+                                                    <td id="excede_upac" class="in center"> </td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">Energia excedentária (%) </td>
+                                                    <td id="excedentePercent" class="in center"> </td>
+                                                    <td id="excedentePercent_upac" class="in center"> </td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">Autoconsumo</td>
+                                                    <td id="auto_consumo" class="in center"> </td>
+                                                    <td id="auto_consumo_upac" class="in center"> </td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">Consumo de energia renovável</td>
+                                                    <td id="consumo_energia_ren" class="in center"> </td>
+                                                    <td id="consumo_energia_ren_upac" class="in center"> </td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">Custos energéticos anuais</td>
+                                                    <td id="custos_energia" class="in center"> </td>
+                                                    <td id="custos_energia_upac" class="in center"> </td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">Receita anual com fotovoltaico</td>
+                                                    <td id="receita_foto" class="in center"></td>
+                                                    <td id="receita_foto_upac" class="in center"></td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">Redução anual da fatura energética</td>
+                                                    <td id="reduc_custos" class="in center"></td>
+                                                    <td id="reduc_custos_upac" class="in center"></td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">Investimento estimado *</td>
+                                                    <td id="investe" class="in center"></td>
+                                                    <td id="investe_upac" class="in center"></td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">Custos anuais com operação e manutenção</td>
+                                                    <td id="custos_anuais" class="in center"></td>
+                                                    <td id="custos_anuais_upac" class="in center"></td>
+                                                </tr>
+                                                <tr class="textTR">
+                                                    <td class="in">Período de retorno</td>
+                                                    <td id="paybck" class="in center"> </td>
+                                                    <td id="paybck_upac" class="in center"> </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <div class="dado new-pot">
-                                        <!--Potencia instalada-->
-                                        <label for="newPotencia">Inserir nova potência para a Central Solar UPP</label>
-                                        <input id="newPotencia" type="number" name="newPotencia"  min="1" step="0.1" max="250"  placeholder="Insira a nova potência" class="new-pot-in"/>
+                                    <p class="nota-resumo">* O investimento estimado incorpora os custos com os módulos solares, com inversor(es) e os
+                                        respetivos custos de instalação.</p>
+                                    <p class="nota-resumo">NOTA 1: Estes valores são obtidos para módulos solares virados a Sul, com 35º de inclinação
+                                        (condições ideais) e a potência da central corresponde à potência nominal, sendo equivalente a potência de ligação.
+                                    </p>
+                                    <p class="nota-resumo">NOTA 2: No âmbito do POSEUR apenas são elegíveis investimentos em UPAC e desde que façam parte de
+                                        soluções integradas que visem a eficiência energética do edifício. Apenas a UPAC é susceptível de alteração da
+                                        classe energética do edifício.</p>
+                                    
+                                    <div class="resumo-box">
+                                        <div class="dados-child">
+                                            <div class="dado new-ar">
+                                                <!--Potencia instalada-->
+                                                <label for="newArea">Inserir nova área para a Central Solar</label>
+                                                <input id="newArea" type="number" name="newArea" min="1" step="0.1" placeholder="Insira a nova area"
+                                                    class="new-area-in" />
+                                            </div>
+                                            <div class="dado new-pot">
+                                                <!--Potencia instalada-->
+                                                <label for="newPotencia">Inserir nova potência para a Central Solar UPP</label>
+                                                <input id="newPotencia" type="number" name="newPotencia" min="1" step="0.1" max="250"
+                                                    placeholder="Insira a nova potência" class="new-pot-in" />
+                                            </div>
+                                            <div class="dado new-pot">
+                                                <!--Potencia instalada-->
+                                                <label for="newPotenciaUpac">Inserir nova potência para a Central Solar UPAC</label>
+                                                <input id="newPotenciaUpac" type="number" name="newPotenciaUpac" min="1" step="0.1" max="1000"
+                                                    placeholder="Insira a nova potência" class="new-pot-in" />
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="dado new-pot">
-                                        <!--Potencia instalada-->
-                                        <label for="newPotenciaUpac">Inserir nova potência para a Central Solar UPAC</label>
-                                        <input id="newPotenciaUpac" type="number" name="newPotenciaUpac" min="1" step="0.1" max="1000" placeholder="Insira a nova potência" class="new-pot-in"/>
+                                </div>
+                                <div class="col-lg-5 col-md-5 col-sm-12">
+                                    <div class="graph">
+                                        <canvas id="fotoChart" style="width: 400px; height: 400px"></canvas>
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
                         <!-- BOTOES -->
                         <div class="but-2">
@@ -308,11 +326,6 @@ Não pretende substituir o trabalho aprofundado de especialistas na área e/ou d
 Os resultados obtidos podem divergir relativamente a relatórios de auditorias energéticas ou de processos de certificação energética.</span>
                         </div>
                         </form>
-                    </div>
-                </div>
-                <div class="col-md-7 col-lg-6">
-                    <div class="graph">
-                        <canvas id="fotoChart" style="width: 400px; height: 400px"></canvas>
                     </div>
                 </div>
             </div>

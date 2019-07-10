@@ -1,5 +1,16 @@
 function buildGraphFinal() {
     var ctx = $('#fotoChart');
+
+    if ((maxChart(consumos_balanco_prd) > maxChart(excedente_mes_total_graph)) && (maxChart(consumos_balanco_prd) > maxChart(producao_upp)) && (maxChart(consumos_balanco_prd) > maxChart(producao_upac))) {
+        var maxChartValue = maxChart(consumos_balanco_prd);
+    } else if ((maxChart(excedente_mes_total_graph) > maxChart(consumos_balanco_prd)) && (maxChart(excedente_mes_total_graph) > maxChart(producao_upp)) && (maxChart(excedente_mes_total_graph) > maxChart(producao_upac))) {
+        var maxChartValue = maxChart(excedente_mes_total_graph);
+    } else if ((maxChart(producao_upp) > maxChart(consumos_balanco_prd)) && (maxChart(producao_upp) > maxChart(excedente_mes_total_graph)) && (maxChart(producao_upp) > maxChart(producao_upac))) {
+        var maxChartValue = maxChart(producao_upp);
+    } else {
+        var maxChartValue = maxChart(producao_upac);
+    }
+    
     var mixedChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -44,7 +55,7 @@ function buildGraphFinal() {
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,
-                        //max: maxCustos + 40
+                        max: maxChartValue
                     }
                 }]
             }
@@ -52,3 +63,16 @@ function buildGraphFinal() {
     });
 }
 
+function maxChart(array) {
+    var max = 0;
+    if (array.length > 0) {
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] > max || max == 0) {
+                max = array[i];
+            }
+        }
+    }
+    max += (max * 0.10);
+
+    return max;
+}

@@ -92,7 +92,8 @@ body {
       margin: 20px 0;
       display: flex;
       flex-direction: column;
-      font-size: 1.2em; }
+      font-size: 1.2em;
+      width: 50%; }
       .main.container .main-content .dados-child .dado label {
         margin-bottom: 5px;
         color: #0099cc;
@@ -105,7 +106,7 @@ body {
         border-radius: 100px;
         background-color: #fff;
         font-family: 'Amelia-Basic-Light', sans-serif;
-        width: 90%; }
+        width: 100%; }
         @media screen and (max-width: 1025px) {
           .main.container .main-content .dados-child .dado input {
             width: 100%; } }
@@ -134,7 +135,7 @@ body {
         border: 1px solid #0099cc;
         border-radius: 100px;
         background-color: #fff;
-        width: 90%; }
+        width: 100%; }
         @media screen and (max-width: 1024px) {
           .main.container .main-content .dados-child .dado .sel {
             width: 100%; } }
@@ -217,7 +218,7 @@ body {
   .main.container .main-content #horarios-group #factura-consumo table,
   .main.container .main-content #horarios-group #otherCenario table {
     background-color: #f2f2f2;
-    width: 90%; }
+    width: 50%; }
     @media screen and (max-width: 1024px) {
       .main.container .main-content #tarifas-group #tarifarios table,
       .main.container .main-content #tarifas-group #factura-consumo table,
@@ -710,7 +711,7 @@ body {
   .main.container .main-content .end-step,
   .main.container .main-content .analise,
   .main.container .main-content .print_pdf {
-    width: 90%;
+    width: 50%;
     padding: 20px 0;
     display: flex;
     justify-content: space-between; }

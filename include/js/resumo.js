@@ -822,12 +822,14 @@ function upacPotenciaCalc() {
     ];
     var minimo = min(potencia_array);
     
-    if (potencia_new_contratada_upac != "" && potencia_new_contratada_upac != null && potencia_new_contratada_upac != undefined && potencia_new_contratada_upac > 0 && (potencia_max_area_upac == "" || potencia_max_area_upac == null || potencia_max_area_upac == undefined || potencia_max_area_upac == 0)) {
+    if (potencia_new_contratada_upac != "" && potencia_new_contratada_upac != null && potencia_new_contratada_upac != undefined && potencia_new_contratada_upac > 0 && (potencia_max_area_upac == "" || potencia_max_area_upac == null || potencia_max_area_upac == undefined || potencia_max_area_upac == 0) && potencia_new_contratada_upac > minimo && potencia_new_contratada_upac <= potencia_max_contratada_upac) {
+        potencia_upac = potencia_new_contratada_upac;
+    } else if (potencia_new_contratada_upac != "" && potencia_new_contratada_upac != null && potencia_new_contratada_upac != undefined && potencia_new_contratada_upac > 0 && (potencia_max_area_upac == "" || potencia_max_area_upac == null || potencia_max_area_upac == undefined || potencia_max_area_upac == 0)) {
         potencia_upac = potencia_new_contratada_upac > minimo ? minimo : potencia_new_contratada_upac;
     } else if ((potencia_new_contratada_upac == "" || potencia_new_contratada_upac == null || potencia_new_contratada_upac == undefined || potencia_new_contratada_upac == 0) && (potencia_max_area_upac != "" && potencia_max_area_upac != null && potencia_max_area_upac != undefined && potencia_max_area_upac > 0)) {
          potencia_upac = minimo;
-    } else if (potencia_new_contratada_upac != "" && potencia_new_contratada_upac != null && potencia_new_contratada_upac != undefined && potencia_new_contratada_upac > 0 && potencia_max_area_upac != "" && potencia_max_area_upac != null && potencia_max_area_upac != undefined && potencia_max_area_upac > 0 && potencia_new_contratada_upac < potencia_max_contratada_upac) {
-        potencia_upac = potencia_new_contratada_upac;
+    /*} else if (potencia_new_contratada_upac != "" && potencia_new_contratada_upac != null && potencia_new_contratada_upac != undefined && potencia_new_contratada_upac > 0 && potencia_max_area_upac != "" && potencia_max_area_upac != null && potencia_max_area_upac != undefined && potencia_max_area_upac > 0 && potencia_new_contratada_upac < potencia_max_contratada_upac) {
+        potencia_upac = potencia_new_contratada_upac;*/
     }else{
         potencia_upac = minimo;
     }
@@ -836,6 +838,8 @@ function upacPotenciaCalc() {
         upac_condicao = condicoesLimitePotencia[1];
     } else if (potencia_upac == potencia_array[2]) {
         upac_condicao = condicoesLimitePotencia[2];
+    } else if (potencia_upac > minimo && potencia_upac < potencia_array[1]) {
+        upac_condicao = condicoesLimitePotencia[4];
     } else if (potencia_upac == potencia_array[0]) {
         upac_condicao = condicoesLimitePotencia[0];
     }
@@ -1189,7 +1193,7 @@ function excedente() {
     autoconsumo_foravazio = 0;
     autoconsumo_simples = 0;
 
-    totaisExcedentes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var totaisExcedentes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var control = 0;
     for (i = 0; i < 12; i++) {
         control = 0;

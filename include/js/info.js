@@ -935,8 +935,9 @@ var consumoHorasSolGlobal = [
 var condicoesLimitePotencia = [
     "Potência da central limitada pela área disponível",
     "Potência da central limitada pela potência contratada",
-    "Potência da central limitada pelo consumo da instalação",
-    "Potência da central limitada a 250kW (regime jurídico aplicável às UPP)"
+    "Potência da central otimizada pelo consumo e perfil de carga da instalação",
+    "Potência da central limitada a 250kW (regime jurídico aplicável às UPP)",
+    "A Potência da central supera o valor otimizado do (auto)consumo de acordo com o perfil de carga da instalação"
 ];
 
 var modulosSolares = {

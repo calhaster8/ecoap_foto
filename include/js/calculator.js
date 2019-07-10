@@ -7,7 +7,6 @@ $(document).ready(function () {
     somaRow();
 
     $("#cenarios").change(buildHorariosFuncionamento);
-
     $("#distrito").change(getDistrictValues);
     $("#ntensao").change(getNTensionValues);
     $("#cicloHorario").change(buildTarifario);
@@ -128,7 +127,7 @@ $(document).ready(function () {
                 step: 0.1,
                 number: true,
                 max:  function () {
-                    return potencia_upac;
+                    return potencia_max_contratada_upac;
                 }
             }
         },
@@ -183,13 +182,13 @@ $(document).ready(function () {
             newPotencia:{
                 min: '<label style="font-size: 14px; color: red;">A potência da central tem que ser superior a 1 kW</label>',
                 step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 0.1</label>' ,
-                max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido: ver Observações</label>',
+                max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido</label>',
                 number: '<label style="font-size: 14px; color: red;">Introduza números com (.) em vez de (,)</label>'
             },
             newPotenciaUpac: {
                 min: '<label style="font-size: 14px; color: red;">A potência da central tem que ser superior a 1 kW</label>',
                 step: '<label style="font-size: 14px; color: red;">O passo de incremento é de 0.1</label>' ,
-                max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido: ver Observações</label>',
+                max: '<label style="font-size: 14px; color: red;">A potência da central não poderá ser superior ao valor máximo permitido</label>',
                 number: '<label style="font-size: 14px; color: red;">Introduza números com (.) em vez de (,)</label>'
             }            
         }
@@ -222,8 +221,7 @@ $(document).ready(function () {
 function buildDistricts() {
     for (var i = 0; i < distritosI.length; i++) {
         $("#distrito").append($('<option class="op"></option>').val(i).html(distritosI[i].nome));
-    }
-    //TODO uncomment in production
+    }    //TODO uncomment in production
     //resizeWindow();
 }
 

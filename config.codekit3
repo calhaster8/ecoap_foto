@@ -329,28 +329,6 @@
 		"sC": 3,
 		"tS": 0
 		},
-	"/include/js/Chart.bundle.min.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/include/js/Chart.bundle.min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"/include/js/Chart.min.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/include/js/Chart.min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
 	"/include/js/globals-min.js": {
 		"bF": 0,
 		"ft": 64,
@@ -391,6 +369,17 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "/include/js/graph-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"/include/js/info-min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/include/js/info-min-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
