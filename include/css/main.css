@@ -836,6 +836,10 @@ body {
   .main.container .main-content .step-but {
     display: none; }
 
+.message_red {
+  color: red !important;
+}
+
 /*footer
     height: 200px
     background-color: #fff

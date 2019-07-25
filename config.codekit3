@@ -37,19 +37,6 @@
 		"oF": 0,
 		"oS": 3
 		},
-	"/include/css/main.sass": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 2,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/include/css/main.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
 	"/include/css/print.min.css": {
 		"aP": 1,
 		"bl": 0,

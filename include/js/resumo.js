@@ -770,7 +770,11 @@ function upacResultados() {
     $('#pot_central_upac').html(upac_resultados_pc.toFixed(0) + ' kW');
     $('#nPaineis_upac').html(upac_resultados_n_paineis.toFixed(0));
     $('#area_ocupada_upac').html(upac_resultados_area_ocupada.toFixed(0) + " m2");
-    $('#observations_upac').html(upac_condicao);
+    if (upac_condicao == condicoesLimitePotencia[4]) {
+        $('#observations_upac').html(upac_condicao).addClass('message_red');
+    } else {
+        $('#observations_upac').html(upac_condicao).removeClass('message_red');
+    }
     $('#consumo_instalacao_upac').html(consumo_anual.toFixed(0) + ' kWh');
     $('#prod_foto_upac').html(upac_resultados_prod_volt.toFixed(0) + ' kWh');
     $('#excede_upac').html(upacExcedenteValue.toFixed(0) + ' kWh');
@@ -828,9 +832,7 @@ function upacPotenciaCalc() {
         potencia_upac = potencia_new_contratada_upac > minimo ? minimo : potencia_new_contratada_upac;
     } else if ((potencia_new_contratada_upac == "" || potencia_new_contratada_upac == null || potencia_new_contratada_upac == undefined || potencia_new_contratada_upac == 0) && (potencia_max_area_upac != "" && potencia_max_area_upac != null && potencia_max_area_upac != undefined && potencia_max_area_upac > 0)) {
          potencia_upac = minimo;
-    /*} else if (potencia_new_contratada_upac != "" && potencia_new_contratada_upac != null && potencia_new_contratada_upac != undefined && potencia_new_contratada_upac > 0 && potencia_max_area_upac != "" && potencia_max_area_upac != null && potencia_max_area_upac != undefined && potencia_max_area_upac > 0 && potencia_new_contratada_upac < potencia_max_contratada_upac) {
-        potencia_upac = potencia_new_contratada_upac;*/
-    }else{
+    } else {
         potencia_upac = minimo;
     }
 
@@ -842,6 +844,8 @@ function upacPotenciaCalc() {
         upac_condicao = condicoesLimitePotencia[4];
     } else if (potencia_upac == potencia_array[0]) {
         upac_condicao = condicoesLimitePotencia[0];
+    } else if (potencia_upac < minimo) {
+        upac_condicao = "";
     }
     return potencia_upac;
 }
